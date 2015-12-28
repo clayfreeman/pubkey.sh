@@ -2,6 +2,7 @@
     "require": {
         "j4mie/idiorm": "~1.5",
         "j4mie/paris": "~1.5",
-        "slim/slim": "~2.6"
+        "slim/slim": "~2.6",
+        "uikit/uikit": "^2.24"
     }
 }
