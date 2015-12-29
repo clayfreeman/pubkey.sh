@@ -1,0 +1,8 @@
+DROP   TABLE IF     EXISTS models_pubkey;
+CREATE TABLE IF NOT EXISTS models_pubkey (
+  id   INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  uid  INTEGER NOT NULL,
+  data BLOB,
+
+  FOREIGN KEY(uid) REFERENCES models_user(id)
+);
