@@ -3,7 +3,6 @@
         "j4mie/idiorm": "~1.5",
         "j4mie/paris": "~1.5",
         "paragonie/password_lock": "^1.1",
-        "slim/slim": "~3.0",
-        "uikit/uikit": "^2.24"
+        "slim/slim": "~3.0"
     }
 }
