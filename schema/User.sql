@@ -1,7 +1,7 @@
 DROP   TABLE IF     EXISTS models_user;
 CREATE TABLE IF NOT EXISTS models_user (
   id    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  email TEXT    NOT NULL,
+  email TEXT    NOT NULL UNIQUE,
   pass  TEXT    NOT NULL,
   pid   INTEGER,
 
