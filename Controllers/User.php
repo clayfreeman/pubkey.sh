@@ -38,10 +38,17 @@
      *
      * Processes the submission from a login form
      *
-     * @param request The Slim framework request interface
+     * @param request  The Slim framework request interface
+     * @param response The Slim framework response interface
      */
-    public static function login($request) {
-      echo html_dump($request->getParsedBody());
+    public static function login($request, $response) {
+      // Ensure logged in users are redirected to the home page
+      if (is_object(self::getCurrentUser()))
+        return $response->withRedirect('/');
+
+      // Fetch the parsed body from the Slim request interface
+      $post = $request->getParsedBody();
+      echo html_dump($post)."\n";
     }
 
     /**
@@ -60,9 +67,16 @@
      * Processes the submission from a registration form
      *
      * @param request The Slim framework request interface
+     * @param response The Slim framework response interface
      */
-    public static function register($request) {
-      echo html_dump($request->getParsedBody());
+    public static function register($request, $response) {
+      // Ensure logged in users are redirected to the home page
+      if (is_object(self::getCurrentUser()))
+        return $response->withRedirect('/');
+
+      // Fetch the parsed body from the Slim request interface
+      $post = $request->getParsedBody();
+      echo html_dump($post)."\n";
     }
 
     /**
