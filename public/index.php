@@ -32,9 +32,13 @@
   $app->get ('/',      '\\Views\\Index::show');
   // Define route to login form
   $app->get ('/login', '\\Views\\Login::show');
+  // Define route to register form
+  $app->get ('/register', '\\Views\\Register::show');
 
   // Define route to login processing
   $app->post('/login', '\\Controllers\\User::login');
+  // Define route to register processing
+  $app->post('/register', '\\Controllers\\User::register');
 
   // Run Slim app instance
   $app->run();
