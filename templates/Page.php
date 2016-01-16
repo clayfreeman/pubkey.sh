@@ -10,7 +10,7 @@
   <body class="uk-height-1-1">
 <?= $contents ?>
     <hr class="uk-grid-divider">
-    <div class="uk-margin-small-right uk-text-right uk-text-small">
+    <div class="uk-margin-right uk-text-right uk-text-small">
       <a href="#">Source Code</a>
     </div>
   </body>
