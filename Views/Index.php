@@ -14,7 +14,8 @@
       // Load and render the Index template
       ob_start();
       require(__PRIVATEROOT__.'/templates/Index.php');
-      $contents = ob_get_flush();
+      $contents = ob_get_contents();
+      ob_end_clean();
       // Render and show the Page template
       \Views\Page::show(self::$title, $contents);
     }
