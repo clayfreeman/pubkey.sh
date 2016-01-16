@@ -17,7 +17,6 @@
       // Load and flush the Page template
       ob_start();
       require(__PRIVATEROOT__.'/templates/Page.php');
-      echo ob_get_contents();
-      ob_end_clean();
+      ob_end_flush();
     }
   }
