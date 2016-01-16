@@ -10,7 +10,7 @@
   class Login {
     protected static $title = "Login";
 
-    public static function show() {
+    public static function show($error = null) {
       // Load and render the Login template
       ob_start();
       require(__PRIVATEROOT__.'/templates/Login.php');
