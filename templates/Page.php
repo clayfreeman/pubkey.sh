@@ -27,7 +27,7 @@
         <a href="#uk-small-navbar" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
       </div>
     </nav>
-    <div id="my-id" class="uk-offcanvas">
+    <div id="uk-small-navbar" class="uk-offcanvas">
       <ul class="uk-navbar-nav">
         <li><a href="/login">Login</a></li>
       </ul>
