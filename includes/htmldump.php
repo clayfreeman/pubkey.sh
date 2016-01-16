@@ -13,6 +13,6 @@
    * @param item The item to dump to the web browser
    */
   function html_dump($item) {
-    return "<div style='font-family: Courier;'>".nl2br(str_ireplace(' ',
-      '&nbsp;', var_export($item, true)))."</div>";
+    return "<div style='font-family: Courier;'><pre>".
+      var_export($item, true)."</pre></div>";
   }
