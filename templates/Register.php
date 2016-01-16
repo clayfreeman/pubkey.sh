@@ -11,7 +11,7 @@
       </div>
       <div class="uk-form-row">
         <div class="uk-form-password uk-width-1-1">
-          <input class="uk-form-large uk-width-1-1" name="password" placeholder="Password" type="password" />
+          <input class="uk-form-large uk-width-1-1" name="password" placeholder="Password" style="font-family: Courier;" type="password" />
           <a href class="uk-form-password-toggle" data-uk-form-password>Show</a>
         </div>
       </div>
