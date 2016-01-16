@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="uk-height-1-1 uk-notouch">
+<html class="uk-height-1-1">
   <head>
     <title><?= $title ?> | pubkey.sh</title>
     <!-- Define page contents and character set -->
@@ -19,7 +19,7 @@
         <div class="uk-visible-small uk-navbar-brand uk-navbar-center" href="/">
           <img height="40" width="210" src="/img/logo.svg" alt />
         </div>
-        <ul class="uk-align-right uk-hidden-small uk-margin-remove uk-navbar-nav">
+        <ul class="uk-align-right uk-hidden-small uk-navbar-nav">
           <li><a href="/login">Login</a></li>
         </ul>
       </div>
