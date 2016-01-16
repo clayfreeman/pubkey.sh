@@ -15,3 +15,7 @@
 
   // The root domain of the application
   define('__DOMAIN__', 'pubkey.sh');
+
+  // The AES encryption key used for storing password information
+  // NOTE: Generate a key with `includes/genkey.php`
+  define('__PASSKEY__', "16-byte password");
