@@ -13,7 +13,10 @@
   <body class="uk-height-1-1">
     <?php if ($shownav == true) { ?><nav class="uk-navbar uk-navbar-attached" style="padding-top: 15px; padding-bottom: 15px;">
       <div class="uk-container uk-container-center">
-        <a class="uk-navbar-brand" href="/">
+        <a class="uk-hidden-small uk-navbar-brand" href="/">
+          <img class="uk-height-1-1" src="/img/logo.svg" alt />
+        </a>
+        <a class="uk-align-center uk-visible-small uk-navbar-brand" href="/">
           <img class="uk-height-1-1" src="/img/logo.svg" alt />
         </a>
         <ul class="uk-align-right uk-hidden-small uk-margin-remove uk-navbar-nav">
