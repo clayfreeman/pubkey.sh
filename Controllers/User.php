@@ -78,7 +78,7 @@
       $post = $request->getParsedBody();
       // Encrypt the password provided in the form
       $post['cipher'] = \ParagonIE\PasswordLock\PasswordLock::hashAndEncrypt($post['password'], __PASSKEY__);
-      $post['verify'] = \ParagonIE\PasswordLock\PasswordLock::decryptAndVerify($post['password'], $pass, __PASSKEY__);
+      $post['verify'] = \ParagonIE\PasswordLock\PasswordLock::decryptAndVerify($post['password'], $post['cipher'], __PASSKEY__);
       echo html_dump($post)."\n";
     }
 
