@@ -39,7 +39,7 @@
      * Processes the submission from a login form
      */
     public static function login() {
-      html_dump($_POST);
+      html_dump('hello');
     }
 
     /**
@@ -58,7 +58,7 @@
      * Processes the submission from a registration form
      */
     public static function register() {
-      html_dump($_POST);
+      html_dump('hello');
     }
 
     /**
