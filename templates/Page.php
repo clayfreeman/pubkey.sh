@@ -23,6 +23,7 @@
         </div>
         <div class="uk-navbar-flip uk-hidden-small">
           <ul class="uk-navbar-nav">
+            <li class="uk-nav-header">Navigation</li>
             <li><a href="/">Home</a></li>
             <li><a href="/login">Login</a></li>
           </ul>
