@@ -4,7 +4,7 @@
     <form class="uk-panel uk-panel-box uk-form" method="POST">
       <?php if (strlen(trim($error)) > 0) { ?><div class="uk-alert uk-alert-danger" data-uk-alert>
         <a class="uk-alert-close uk-close" href></a>
-        <?= htmlspecialchars(trim($error), ENT_HTML401 | ENT_QUOTES) ?>
+        <p><?= htmlspecialchars(trim($error), ENT_HTML401 | ENT_QUOTES) ?></p>
       </div><?php } ?>
       <div class="uk-form-row">
         <input class="uk-width-1-1 uk-form-large" name="username" placeholder="Username" type="text" />
