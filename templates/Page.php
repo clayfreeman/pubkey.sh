@@ -11,7 +11,7 @@
     <script type="text/javascript" src="/uikit/js/uikit.min.js"></script>
   </head>
   <body class="uk-height-1-1">
-    <?php if ($shownav == true) { ?><nav class="uk-navbar uk-navbar-attached">
+    <?php if ($shownav == true) { ?><nav class="uk-navbar uk-navbar-attached" style="padding-top: 15px; padding-bottom: 15px;">
       <div class="uk-container uk-container-center">
         <a class="uk-navbar-brand" href="/">
           <img class="uk-height-1-1" style="padding-top: 7px; padding-bottom: 7px;" src="/img/logo.svg" alt />
