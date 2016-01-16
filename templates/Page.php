@@ -23,8 +23,8 @@
         </div>
         <div class="uk-navbar-flip uk-hidden-small">
           <ul class="uk-navbar-nav">
-            <?php $menu = <<<EOD ?><li><a href="/">Home</a></li>
-            <li><a href="/login">Login</a></li><?php EOD; ?>
+            <?php $menu = <<<EOT ?><li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li><?php EOT; ?>
             <?= $menu ?>
           </ul>
         </div>
