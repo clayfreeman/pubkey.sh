@@ -7,6 +7,9 @@
    */
 
   $key = array();
-  for ($i = 0; $i < 16; ++$i)
-    $key[] = '\\x'.strtoupper(dechex(rand(0, 255)));
+  for ($i = 0; $i < 16; ++$i) {
+    $hex   = strtoupper(dechex(rand(0, 255)));
+    $hex   = str_repeat('0', 2 - strlen($hex)).$hex;
+    $key[] = '\\x'.$hex;
+  }
   echo implode($key)."\n";
