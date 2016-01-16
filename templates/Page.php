@@ -14,7 +14,7 @@
     <?php if ($shownav == true) { ?><nav class="uk-navbar uk-navbar-attached">
       <div class="uk-container uk-container-center">
         <a class="uk-navbar-brand" href="/">
-          <img class="uk-height-1-1" style="padding: 7px;" src="/img/logo.svg" alt />
+          <img class="uk-height-1-1" style="padding-top: 7px; padding-bottom: 7px;" src="/img/logo.svg" alt />
         </a>
         <ul class="uk-align-right uk-hidden-small uk-margin-remove uk-navbar-nav">
           <li><a href="/login">Login</a></li>
