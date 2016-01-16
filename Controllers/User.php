@@ -76,6 +76,9 @@
 
       // Fetch the parsed body from the Slim request interface
       $post = $request->getParsedBody();
+      // Encrypt the password provided in the form
+      $post['password'] = PasswordLock::hashAndEncrypt($post['password'],
+        __PASSKEY__);
       echo html_dump($post)."\n";
     }
 
