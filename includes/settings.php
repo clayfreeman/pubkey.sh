@@ -7,5 +7,5 @@
    */
 
   // Configure the database
-  ORM::configure('sqlite:'.__PRIVATEROOT__.'/data/'.
+  \ORM::configure('sqlite:'.__PRIVATEROOT__.'/data/'.
     basename(__PRIVATEROOT__).'.db');
