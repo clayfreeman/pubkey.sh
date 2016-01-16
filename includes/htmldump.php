@@ -14,6 +14,5 @@
    */
   function html_dump($item) {
     return "<div style='font-family: Courier;'>".nl2br(str_ireplace(' ',
-      '&nbsp;', var_export(json_encode($item, JSON_PRETTY_PRINT),
-      true)))."</div>";
+      '&nbsp;', var_export($item, true)))."</div>";
   }
