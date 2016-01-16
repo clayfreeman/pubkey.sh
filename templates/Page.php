@@ -19,13 +19,19 @@
         <a class="uk-navbar-brand uk-navbar-center uk-visible-small">
           <img src="/img/logo.svg" width="135" height="45" title="pubkey.sh" alt="pubkey.sh" />
         </a>
-        <div class="uk-navbar-flip">
+        <div class="uk-navbar-flip uk-hidden-small">
           <ul class="uk-navbar-nav">
             <li><a href="/login">Login</a></li>
           </ul>
         </div>
+        <a href="#uk-small-navbar" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
       </div>
-    </nav><?php } ?>
+    </nav>
+    <div id="my-id" class="uk-offcanvas">
+      <ul class="uk-navbar-nav">
+        <li><a href="/login">Login</a></li>
+      </ul>
+    </div><?php } ?>
 <?= $contents ?>
   </body>
 </html>
