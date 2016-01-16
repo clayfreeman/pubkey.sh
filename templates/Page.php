@@ -16,8 +16,13 @@
         <a class="uk-navbar-brand uk-hidden-small" href="/">
           <img class="uk-margin uk-margin-remove" src="/img/logo.svg" width="210" height="45" title="pubkey.sh" alt="pubkey.sh" />
         </a>
-        <div class="uk-navbar-brand uk-navbar-center uk-visible-small">
+        <a class="uk-navbar-brand uk-navbar-center uk-visible-small">
           <img src="/img/logo.svg" width="135" height="45" title="pubkey.sh" alt="pubkey.sh" />
+        </a>
+        <div class="uk-navbar-flip">
+          <ul class="uk-navbar-nav">
+            <li><a href="/login">Login</a></li>
+          </ul>
         </div>
       </div>
     </nav><?php } ?>
