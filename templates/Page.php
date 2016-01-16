@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/uikit/css/uikit.almost-flat.min.css" />
     <script type="text/javascript" src="/uikit/js/uikit.min.js"></script>
   </head>
-  <body>
+  <body class="uk-height-1-1">
 <?= $contents ?>
   </body>
 </html>
