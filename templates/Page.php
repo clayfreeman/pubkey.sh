@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="uk-height-1-1 uk-notouch">
   <head>
     <title><?= $title ?> | pubkey.sh</title>
     <!-- Define page contents and character set -->
