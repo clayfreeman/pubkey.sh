@@ -10,8 +10,8 @@
   class Page {
     protected static $menu = array(
       '/'         => 'Home',
-      '/register' => '/register',
-      '/login'    => '/login'
+      '/register' => 'Register',
+      '/login'    => 'Login'
     );
 
     protected static function generateMenu() {
