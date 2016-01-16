@@ -2,8 +2,8 @@
   <div class="uk-vertical-align-middle" style="width: 300px;">
     <a href="/"><img class="uk-margin-bottom" src="/img/logo.svg" alt /></a>
     <form class="uk-panel uk-panel-box uk-form" method="POST">
-      <?php if (strlen(trim($error)) == 0) $error = "This form will display your password on submission."; ?>
-      <?php if (strlen(trim($error)) > 0) { ?><div class="uk-alert uk-alert-danger" data-uk-alert>
+      <?php if (is_str($error) && strlen(trim($error)) == 0) $error = "This form will display your password on submission."; ?>
+      <?php if (is_str($error) && strlen(trim($error)) > 0) { ?><div class="uk-alert uk-alert-danger" data-uk-alert>
         <a class="uk-alert-close uk-close" href></a>
         <p><?= htmlspecialchars(trim($error), ENT_HTML401 | ENT_QUOTES) ?></p>
       </div><?php } ?>
