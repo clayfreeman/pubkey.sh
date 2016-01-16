@@ -11,6 +11,13 @@
     <script type="text/javascript" src="/uikit/js/uikit.min.js"></script>
   </head>
   <body class="uk-height-1-1">
+    <div class="uk-navbar uk-navbar-attached">
+      <div class="uk-container uk-container-center">
+        <a class="uk-navbar-brand" href="/">
+          <object type="image/svg+xml" data="/img/logo.svg"></object>
+        </div>
+      </div>
+    </div>
 <?= $contents ?>
     <div class="uk-container uk-container-center">
       <div class="uk-block uk-margin-right uk-text-right uk-text-small">
