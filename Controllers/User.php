@@ -37,9 +37,11 @@
      * @brief Login
      *
      * Processes the submission from a login form
+     *
+     * @param request The Slim framework request interface
      */
-    public static function login() {
-      html_dump('hello');
+    public static function login($request) {
+      echo html_dump($request->getParsedBody());
     }
 
     /**
@@ -56,9 +58,11 @@
      * @brief Register
      *
      * Processes the submission from a registration form
+     *
+     * @param request The Slim framework request interface
      */
-    public static function register() {
-      html_dump('hello');
+    public static function register($request) {
+      echo html_dump($request->getParsedBody());
     }
 
     /**
