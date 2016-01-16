@@ -17,8 +17,8 @@
     protected static function generateMenu() {
       $menu = null;
       foreach (self::$menu as $location => $name)
-        $menu .= '<li><a href="'.urlencode($location).'">'.
-          htmlspecialchars(trim($name), ENT_HTML401 | ENT_QUOTES)."</a></li>\n";
+        $menu .= '<li><a href="'.$location.'">'.htmlspecialchars(trim($name),
+          ENT_HTML401 | ENT_QUOTES)."</a></li>\n";
       return $menu;
     }
 
