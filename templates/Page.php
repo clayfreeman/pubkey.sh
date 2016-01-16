@@ -2,8 +2,9 @@
 <html class="uk-height-1-1">
   <head>
     <title><?= $title ?> | pubkey.sh</title>
-    <!-- Define page contents and character set -->
+    <!-- Define page contents, character set, and viewport -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Load jQuery -->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <!-- Load UIKit requirements -->
