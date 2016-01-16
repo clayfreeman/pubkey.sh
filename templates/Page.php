@@ -23,8 +23,8 @@
         </div>
         <div class="uk-navbar-flip uk-hidden-small">
           <ul class="uk-navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/login">Login</a></li>
+            <?php $menu = <<<EOD ?><li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li><?php EOD ?>
           </ul>
         </div>
       </div>
@@ -33,8 +33,7 @@
       <div class="uk-offcanvas-bar">
         <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon">
           <li class="uk-nav-header">Navigation</li>
-          <li><a href="/">Home</a></li>
-          <li><a href="/login">Login</a></li>
+          <?= $menu ?>
         </ul>
       </div>
     </div><?php } ?>
