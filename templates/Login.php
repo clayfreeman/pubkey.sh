@@ -2,8 +2,8 @@
   <div class="uk-vertical-align-middle" style="width: 300px;">
     <a href="/"><img class="uk-margin-bottom" src="/img/logo.svg" alt /></a>
     <form class="uk-panel uk-panel-box uk-form" method="POST">
-      <?php if (isset($error)) { ?><div class="uk-alert uk-alert-danger">
-        <?= htmlspecialchars($error, ENT_HTML401 | ENT_QUOTES) ?>
+      <?php if (strlen(trim($error)) > 0) { ?><div class="uk-alert uk-alert-danger">
+        <?= htmlspecialchars(trim($error), ENT_HTML401 | ENT_QUOTES) ?>
       </div><?php } ?>
       <div class="uk-form-row">
         <input class="uk-width-1-1 uk-form-large" name="username" placeholder="Username" type="text" />
