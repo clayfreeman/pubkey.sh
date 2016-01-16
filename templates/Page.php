@@ -14,7 +14,7 @@
     <nav class="uk-navbar uk-navbar-attached">
       <div class="uk-container uk-container-center">
         <a class="uk-navbar-brand uk-hidden-small" href="/">
-          <object type="image/svg+xml" data="/img/logo.svg"></object>
+          <img src="/img/logo.svg" alt></object>
         </a>
         <ul class="uk-navbar-nav uk-hidden-small">
           <li><a href="/login">Login</a></li>
