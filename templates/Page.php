@@ -13,11 +13,11 @@
   <body class="uk-height-1-1">
     <?php if ($shownav == true) { ?><nav class="uk-navbar uk-navbar-attached" style="position: relative; padding-top: 15px; padding-bottom: 15px;">
       <div class="uk-container uk-container-center">
+        <a href="#uk-small-navbar" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
         <a class="uk-navbar-brand uk-hidden-small" href="/">
           <img class="uk-margin uk-margin-remove" src="/img/logo.svg" width="210" height="45" title="pubkey.sh" alt="pubkey.sh" />
         </a>
         <div class="uk-navbar-brand uk-navbar-center uk-visible-small">
-          <a href="#uk-small-navbar" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
           <a href="/"><img src="/img/logo.svg" width="135" height="45" title="pubkey.sh" alt="pubkey.sh" /></a>
         </div>
         <div class="uk-navbar-flip uk-hidden-small">
