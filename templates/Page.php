@@ -24,7 +24,8 @@
         <div class="uk-navbar-flip uk-hidden-small">
           <ul class="uk-navbar-nav">
             <?php $menu = <<<EOD ?><li><a href="/">Home</a></li>
-            <li><a href="/login">Login</a></li><?php EOD ?>
+            <li><a href="/login">Login</a></li><?php EOD; ?>
+            <?= $menu ?>
           </ul>
         </div>
       </div>
