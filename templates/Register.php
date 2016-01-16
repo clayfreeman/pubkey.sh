@@ -10,9 +10,9 @@
         <input class="uk-width-1-1 uk-form-large" name="username" placeholder="Username" type="text" />
       </div>
       <div class="uk-form-row">
-        <div class="uk-form-password">
-          <input class="uk-width-1-1 uk-form-large" name="password" placeholder="Password" type="password" />
-          <a href class="uk-form-password-toggle" data-uk-form-password></a>
+        <div class="uk-width-1-1 uk-form-large uk-form-password">
+          <input name="password" placeholder="Password" type="password" />
+          <a href class="uk-form-password-toggle" data-uk-form-password>Show</a>
         </div>
       </div>
       <div class="uk-form-row">
