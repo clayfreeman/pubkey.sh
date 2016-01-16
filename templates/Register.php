@@ -7,11 +7,11 @@
         <p><?= htmlspecialchars(trim($error), ENT_HTML401 | ENT_QUOTES) ?></p>
       </div><?php } ?>
       <div class="uk-form-row">
-        <input class="uk-width-1-1 uk-form-large" name="username" placeholder="Username" type="text" />
+        <input class="uk-form-large uk-width-1-1" name="username" placeholder="Username" type="text" />
       </div>
       <div class="uk-form-row">
-        <div class="uk-form-password">
-          <input class="uk-width-1-1 uk-form-large" name="password" placeholder="Password" type="password" />
+        <div class="uk-form-password uk-width-1-1">
+          <input class="uk-form-large uk-width-1-1" name="password" placeholder="Password" type="password" />
           <a href class="uk-form-password-toggle" data-uk-form-password>Show</a>
         </div>
       </div>
