@@ -23,7 +23,6 @@
         </div>
         <div class="uk-navbar-flip uk-hidden-small">
           <ul class="uk-navbar-nav">
-            <li class="uk-nav-header">Navigation</li>
             <li><a href="/">Home</a></li>
             <li><a href="/login">Login</a></li>
           </ul>
@@ -32,8 +31,8 @@
     </nav>
     <div id="uk-small-navbar" class="uk-offcanvas">
       <div class="uk-offcanvas-bar">
-        <li class="uk-nav-header">Navigation</li>
         <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon">
+          <li class="uk-nav-header">Navigation</li>
           <li><a href="/">Home</a></li>
           <li><a href="/login">Login</a></li>
         </ul>
