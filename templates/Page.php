@@ -13,7 +13,7 @@
   <body class="uk-height-1-1">
     <nav class="uk-navbar uk-navbar-attached">
       <div class="uk-container uk-container-center">
-        <a class="uk-navbar-brand" href="/">
+        <a class="uk-navbar-brand uk-hidden-small" href="/">
           <object type="image/svg+xml" data="/img/logo.svg"></object>
         </a>
         <ul class="uk-navbar-nav uk-hidden-small">
