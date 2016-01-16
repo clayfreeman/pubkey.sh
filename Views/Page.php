@@ -8,7 +8,8 @@
   namespace Views;
 
   class Page {
-    public static function show($title, $contents, $indent = 2) {
+    public static function show($title, $contents, $shownav = true,
+        $indent = 2) {
       // Adjust the indent level of the contents
       $indentText = str_repeat('  ', $indent);
       $contents   = $indentText.implode("\n".$indentText, explode("\n",

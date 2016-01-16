@@ -16,6 +16,6 @@
       require(__PRIVATEROOT__.'/templates/Login.php');
       $contents = ob_get_clean();
       // Render and show the Page template
-      \Views\Page::show(self::$title, $contents);
+      \Views\Page::show(self::$title, $contents, false);
     }
   }

@@ -11,21 +11,16 @@
     <script type="text/javascript" src="/uikit/js/uikit.min.js"></script>
   </head>
   <body class="uk-height-1-1">
-    <nav class="uk-navbar uk-navbar-attached">
+    <?php if ($shownav == true) { ?><nav class="uk-navbar uk-navbar-attached">
       <div class="uk-container uk-container-center">
-        <a class="uk-navbar-brand uk-hidden-small" href="/">
+        <a class="uk-navbar-brand" href="/">
           <img class="uk-height-1-1" style="padding: 7px;" src="/img/logo.svg" alt />
         </a>
-        <ul class="uk-navbar-nav uk-hidden-small">
+        <ul class="uk-align-right uk-hidden-small uk-margin-remove uk-navbar-nav">
           <li><a href="/login">Login</a></li>
         </ul>
       </div>
-    </nav>
+    </nav><?php } ?>
 <?= $contents ?>
-    <div class="uk-container uk-container-center">
-      <div class="uk-block uk-margin-right uk-text-right uk-text-small">
-        <a href="#">Source Code</a>
-      </div>
-    </div>
   </body>
 </html>
