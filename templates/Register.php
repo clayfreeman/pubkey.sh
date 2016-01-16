@@ -10,15 +10,12 @@
         <input class="uk-width-1-1 uk-form-large" name="username" placeholder="Username" type="text" />
       </div>
       <div class="uk-form-row uk-form-password">
-        <div class="uk-form-password">
-          <input class="uk-width-1-1 uk-form-large" name="password" placeholder="Password" type="password" />
-          <a href class="uk-form-password-toggle" data-uk-form-password></a>
-        </div>
+        <input class="uk-width-1-1 uk-form-large" name="password" placeholder="Password" type="password" />
+        <a href class="uk-form-password-toggle" data-uk-form-password>Show</a>
       </div>
       <div class="uk-form-row">
         <button class="uk-width-1-1 uk-button uk-button-primary uk-button-large">Register</button>
       </div>
-      <div class="uk-form-row uk-text-small">Lost Password?</div>
     </form>
   </div>
 </div>
