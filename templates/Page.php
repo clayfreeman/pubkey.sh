@@ -28,9 +28,11 @@
       </div>
     </nav>
     <div id="uk-small-navbar" class="uk-offcanvas">
-      <ul class="uk-navbar-nav">
-        <li><a href="/login">Login</a></li>
-      </ul>
+      <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon">
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </div>
     </div><?php } ?>
 <?= $contents ?>
   </body>
