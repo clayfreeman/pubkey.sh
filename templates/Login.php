@@ -2,7 +2,8 @@
   <div class="uk-vertical-align-middle" style="width: 300px;">
     <a href="/"><img class="uk-margin-bottom" src="/img/logo.svg" alt /></a>
     <form class="uk-panel uk-panel-box uk-form" method="POST">
-      <?php if (strlen(trim($error)) > 0) { ?><div class="uk-alert uk-alert-danger uk-close">
+      <?php if (strlen(trim($error)) > 0) { ?><div class="uk-alert uk-alert-danger">
+        <a class="uk-alert-close uk-close" href></a>
         <?= htmlspecialchars(trim($error), ENT_HTML401 | ENT_QUOTES) ?>
       </div><?php } ?>
       <div class="uk-form-row">
