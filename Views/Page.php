@@ -12,7 +12,7 @@
       // Adjust the indent level of the contents
       $indentText = str_repeat('  ', $indent);
       $contents   = $indentText.implode("\n".$indentText, explode("\n",
-        rtrim($contents)))."\n";
+        trim($contents)))."\n";
       // Load and flush the Page template
       ob_start();
       require(__PRIVATEROOT__.'/templates/Page.php');
