@@ -42,7 +42,7 @@
      */
     public static function login($request) {
       // Dump the parsed body from the Slim request
-      html_dump($request->getBody());
+      html_dump($request->getMethod());
     }
 
     /**
@@ -64,7 +64,7 @@
      */
     public static function register($request) {
       // Dump the parsed body from the Slim request
-      html_dump($request->getBody());
+      html_dump($request->getMethod());
     }
 
     /**
