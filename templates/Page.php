@@ -11,13 +11,13 @@
     <script type="text/javascript" src="/uikit/js/uikit.min.js"></script>
   </head>
   <body class="uk-height-1-1">
-    <?php if ($shownav == true) { ?><nav class="uk-navbar uk-navbar-attached" style="padding-top: 15px; padding-bottom: 15px;">
+    <?php if ($shownav == true) { ?><nav class="uk-navbar uk-navbar-attached" style="position: relative; padding-top: 15px; padding-bottom: 15px;">
       <div class="uk-container uk-container-center">
         <a class="uk-navbar-brand uk-hidden-small" href="/">
-          <img class="uk-margin uk-margin-remove" src="/img/logo.svg" width="210" height="40" title="pubkey.sh" alt="pubkey.sh">
+          <img class="uk-margin uk-margin-remove" src="/img/logo.svg" width="210" height="40" title="pubkey.sh" alt="pubkey.sh" />
         </a>
         <div class="uk-navbar-brand uk-navbar-center uk-visible-small">
-          <img src="/img/logo.svg" width="158" height="30" title="pubkey.sh" alt="pubkey.sh">
+          <img src="/img/logo.svg" width="210" height="40" title="pubkey.sh" alt="pubkey.sh" />
         </div>
       </div>
     </nav><?php } ?>
