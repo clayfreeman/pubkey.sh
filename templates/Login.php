@@ -3,7 +3,7 @@
     <a href="/">
       <object type="image/svg+xml" data="/img/logo.svg" />
     </a>
-    <form class="uk-panel uk-panel-box uk-form" method="POST">
+    <form class="uk-panel uk-panel-box uk-form">
       <div class="uk-form-row">
         <input class="uk-width-1-1 uk-form-large" name="username" placeholder="Username" type="text" />
       </div>
