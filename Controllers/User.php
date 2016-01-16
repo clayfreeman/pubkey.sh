@@ -72,7 +72,7 @@
     public static function register($request, $response) {
       // Ensure logged in users are redirected to the home page
       if (is_object(self::getCurrentUser()))
-        return $response->withRedirect('/');
+        return \Views\Login::show("You're already logged in.");
 
       // Fetch the parsed body from the Slim request interface
       $post = $request->getParsedBody();
