@@ -13,15 +13,12 @@
   <body class="uk-height-1-1">
     <?php if ($shownav == true) { ?><nav class="uk-navbar uk-navbar-attached" style="padding-top: 15px; padding-bottom: 15px;">
       <div class="uk-container uk-container-center">
-        <div class="uk-hidden-small uk-navbar-brand" href="/">
-          <img height="40" width="210" src="/img/logo.svg" alt />
+        <a class="uk-navbar-brand uk-hidden-small" href="/">
+          <img class="uk-margin uk-margin-remove" src="/img/logo.svg" width="210" height="40" title="pubkey.sh" alt="pubkey.sh">
+        </a>
+        <div class="uk-navbar-brand uk-navbar-center uk-visible-small">
+          <img src="/img/logo.svg" width="210" height="40" title="pubkey.sh" alt="pubkey.sh">
         </div>
-        <div class="uk-visible-small uk-navbar-brand uk-navbar-center" href="/">
-          <img height="40" width="210" src="/img/logo.svg" alt />
-        </div>
-        <ul class="uk-align-right uk-hidden-small uk-margin-remove uk-navbar-nav">
-          <li><a href="/login">Login</a></li>
-        </ul>
       </div>
     </nav><?php } ?>
 <?= $contents ?>
