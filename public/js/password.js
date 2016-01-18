@@ -10,11 +10,11 @@ $('input:password').on('input', function() {
   // Fetch the information from zxcvbn regarding the password
   var info = zxcvbn($(this).val(), values);
   // If the score is sufficient, enable submission of the form
-  $('#password-status').text(info.score < 4 ? info.score : 3);
+  $('#password-score').text(info.score < 4 ? info.score : 3);
   if (info.score > 2) {
     // Change the state of the password field to show success
-    $('#password-status').closest('.uk-alert').removeClass('uk-alert-danger');
-    $('#password-status').closest('.uk-alert').addClass('uk-alert-success');
+    $('#password-score').closest('.uk-alert').removeClass('uk-alert-danger');
+    $('#password-score').closest('.uk-alert').addClass('uk-alert-success');
     $(this).removeClass('uk-form-danger');
     $(this).addClass('uk-form-success');
     // Enable form submission
@@ -22,8 +22,8 @@ $('input:password').on('input', function() {
   }
   else {
     // Change the state of the password field to show failure
-    $('#password-status').closest('.uk-alert').removeClass('uk-alert-success');
-    $('#password-status').closest('.uk-alert').addClass('uk-alert-danger');
+    $('#password-score').closest('.uk-alert').removeClass('uk-alert-success');
+    $('#password-score').closest('.uk-alert').addClass('uk-alert-danger');
     $(this).removeClass('uk-form-success');
     $(this).addClass('uk-form-danger');
     // Disable form submission
