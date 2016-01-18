@@ -6,7 +6,7 @@
         <a class="uk-alert-close uk-close" href></a>
         <p><?= htmlspecialchars(trim($error), ENT_HTML401 | ENT_QUOTES) ?></p>
       </div>
-<?php } else { ?>      <div class="uk-alert password-alert">The form can be submitted when your password strength is sufficient.</div>
+<?php } else { ?>      <div class="uk-alert password-alert">Submission will be enabled when your password strength is sufficient.</div>
 <?php } ?>      <div class="uk-form-row">
         <input autocomplete="off" class="uk-form-large uk-width-1-1" name="username" placeholder="Username" style="font-family: Courier;" type="text" />
       </div>
