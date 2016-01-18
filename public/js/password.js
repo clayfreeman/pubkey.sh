@@ -28,7 +28,7 @@ $('input:password').on('input', function() {
     $(this).addClass('uk-form-success');
     icon.addClass('uk-icon-check');
     // Enable form submission if appropriate
-    if (form.find('input:unverified').length == 0)
+    if (form.find('input[unverified]').length == 0)
       form.find('button').prop('disabled', false);
   }
   else {
