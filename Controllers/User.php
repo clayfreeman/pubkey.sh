@@ -20,7 +20,7 @@
       // Assume a false state
       $user   = false;
       // Attempt to extract the 'user' field containing a user ID
-      $userid = intval(getSession('user', $default = false));
+      $userid = intval(getSession('user', 0));
 
       // If the value of 'user' satisfies the range {1..inf}, attempt to verify
       // the peer with its initial IP and U/A state

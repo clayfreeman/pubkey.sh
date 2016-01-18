@@ -17,7 +17,8 @@
         </div>
       </div>
       <div class="uk-form-row">
-        <button class="uk-width-1-1 uk-button uk-button-primary uk-button-large">Register</button>
+        <!-- Disable button by default until password strength is verified -->
+        <button class="uk-width-1-1 uk-button uk-button-primary uk-button-large" disabled>Register</button>
       </div>
     </form>
   </div>
