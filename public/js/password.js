@@ -2,7 +2,7 @@ $('input:password').change(function() {
   // Generate a list of words for zxcvbn to use as user-generated data to
   // increase security
   var values = ['pubkey', 'pub', 'key', 'public', 'key'];
-  $(this).closest('form').find('input').each(function() {
+  $(this).closest('form').find('input:text').each(function() {
     $.each($(this).val().split(" "), function(i, item) {
       values.push(item);
     });
