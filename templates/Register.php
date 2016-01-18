@@ -1,8 +1,8 @@
 <div class="uk-vertical-align uk-text-center uk-height-1-1">
   <div class="uk-vertical-align-middle" style="width: 300px;">
     <a href="/"><img class="uk-margin-bottom" src="/img/logo.svg" alt /></a>
-    <form class="uk-panel uk-panel-box uk-form" method="POST">
-<?= indent($error, 3) ?>      <div class="uk-form-row">
+<?= indent($error, 2) ?>    <form class="uk-panel uk-panel-box uk-form" method="POST">
+<?= indent($message, 3) ?>      <div class="uk-form-row">
         <input autocomplete="off" class="uk-form-large uk-width-1-1" name="username" placeholder="Username" style="font-family: Courier;" type="text" />
       </div>
       <div class="uk-form-row">

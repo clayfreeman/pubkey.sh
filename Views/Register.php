@@ -10,10 +10,10 @@
   class Register {
     public static function show($_ = null) {
       // Prepare the error for display (if one was provided)
-      $error = is_string($_) ?
-        \Views\Message::render($_, 'danger') :
-        \Views\Message::render('Submission will be enabled when your password '.
-          'strength is sufficient.<br /><br />'.
+      $error    = is_string($_) ? \Views\Message::render($_, 'danger') : null;
+      $message .= \Views\Message::render(
+          'Submission will be enabled when your password strength is '.
+          'sufficient.<br /><br />'.
           '<code id="password-status">0</code> / <code>3</code><br />'.
           '<span class="uk-text-small">Password Strength</span>',
           null, false, false);
