@@ -19,7 +19,7 @@
         $output .= indent($closable ? '<a class="uk-alert-close uk-close" '.
           'href></a>' : null, 1);
         // Encode the message in a paragraph
-        $output .= indent('<p>'.htmlspecialchars(trim($output), ENT_HTML401 |
+        $output .= indent('<p>'.htmlspecialchars(trim($message), ENT_HTML401 |
           ENT_QUOTES).'</p>', 1);
         $output .= indent("</div>");
       }
