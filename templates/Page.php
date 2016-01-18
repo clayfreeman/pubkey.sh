@@ -14,9 +14,8 @@
     <script type="text/javascript" src="/uikit/js/components/form-password.min.js"></script>
     <!-- Load UIKit CSS patches -->
     <link rel="stylesheet" href="/css/uikit.patches.css" />
-    <!-- Load password strength verification library and implementation -->
+    <!-- Load password strength verification library -->
     <script type="text/javascript" src="/js/zxcvbn.js"></script>
-    <script type="text/javascript" src="/js/password.js"></script>
   </head>
   <body class="uk-height-1-1">
 <?= $contents ?>

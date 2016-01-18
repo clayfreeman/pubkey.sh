@@ -23,3 +23,5 @@
     </form>
   </div>
 </div>
+<!-- Ensure that this form's password is verified before submission -->
+<script type="text/javascript" src="/js/password.js"></script>
