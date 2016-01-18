@@ -14,7 +14,7 @@
         \Views\Message::render($_, 'danger') :
         \Views\Message::render('Submission will be enabled when your password '.
           'strength is sufficient.<br /><br />'.
-          '<code id="password-status">0</code>/<code>4</code><br />'.
+          '<code id="password-status">0</code> / <code>4</code><br />'.
           '<span class="uk-text-small">Strength</span>',
           null, false, false);
       // Load and render the Register template
