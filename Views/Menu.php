@@ -20,16 +20,16 @@
         'anon'    => false,
         'user'    => true
       ),
-      '/register' => array(
-        'name'    => 'Register',
-        'anon'    => true,
-        'user'    => false
-      ),
       '/login'    => array(
         'name'    => 'Login',
         'anon'    => true,
         'user'    => false
       ),
+      '/register' => array(
+        'name'    => 'Register',
+        'anon'    => true,
+        'user'    => false
+      )
     );
 
     protected static function indent($contents, $level) {
