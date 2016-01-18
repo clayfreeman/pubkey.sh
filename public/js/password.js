@@ -21,8 +21,8 @@ $('input:password').change(function() {
   }
   else {
     // Change the state of the password field to show failure
-    $(this).removeClass('uk-form-danger');
-    $(this).addClass('uk-form-success');
+    $(this).removeClass('uk-form-success');
+    $(this).addClass('uk-form-danger');
     // Disable form submission
     $(this).closest('form').find('button').prop('disabled', true);
   }
