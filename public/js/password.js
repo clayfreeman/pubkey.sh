@@ -1,4 +1,4 @@
-$('input:password').keydown(function() {
+$('input:password').keypress(function() {
   // Generate a list of words for zxcvbn to use as user-generated data to
   // increase security
   var values = ['pubkey', 'pub', 'key', 'public', 'key'];
