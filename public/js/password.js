@@ -7,8 +7,6 @@ $('input:password').change(function() {
       values.push(item);
     });
   });
-  // Log the restricted values to the console
-  console.log("Restricted values:" + JSON.stringify(values));
   // Fetch the information from zxcvbn regarding the password
   var info = zxcvbn($(this).val(), values);
   // If the score is sufficient, enable submission of the form
