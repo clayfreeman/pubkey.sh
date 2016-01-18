@@ -19,9 +19,9 @@ $('input:password').on('input', function() {
     score.closest('.uk-alert').addClass('uk-alert-success');
     $(this).removeClass('uk-form-danger');
     $(this).addClass('uk-form-success');
-    $(this).prop('verified', 'true');
+    $(this).prop('unverified', true);
     // Enable form submission if appropriate
-    if (form.find('input[verified=false]').length == 0)
+    if (form.find('input[unverified]').length == 0)
       form.find('button').prop('disabled', false);
   }
   else {
@@ -30,7 +30,7 @@ $('input:password').on('input', function() {
     score.closest('.uk-alert').addClass('uk-alert-danger');
     $(this).removeClass('uk-form-success');
     $(this).addClass('uk-form-danger');
-    $(this).prop('verified', 'false');
+    $(this).prop('unverified', false);
     // Disable form submission
     form.find('button').prop('disabled', true);
   }
