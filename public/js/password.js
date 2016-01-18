@@ -13,8 +13,8 @@ $('input:password').on('input', function() {
   $('#password-status').val(info.level+' / 4');
   if (info.score > 2) {
     // Change the state of the password field to show success
-    $('#password-status').removeClass('uk-text-danger');
-    $('#password-status').addClass('uk-text-success');
+    $('#password-status').closest('.uk-alert').removeClass('uk-alert-danger');
+    $('#password-status').closest('.uk-alert').addClass('uk-alert-success');
     $(this).removeClass('uk-form-danger');
     $(this).addClass('uk-form-success');
     // Enable form submission
@@ -22,8 +22,8 @@ $('input:password').on('input', function() {
   }
   else {
     // Change the state of the password field to show failure
-    $('#password-status').removeClass('uk-text-success');
-    $('#password-status').addClass('uk-text-danger');
+    $('#password-status').closest('.uk-alert').removeClass('uk-alert-success');
+    $('#password-status').closest('.uk-alert').addClass('uk-alert-danger');
     $(this).removeClass('uk-form-success');
     $(this).addClass('uk-form-danger');
     // Disable form submission
