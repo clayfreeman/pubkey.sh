@@ -11,7 +11,7 @@
         <input autocomplete="off" class="uk-form-large uk-width-1-1" name="username" placeholder="Username" style="font-family: Courier;" type="text" />
       </div>
       <div class="uk-form-row">
-        <input class="uk-form-large uk-width-1-1" name="password" placeholder="Password" style="font-family: Courier;" type="password" />
+        <input autocomplete="off" class="uk-form-large uk-width-1-1" name="password" placeholder="Password" style="font-family: Courier;" type="password" />
       </div>
       <div class="uk-form-row">
         <button class="uk-width-1-1 uk-button uk-button-primary uk-button-large">Login</button>
