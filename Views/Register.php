@@ -13,7 +13,7 @@
       $error = is_string($_) ?
         \Views\Message::render($_, 'danger') :
         \Views\Message::render('Submission will be enabled when your password '.
-          'strength is sufficient.', 'danger');
+          'strength is sufficient.');
       // Load and render the Register template
       ob_start();
       require(__PRIVATEROOT__.'/templates/Register.php');
