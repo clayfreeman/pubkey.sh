@@ -1,4 +1,8 @@
 $('input:password').on('input', function() {
+  // Select the icon for the form field
+  var icon   = $(this).siblings('i')[0];
+  // Remove the icon's classes
+  icon.removeClass();
   // Generate a list of words for zxcvbn to use as user-generated data to
   // increase security
   var form   = $(this).closest('form');
@@ -17,9 +21,10 @@ $('input:password').on('input', function() {
     // Change the state of the password field to show success
     score.closest('.uk-alert').removeClass('uk-alert-danger');
     score.closest('.uk-alert').addClass('uk-alert-success');
+    $(this).prop('unverified', true);
     $(this).removeClass('uk-form-danger');
     $(this).addClass('uk-form-success');
-    $(this).prop('unverified', true);
+    icon.addClass('check');
     // Enable form submission if appropriate
     if (form.find('input[unverified]').length == 0)
       form.find('button').prop('disabled', false);
@@ -28,9 +33,10 @@ $('input:password').on('input', function() {
     // Change the state of the password field to show failure
     score.closest('.uk-alert').removeClass('uk-alert-success');
     score.closest('.uk-alert').addClass('uk-alert-danger');
+    $(this).prop('unverified', false);
     $(this).removeClass('uk-form-success');
     $(this).addClass('uk-form-danger');
-    $(this).prop('unverified', false);
+    icon.addClass('close');
     // Disable form submission
     form.find('button').prop('disabled', true);
   }
