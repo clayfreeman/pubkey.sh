@@ -1,6 +1,6 @@
 $('input:password').on('input', function() {
   // Select the icon for the form field
-  var icon   = $(this).siblings('i')[0];
+  var icon   = $(this).siblings('i');
   // Remove the icon's classes
   icon.removeClass('uk-icon-circle-thin');
   // Generate a list of words for zxcvbn to use as user-generated data to
