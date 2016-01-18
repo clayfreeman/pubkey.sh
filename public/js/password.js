@@ -2,7 +2,9 @@ $('input:password').on('input', function() {
   // Select the icon for the form field
   var icon   = $(this).siblings('i');
   // Remove the icon's classes
-  icon.removeClass('uk-icon-circle-thin');
+  icon.removeClass (function(index, css) {
+    return (css.match(/(^|\s)uk-icon-\S+/g) || []).join(' ');
+  });
   // Generate a list of words for zxcvbn to use as user-generated data to
   // increase security
   var form   = $(this).closest('form');
