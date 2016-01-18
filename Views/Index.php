@@ -8,8 +8,6 @@
   namespace Views;
 
   class Index {
-    protected static $title = "Index";
-
     public static function show() {
       // Render the Menu
       $menu = \Views\Menu::render('/');

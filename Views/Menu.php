@@ -8,7 +8,6 @@
   namespace Views;
 
   class Menu {
-    protected static $title = "Menu";
     protected static $items = array(
       '/'         => array(
         'name'    => 'Home',
