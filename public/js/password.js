@@ -10,7 +10,7 @@ $('input:password').on('input', function() {
   // Fetch the information from zxcvbn regarding the password
   var info = zxcvbn($(this).val(), values);
   // If the score is sufficient, enable submission of the form
-  $('#password-status').text(info.score);
+  $('#password-status').text(info.score < 4 ? info.score : 3);
   if (info.score > 2) {
     // Change the state of the password field to show success
     $('#password-status').closest('.uk-alert').removeClass('uk-alert-danger');
