@@ -23,7 +23,7 @@ $('input:password').on('input', function() {
     // Change the state of the password field to show success
     score.closest('.uk-alert').removeClass('uk-alert-danger');
     score.closest('.uk-alert').addClass('uk-alert-success');
-    $(this).prop('unverified', true);
+    $(this).prop('unverified', false);
     $(this).removeClass('uk-form-danger');
     $(this).addClass('uk-form-success');
     icon.addClass('uk-icon-check');
@@ -35,7 +35,7 @@ $('input:password').on('input', function() {
     // Change the state of the password field to show failure
     score.closest('.uk-alert').removeClass('uk-alert-success');
     score.closest('.uk-alert').addClass('uk-alert-danger');
-    $(this).prop('unverified', false);
+    $(this).prop('unverified', true);
     $(this).removeClass('uk-form-success');
     $(this).addClass('uk-form-danger');
     icon.addClass('uk-icon-close');
