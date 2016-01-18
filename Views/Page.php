@@ -10,7 +10,7 @@
   class Page {
     protected static function indent($contents, $level) {
       // Adjust the indent level of the contents
-      $indentText = str_repeat('  ', $indent);
+      $indentText = str_repeat('  ', $level);
       $contents   = $indentText.implode("\n".$indentText, explode("\n",
         trim($contents)))."\n";
       return $contents;
