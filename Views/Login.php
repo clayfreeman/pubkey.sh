@@ -18,7 +18,7 @@
           ENT_QUOTES).'</p>';
         $error = "<a class=\"uk-alert-close uk-close\" href></a>\n".$error;
         $error = "<div class=\"uk-alert uk-alert-danger uk-text-left\" ".
-          "data-uk-alert>\n".indent($error, 1)."</div>";
+          "data-uk-alert>\n".indent($error, 1)."</div>\n";
       }
       else
         $error = null;

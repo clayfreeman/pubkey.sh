@@ -18,11 +18,11 @@
           ENT_QUOTES).'</p>';
         $error = "<a class=\"uk-alert-close uk-close\" href></a>\n".$error;
         $error = "<div class=\"uk-alert uk-alert-danger uk-text-left\" ".
-          "data-uk-alert>\n".indent($error, 1)."</div>";
+          "data-uk-alert>\n".indent($error, 1)."</div>\n";
       }
       else
         $error = null;
-      return $error;
+      return $error."\n";
     }
 
     protected static function prepareInfo($info) {
@@ -33,7 +33,7 @@
           ENT_QUOTES).'</p>';
         $info = "<a class=\"uk-alert-close uk-close\" href></a>\n".$info;
         $info = "<div class=\"uk-alert uk-text-left\" data-uk-alert>\n".
-          indent($info, 1)."</div>";
+          indent($info, 1)."</div>\n";
       }
       else
         $info = null;
