@@ -3,7 +3,7 @@ $('input[type="password"]').change(function() {
   // increase security
   var values = ['pubkey', 'pub', 'key', 'public', 'key'];
   $(this).closest('form').find('input').each(function() {
-    $.each($(this).split(" "), function(i, item) {
+    $.each($(this).val().split(" "), function(i, item) {
       values.push(item);
     });
   });
