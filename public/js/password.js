@@ -2,7 +2,7 @@ $('input:password').on('input', function() {
   // Select the icon for the form field
   var icon   = $(this).siblings('i')[0];
   // Remove the icon's classes
-  icon.removeClass();
+  icon.removeClass('uk-icon-circle-thin');
   // Generate a list of words for zxcvbn to use as user-generated data to
   // increase security
   var form   = $(this).closest('form');
@@ -24,7 +24,7 @@ $('input:password').on('input', function() {
     $(this).prop('unverified', true);
     $(this).removeClass('uk-form-danger');
     $(this).addClass('uk-form-success');
-    icon.addClass('check');
+    icon.addClass('uk-icon-check');
     // Enable form submission if appropriate
     if (form.find('input[unverified]').length == 0)
       form.find('button').prop('disabled', false);
@@ -36,7 +36,7 @@ $('input:password').on('input', function() {
     $(this).prop('unverified', false);
     $(this).removeClass('uk-form-success');
     $(this).addClass('uk-form-danger');
-    icon.addClass('close');
+    icon.addClass('uk-icon-close');
     // Disable form submission
     form.find('button').prop('disabled', true);
   }
