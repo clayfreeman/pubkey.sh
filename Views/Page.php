@@ -8,28 +8,17 @@
   namespace Views;
 
   class Page {
-    protected static $menu = array(
-      '/'         => 'Home',
-      '/register' => 'Register',
-      '/login'    => 'Login'
-    );
-
-    protected static function generateMenu() {
-      $menu = null;
-      foreach (self::$menu as $location => $name)
-        $menu .= '<li><a href="'.$location.'">'.htmlspecialchars(trim($name),
-          ENT_HTML401 | ENT_QUOTES)."</a></li>\n";
-      return $menu;
-    }
-
-    public static function show($title, $contents, $shownav = true,
-        $indent = 2) {
+    protected static function indent($contents, $level) {
       // Adjust the indent level of the contents
       $indentText = str_repeat('  ', $indent);
       $contents   = $indentText.implode("\n".$indentText, explode("\n",
         trim($contents)))."\n";
-      // Generate the menu
-      $menu = self::generateMenu();
+      return $contents;
+    }
+
+    public static function show($title, $contents) {
+      // Adjust the indent level of the contents
+      $contents = self::indent($contents, 2);
       // Load and flush the Page template
       ob_start();
       require(__PRIVATEROOT__.'/templates/Page.php');

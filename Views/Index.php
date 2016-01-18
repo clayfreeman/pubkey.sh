@@ -11,6 +11,8 @@
     protected static $title = "Index";
 
     public static function show() {
+      // Render the Menu
+      $menu = \Views\Menu::render('/');
       // Load and render the Index template
       ob_start();
       require(__PRIVATEROOT__.'/templates/Index.php');

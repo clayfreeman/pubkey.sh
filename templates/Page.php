@@ -12,32 +12,10 @@
     <link rel="stylesheet" href="/uikit/css/components/form-password.almost-flat.min.css" />
     <script type="text/javascript" src="/uikit/js/uikit.min.js"></script>
     <script type="text/javascript" src="/uikit/js/components/form-password.min.js"></script>
+    <!-- Load UIKit CSS patches -->
+    <link rel="stylesheet" href="/css/uikit.patches.css" />
   </head>
   <body class="uk-height-1-1">
-    <?php if ($shownav == true) { ?><nav class="uk-navbar uk-navbar-attached" style="position: relative; padding-top: 15px; padding-bottom: 15px;">
-      <div class="uk-container uk-container-center">
-        <a href="#uk-small-navbar" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
-        <a class="uk-navbar-brand uk-hidden-small" href="/">
-          <img class="uk-margin uk-margin-remove" src="/img/logo.svg" width="210" height="45" title="pubkey.sh" alt="pubkey.sh" />
-        </a>
-        <div class="uk-navbar-brand uk-navbar-center uk-visible-small">
-          <a href="/"><img src="/img/logo.svg" width="135" height="45" title="pubkey.sh" alt="pubkey.sh" /></a>
-        </div>
-        <div class="uk-navbar-flip uk-hidden-small">
-          <ul class="uk-navbar-nav">
-            <?= $menu ?>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div id="uk-small-navbar" class="uk-offcanvas">
-      <div class="uk-offcanvas-bar">
-        <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon">
-          <li class="uk-nav-header">Navigation</li>
-          <?= $menu ?>
-        </ul>
-      </div>
-    </div><?php } ?>
 <?= $contents ?>
   </body>
 </html>

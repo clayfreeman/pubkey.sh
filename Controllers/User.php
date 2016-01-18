@@ -16,7 +16,7 @@
      * @return A `\Models\User` object if the current user is logged in,
      *         otherwise `false` will be returned
      */
-    public static function getCurrentUser() {
+    public static function getCurrent() {
       // Assume a false state
       $user   = false;
       // Attempt to extract the 'user' field containing a user ID
@@ -43,7 +43,7 @@
      */
     public static function login($request, $response) {
       // Ensure logged in users are redirected to the home page
-      if (is_object(self::getCurrentUser()))
+      if (is_object(self::getCurrent()))
         return \Views\Login::show("You're already logged in.");
 
       // Fetch the parsed body from the Slim request interface
@@ -71,7 +71,7 @@
      */
     public static function register($request, $response) {
       // Ensure logged in users are redirected to the home page
-      if (is_object(self::getCurrentUser()))
+      if (is_object(self::getCurrent()))
         return \Views\Login::show("You're already logged in.");
 
       // Fetch the parsed body from the Slim request interface

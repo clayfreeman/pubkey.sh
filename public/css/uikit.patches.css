@@ -1,0 +1,4 @@
+/* Correct the border when hovering menu items */
+.uk-navbar-nav > li:hover > a {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
