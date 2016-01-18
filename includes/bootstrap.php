@@ -22,5 +22,8 @@
   // Require the htmldump file
   require_once(__PRIVATEROOT__.'/includes/htmldump.php');
 
+  // Require the indent file
+  require_once(__PRIVATEROOT__.'/includes/indent.php');
+
   // Require the session file
   require_once(__PRIVATEROOT__.'/includes/session.php');
