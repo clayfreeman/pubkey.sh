@@ -1,10 +1,11 @@
 # Patch
 
 Until `paragonie/password_lock` makes another release, the following patch is
-required:
+required, and may need to be repeated after utilizing the `composer` command:
 
 ```sh
-patch vendor/composer/autoload_files.php < password_lock.patch
+patch vendor/composer/installed.json < password_lock.patch
+composer dump-autoload
 ```
 
 # Attributions
