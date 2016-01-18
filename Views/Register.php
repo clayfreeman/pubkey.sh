@@ -51,6 +51,6 @@
       $contents = ob_get_contents();
       ob_end_clean();
       // Render and show the Page template
-      \Views\Page::show(self::$title, $contents, false);
+      \Views\Page::show(self::$title, $contents);
     }
   }

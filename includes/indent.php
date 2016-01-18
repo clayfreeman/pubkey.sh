@@ -14,7 +14,7 @@
    *
    * @return A string containing the indented contents
    */
-  function indent($contents, $level) {
+  function indent($contents, $level = 0) {
     // Adjust the indent level of the contents
     $indentText = str_repeat('  ', $level);
     $contents   = $indentText.implode("\n".$indentText, explode("\n",
