@@ -18,6 +18,5 @@
     <script type="text/javascript" src="/js/zxcvbn.js"></script>
   </head>
   <body class="uk-height-1-1">
-<?= $contents ?>
-  </body>
+<?= $contents ?>  </body>
 </html>

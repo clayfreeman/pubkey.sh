@@ -9,8 +9,7 @@
     </div>
     <div class="uk-navbar-flip uk-hidden-small">
       <ul class="uk-navbar-nav">
-<?= self::indent($menu, 4) ?>
-      </ul>
+<?= indent($menu, 4) ?>      </ul>
     </div>
   </div>
 </nav>
@@ -18,7 +17,6 @@
   <div class="uk-offcanvas-bar">
     <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon">
       <li class="uk-nav-header">Navigation</li>
-<?= self::indent($menu, 3) ?>
-    </ul>
+<?= indent($menu, 3) ?>    </ul>
   </div>
 </div>

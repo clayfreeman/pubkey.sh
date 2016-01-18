@@ -32,14 +32,6 @@
       )
     );
 
-    protected static function indent($contents, $level) {
-      // Adjust the indent level of the contents
-      $indentText = str_repeat('  ', $level);
-      $contents   = $indentText.implode("\n".$indentText, explode("\n",
-        trim($contents)))."\n";
-      return $contents;
-    }
-
     protected static function renderItem($path, $name, $active) {
       return '<li'.($active ? ' class="uk-active"' : null).'><a href="'.$path.
         '">'.htmlspecialchars(trim($name), ENT_HTML401 | ENT_QUOTES).
