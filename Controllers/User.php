@@ -193,7 +193,7 @@
       $username = (isset($username['username']) ? $username['username'] : null);
       // Determine if the username is available
       die(json_encode(array(
-        "available" => self::validEmail($username) &&
+        "available" => self::validUsername($username) &&
                        !is_object(self::getUser($username))
       )));
     }
