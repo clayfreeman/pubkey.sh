@@ -50,7 +50,7 @@ function verifyUsername(selector) {
         available = $.parseJSON(data)['available'];
         if (available === true)
           // Enable the form field
-          usernameMutateState(field, false, false);
+          usernameMutateState(field, true, true);
         else
           // Disable the form field
           usernameMutateState(field, false, true);
