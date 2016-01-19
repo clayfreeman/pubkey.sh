@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS models_user (
   email    TEXT    NOT NULL UNIQUE,
   username TEXT    NOT NULL UNIQUE,
   password TEXT    NOT NULL,
+  lastip   TEXT,
   pid      INTEGER,
 
   FOREIGN KEY(pid) REFERENCES models_pubkey(id)

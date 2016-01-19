@@ -9,18 +9,18 @@
 
   class User {
     /**
-     * @brief Get
+     * @brief Get Email
      *
-     * Fetches a user by username
+     * Fetches a user by email address
      *
-     * @param username The username as listed in the database
+     * @param email The email as listed in the database (case-insensitive)
      *
      * @return A `\Models\User` object if the username exists,
      *         otherwise `false` will be returned
      */
     public static function getEmail($email) {
       $user   = false;
-      // Only go to the database if the username is valid
+      // Only go to the database if the email is valid
       if (self::validEmail($email = strtolower($email)))
         $user = \Model::factory('\\Models\\User')->where_raw(
           'LOWER(email) = ?', $email)->find_one();
@@ -28,11 +28,11 @@
     }
 
     /**
-     * @brief Get
+     * @brief Get User
      *
      * Fetches a user by username
      *
-     * @param username The username as listed in the database
+     * @param username The username as listed in the database (case-insensitive)
      *
      * @return A `\Models\User` object if the username exists,
      *         otherwise `false` will be returned
