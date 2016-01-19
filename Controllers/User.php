@@ -113,8 +113,8 @@
       // Fetch the parsed body from the Slim request interface
       $post = $request->getParsedBody();
       // Encrypt the password provided in the form
-      $post['cipher'] = \ParagonIE\PasswordLock\PasswordLock::hashAndEncrypt($post['password'], __PASSKEY__);
-      $post['verify'] = \ParagonIE\PasswordLock\PasswordLock::decryptAndVerify($post['password'], $post['cipher'], __PASSKEY__);
+      $post['cipher'] = base64_encode(\ParagonIE\PasswordLock\PasswordLock::hashAndEncrypt($post['password'], __PASSKEY__));
+      $post['verify'] = \ParagonIE\PasswordLock\PasswordLock::decryptAndVerify($post['password'], base64_decode($post['cipher']), __PASSKEY__);
       $post['password'] = 'redacted';
       echo html_dump($post)."\n";
     }
