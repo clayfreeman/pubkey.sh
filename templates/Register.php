@@ -2,12 +2,14 @@
   <div class="uk-vertical-align-middle" style="width: 300px;">
     <a href="/"><img class="uk-margin-bottom" src="/img/logo.svg" alt /></a>
 <?= indent($error, 2) ?>    <form class="uk-panel uk-panel-box uk-form" method="POST">
-<?= indent($message, 3) ?>      <div class="uk-form-icon uk-form-row">
-        <i id="username-icon" class="circle-o"></i>
-        <input autocomplete="off" class="uk-form-large uk-width-1-1" name="username" placeholder="Username" style="font-family: Courier;" type="text" />
+<?= indent($message, 3) ?>      <div class="uk-form-row">
+        <div class="uk-form-icon">
+          <i id="username-icon" class="circle-o"></i>
+          <input autocomplete="off" class="uk-form-large uk-width-1-1" name="username" placeholder="Username" style="font-family: Courier;" type="text" />
+        </div>
       </div>
-      <div class="uk-form-icon uk-form-row">
-        <div class="uk-form-password uk-width-1-1">
+      <div class="uk-form-row">
+        <div class="uk-form-icon uk-form-password uk-width-1-1">
           <i id="password-icon" class="uk-icon-circle-thin"></i>
           <input autocomplete="off" class="uk-form-large uk-width-1-1" name="password" placeholder="Password" style="font-family: Courier;" type="password" unverified />
           <a href class="uk-form-password-toggle" data-uk-form-password>Show</a>
