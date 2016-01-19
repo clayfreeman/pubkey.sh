@@ -20,7 +20,7 @@
       $username = $username['username'];
       // Determine if the username is available
       die(json_encode(array(
-        "available" => preg_match('/[a-z][a-z0-9]{2,}/i', $username) &&
+        "available" => preg_match('/^[a-z][a-z0-9]{2,}$/i', $username) &&
                        !is_object(self::get($username))
       )));
     }
