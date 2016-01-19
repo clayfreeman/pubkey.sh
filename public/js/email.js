@@ -13,7 +13,7 @@ function verifyEmail(selector) {
       fieldMutateState(field, false, false);
       // Fetch the query result from the API
       icon.addClass('uk-icon-refresh');
-      $.post('/email/available', {'mail': field.val()}, function(data) {
+      $.post('/email/available', {'email': field.val()}, function(data) {
         available = $.parseJSON(data)['available'];
         if (available === true)
           // Enable the form field
