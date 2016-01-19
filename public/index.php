@@ -40,7 +40,9 @@
   // Define route to register processing
   $app->post('/register', '\\Controllers\\User::register');
   // Define route to check username availability
-  $app->post('/user/available', '\\Controllers\\User::available');
+  $app->post('/mail/available', '\\Controllers\\User::mailAvailable');
+  // Define route to check username availability
+  $app->post('/user/available', '\\Controllers\\User::userAvailable');
 
   // Unset the Slim framework error handler during development
   unset($app->getContainer()['errorHandler']);

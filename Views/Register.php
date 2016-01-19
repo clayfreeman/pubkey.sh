@@ -10,8 +10,8 @@
   class Register {
     public static function show($_ = null) {
       // Prepare the error for display (if one was provided)
-      $error    = is_string($_) ? \Views\Message::render($_, 'danger') : null;
-      $message .= \Views\Message::render(
+      $error   = is_string($_) ? \Views\Message::render($_, 'danger') : null;
+      $message = \Views\Message::render(
           'Submission will be enabled when an available username is chosen '.
           'and your password strength is sufficient.<br /><br />'.
           '<code id="password-score">0</code> / <code>3</code><br />'.

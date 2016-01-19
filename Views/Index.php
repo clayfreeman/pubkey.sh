@@ -8,7 +8,8 @@
   namespace Views;
 
   class Index {
-    public static function show() {
+    public static function show($_) {
+      $message = \Views\Message::render($_);
       // Render the Menu
       $menu = \Views\Menu::render('/');
       // Load and render the Index template

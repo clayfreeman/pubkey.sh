@@ -11,19 +11,22 @@
   use \ZxcvbnPhp\Zxcvbn;
   class User {
     /**
-     * @brief Available
+     * @brief Get
      *
-     * Determines the availability of a username and prints a JSON encoded
-     * response with the details of availability
+     * Fetches a user by username
+     *
+     * @param username The username as listed in the database
+     *
+     * @return A `\Models\User` object if the username exists,
+     *         otherwise `false` will be returned
      */
-    public static function available($request) {
-      // Fetch the username from the request
-      $username = $request->getParsedBody();
-      $username = $username['username'];
-      // Determine if the username is available
-      die(json_encode(array(
-        "available" => !is_object(self::get($username))
-      )));
+    public static function getMail($mail) {
+      $user   = false;
+      // Only go to the database if the username is valid
+      if (self::validMail($mail))
+        $user = \Model::factory('\\Models\\User')->where_like('mail',
+          $mail)->find_one();
+      return (is_object($user) ? $user : false);
     }
 
     /**
@@ -36,10 +39,10 @@
      * @return A `\Models\User` object if the username exists,
      *         otherwise `false` will be returned
      */
-    public static function get($username) {
+    public static function getUser($username) {
       $user   = false;
       // Only go to the database if the username is valid
-      if (self::valid($username))
+      if (self::validUsername($username))
         $user = \Model::factory('\\Models\\User')->where_like('username',
           $username)->find_one();
       return (is_object($user) ? $user : false);
@@ -100,6 +103,22 @@
     }
 
     /**
+     * @brief Mail Available
+     *
+     * Determines the availability of an email address and prints a JSON encoded
+     * response with the details of availability
+     */
+    public static function mailAvailable($request) {
+      // Fetch the username from the request
+      $mail = $request->getParsedBody();
+      $mail = $mail['mail'];
+      // Determine if the username is available
+      die(json_encode(array(
+        "available" => !is_object(self::getMail($mail))
+      )));
+    }
+
+    /**
      * @brief Register
      *
      * Processes the submission from a registration form
@@ -111,8 +130,8 @@
       // Fetch the parsed body from the Slim request interface
       $post = $request->getParsedBody();
       // Fetch the appropriate form fields
-      $email    = $post['email'];
       $username = $post['username'];
+      $mail     = $post['mail'];
       $password = $post['password'];
 
       // Ensure logged in users are redirected to their account page
@@ -120,22 +139,77 @@
         return $response->withRedirect('/user');
 
       // Determine if the provided username is valid
-      if (!self::valid($username))
+      if (!self::validUsername($username))
         return \Views\Register::show('Invalid username provided.');
+
+      // Determine if the provided username is valid
+      if (!self::validMail($mail))
+        return \Views\Register::show('Invalid email address provided.');
 
       // Determine if the provided password meets strength requirements
       $zxcvbn   = new Zxcvbn;
       $strength = $zxcvbn->passwordStrength($password, array_merge(
-        explode(" ", $email),
+        explode(" ", $mail),
         explode(" ", $username)
       ));
       if ($strength['score'] < 3)
         return \Views\Register::show('Password strength requirements were not '.
           'satisfied.');
+
+      // Determine if the username or email address were taken
+      if (is_object(self::getUser($username)))
+        return \Views\Register::show('Username already registered.');
+      if (is_object(self::getMail($mail)))
+        return \Views\Register::show('Email address already registered.');
+
+      // If we've reached this point, registration is possible and should
+      // continue as requested
+      $newUser = new \Models\User;
+      $newUser->username = $username;
+      $newUser->mail     = $mail;
+      $newUser->password = PasswordLock::hashAndEncrypt($password, __PASSKEY__);
+      // Unset the cleartext password and save the user
+      unset($password);
+      $newUser->save();
+
+      // Redirect the user to the home page informing them of a successful
+      // registration process
+      return \Views\Index::show('Registration was successful. '.
+        'You may now login.');
     }
 
     /**
-     * @brief Valid
+     * @brief User Available
+     *
+     * Determines the availability of a username and prints a JSON encoded
+     * response with the details of availability
+     */
+    public static function userAvailable($request) {
+      // Fetch the username from the request
+      $username = $request->getParsedBody();
+      $username = $username['username'];
+      // Determine if the username is available
+      die(json_encode(array(
+        "available" => !is_object(self::getUser($username))
+      )));
+    }
+
+    /**
+     * @brief Valid Mail
+     *
+     * Determines if an email address is valid
+     *
+     * @param mail The email address to test
+     *
+     * @return `true` if valid,
+     *         otherwise `false` will be returned
+     */
+    public static function validMail($mail) {
+      return filter_var($mail, FILTER_VALIDATE_EMAIL) !== false;
+    }
+
+    /**
+     * @brief Valid Username
      *
      * Determines if a username is valid
      *
@@ -144,7 +218,7 @@
      * @return `true` if valid,
      *         otherwise `false` will be returned
      */
-    public static function valid($username) {
+    public static function validUsername($username) {
       return preg_match('/^[a-z][a-z0-9]{2,}$/i', $username);
     }
 
