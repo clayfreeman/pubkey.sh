@@ -18,7 +18,7 @@
       // Fetch the username from the request
       $username = $request->getBody();
       // Determine if the username is available
-      die(json_encode(array("available" => !is_object(self::get($username)))));
+      echo json_encode(array("available" => !is_object(self::get($username))));
     }
 
     /**
