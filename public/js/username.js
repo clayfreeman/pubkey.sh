@@ -15,7 +15,6 @@ function verifyUsername(selector) {
     field.attr('unverified', true);
     field.removeClass('uk-form-success');
     field.addClass('uk-form-danger');
-    icon.addClass('uk-icon-close');
     // Disable form submission
     form.find('button').prop('disabled', true);
     // Fetch the query result from the API
@@ -36,6 +35,15 @@ function verifyUsername(selector) {
         // Enable form submission if appropriate
         if (form.find('input[unverified]').length == 0)
           form.find('button').prop('disabled', false);
+      }
+      else {
+        // Change the state of the password field to show failure
+        field.attr('unverified', true);
+        field.removeClass('uk-form-success');
+        field.addClass('uk-form-danger');
+        icon.addClass('uk-icon-close');
+        // Disable form submission
+        form.find('button').prop('disabled', true);
       }
     });
   });
