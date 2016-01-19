@@ -10,22 +10,22 @@ function verifyUsername(selector) {
     // Verify constraints of the username field
     if (field.val().length > 2 && /^[a-z][a-z0-9]{2,}$/i.test(field.val())) {
       // Disable the form field
-      usernameMutateState(field, false, false);
+      fieldMutateState(field, false, false);
       // Fetch the query result from the API
       icon.addClass('uk-icon-refresh');
       $.post('/user/available', {"username": field.val()}, function(data) {
         available = $.parseJSON(data)['available'];
         if (available === true)
           // Enable the form field
-          usernameMutateState(field, true, true);
+          fieldMutateState(field, true, true);
         else
           // Disable the form field
-          usernameMutateState(field, false, true);
+          fieldMutateState(field, false, true);
       });
     }
     else {
       // Disable the form field
-      usernameMutateState(field, false, true);
+      fieldMutateState(field, false, true);
     }
   });
 }
