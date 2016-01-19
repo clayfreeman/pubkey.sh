@@ -205,7 +205,8 @@
      *         otherwise `false` will be returned
      */
     public static function validEmail($email) {
-      return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+      return strlen(trim($email)) > 5 &&
+        filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
     }
 
     /**
