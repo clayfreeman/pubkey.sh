@@ -9,7 +9,7 @@
 
   class Index {
     public static function show($_) {
-      $message = \Views\Message::render($_);
+      $message = is_string($_) ? \Views\Message::render($_) : null;
       // Render the Menu
       $menu = \Views\Menu::render('/');
       // Load and render the Index template
