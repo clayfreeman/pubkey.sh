@@ -6,6 +6,7 @@ function verifyUsername(selector) {
     // Select the icon for the form field
     var field  = $(this);
     var icon   = $(this).siblings('i');
+    var form   = $(this).closest('form');
     // Remove the icon's classes
     icon.removeClass(function(index, css) {
       return (css.match(/(^|\s)uk-icon-\S+/g) || []).join(' ');
