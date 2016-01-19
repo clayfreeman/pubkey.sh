@@ -18,7 +18,10 @@
       // Fetch the username from the request
       $username = $request->getBody();
       // Determine if the username is available
-      echo json_encode(array("available" => !is_object(self::get($username))));
+      die(json_encode(array(
+        "available" => preg_match('/[a-z][a-z0-9]{2,}/i', $username) &&
+                       !is_object(self::get($username))
+      )));
     }
 
     /**

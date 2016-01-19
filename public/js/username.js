@@ -18,7 +18,7 @@ function verifyUsername(selector) {
         return (css.match(/(^|\s)uk-icon-\S+/g) || []).join(' ');
       });
       available = $.parseJSON(data)["available"];
-      if (available) {
+      if (available === true) {
         // Change the state of the username field to show success
         field.removeAttr('unverified');
         field.removeClass('uk-form-danger');
