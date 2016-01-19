@@ -12,7 +12,7 @@ function verifyUsername(selector) {
       return (css.match(/(^|\s)uk-icon-\S+/g) || []).join(' ');
     });
     // Fetch the query result from the API
-    icon.addClass('uk-form-refresh');
+    icon.addClass('uk-icon-refresh');
     $.post('/user/available', {"username": $(this).val()}, function(data) {
       // Remove the icon's classes
       icon.removeClass(function(index, css) {
