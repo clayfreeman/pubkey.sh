@@ -19,6 +19,7 @@
       $username = $request->getParsedBody();
       $username = $username['username'];
       // Determine if the username is available
+      sleep(1);
       die(json_encode(array(
         "available" => preg_match('/^[a-z][a-z0-9]{2,}$/i', $username) &&
                        !is_object(self::get($username))
