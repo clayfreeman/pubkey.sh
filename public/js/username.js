@@ -18,7 +18,8 @@ function verifyUsername(selector) {
       icon.removeClass(function(index, css) {
         return (css.match(/(^|\s)uk-icon-\S+/g) || []).join(' ');
       });
-      available = $.parseJSON(data)["available"];
+      available = $.parseJSON(data)['available'];
+      console.log(JSON.stringify(available));
       if (available === true) {
         // Change the state of the username field to show success
         field.removeAttr('unverified');
