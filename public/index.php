@@ -42,5 +42,10 @@
   // Define route to check username availability
   $app->post('/user/available', '\\Controllers\\User::available');
 
+  // Define an error handler
+  $app->error(function (\Exception $e) use ($app) {
+    die(htmldump($e));
+  });
+
   // Run Slim app instance
   $app->run();
