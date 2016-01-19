@@ -1,3 +1,6 @@
+// Add the unverified property to the password field
+$('input:password').attr('unverified', true);
+// Register an event handler on input to verify the password complexity
 $('input:password').on('input', function() {
   // Select the icon for the form field
   var icon   = $(this).siblings('i');

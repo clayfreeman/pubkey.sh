@@ -9,6 +9,36 @@
 
   class User {
     /**
+     * @brief Available
+     *
+     * Determines the availability of a username and prints a JSON encoded
+     * response with the details of availability
+     */
+    public static function available($request) {
+      // Fetch the username from the request
+      $username = $request->getBody();
+      // Determine if the username is available
+      die(json_encode(array("available" => !is_object(self::get($username)))));
+    }
+
+    /**
+     * @brief Get
+     *
+     * Fetches a user by username
+     *
+     * @param username The username as listed in the database
+     *
+     * @return A `\Models\User` object if the username exists,
+     *         otherwise `false` will be returned
+     */
+    public static function get($username) {
+      $username = preg_replace('/[^a-z0-9]/i', null, $username);
+      $user     = \Model::factory('\\Models\\User')->where_like('username',
+        $username)->find_one();
+      return (is_object($user) ? $user : false);
+    }
+
+    /**
      * @brief Get Current User
      *
      * Fetches the currently logged in user's database model

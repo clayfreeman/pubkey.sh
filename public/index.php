@@ -39,6 +39,8 @@
   $app->post('/login', '\\Controllers\\User::login');
   // Define route to register processing
   $app->post('/register', '\\Controllers\\User::register');
+  // Define route to check username availability
+  $app->post('/user/available', '\\Controllers\\User::available');
 
   // Run Slim app instance
   $app->run();
