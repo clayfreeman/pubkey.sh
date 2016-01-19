@@ -167,7 +167,8 @@
       $newUser = \Model::factory('\\Models\\User')->create();
       $newUser->username = $username;
       $newUser->email    = $email;
-      $newUser->password = PasswordLock::hashAndEncrypt($password, __PASSKEY__);
+      $newUser->password = base64_encode(PasswordLock::hashAndEncrypt($password,
+        __PASSKEY__));
       // Unset the cleartext password and save the user
       unset($password);
       $newUser->save();
