@@ -1,8 +1,8 @@
 function verifyUsername(selector) {
   // Add the unverified property to the password field
-  $("input[name=" + selector + "]").attr('unverified', true);
+  $('input[name=' + selector + ']').attr('unverified', true);
   // Register an event handler on input to verify the username is available
-  $("input[name=" + selector + "]").change(function() {
+  $('input[name=' + selector + ']').change(function() {
     // Select the icon and form from the field
     var field  = $(this);
     var icon   = field.siblings('i');
@@ -13,7 +13,7 @@ function verifyUsername(selector) {
       fieldMutateState(field, false, false);
       // Fetch the query result from the API
       icon.addClass('uk-icon-refresh');
-      $.post('/user/available', {"username": field.val()}, function(data) {
+      $.post('/user/available', {'username': field.val()}, function(data) {
         available = $.parseJSON(data)['available'];
         if (available === true)
           // Enable the form field

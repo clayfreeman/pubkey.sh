@@ -1,8 +1,8 @@
 function verifyPassword(selector) {
   // Add the unverified property to the password field
-  $("input[name=" + selector + "]").attr('unverified', true);
+  $('input[name=' + selector + ']').attr('unverified', true);
   // Register an event handler on input to verify the password complexity
-  $("input[name=" + selector + "]").on('input', function() {
+  $('input[name=' + selector + ']').on('input', function() {
     // Select the icon and form from the field
     var field  = $(this);
     var icon   = field.siblings('i');
@@ -10,8 +10,8 @@ function verifyPassword(selector) {
     // Generate a list of words for zxcvbn to use as user-generated data to
     // increase security
     var values = ['pubkey', 'pub', 'key', 'public', 'key'];
-    form.find('input:text').each(function() {
-      $.each($(this).val().split(" "), function(i, item) {
+    form.find('input:text').find('[name!='+ selector +']').each(function() {
+      $.each($(this).val().split(' '), function(i, item) {
         values.push(item);
       });
     });
