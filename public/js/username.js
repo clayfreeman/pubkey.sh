@@ -1,8 +1,8 @@
 function verifyUsername(selector) {
   // Add the unverified property to the password field
-  $(selector).attr('unverified', true);
+  $("input[name=" + selector + "]").attr('unverified', true);
   // Register an event handler on input to verify the username is available
-  $(selector).on('input', function() {
+  $("input[name=" + selector + "]").on('input', function() {
     // Select the icon for the form field
     var icon   = $(this).siblings('i');
     // Remove the icon's classes
