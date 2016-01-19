@@ -19,10 +19,8 @@
       $username = $request->getParsedBody();
       $username = $username['username'];
       // Determine if the username is available
-      sleep(1);
       die(json_encode(array(
-        "available" => preg_match('/^[a-z][a-z0-9]{2,}$/i', $username) &&
-                       !is_object(self::get($username))
+        "available" => !is_object(self::get($username))
       )));
     }
 
@@ -37,9 +35,11 @@
      *         otherwise `false` will be returned
      */
     public static function get($username) {
-      $username = preg_replace('/[^a-z0-9]/i', null, $username);
-      $user     = \Model::factory('\\Models\\User')->where_like('user',
-        $username)->find_one();
+      $user   = false;
+      // Only go to the database if the username is valid
+      if (self::valid($username))
+        $user = \Model::factory('\\Models\\User')->where_like('user',
+          $username)->find_one();
       return (is_object($user) ? $user : false);
     }
 
@@ -117,6 +117,20 @@
       $post['verify'] = \ParagonIE\PasswordLock\PasswordLock::decryptAndVerify($post['password'], $post['cipher'], __PASSKEY__);
       $post['password'] = 'redacted';
       echo html_dump($post)."\n";
+    }
+
+    /**
+     * @brief Valid
+     *
+     * Determines if a username is valid
+     *
+     * @param username The username to test
+     *
+     * @return `true` if valid,
+     *         otherwise `false` will be returned
+     */
+    public static function valid($username) {
+      return preg_match('/^[a-z][a-z0-9]{2,}$/i', $username);
     }
 
     /**
