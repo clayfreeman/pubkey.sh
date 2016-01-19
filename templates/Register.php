@@ -24,9 +24,9 @@
 </div>
 <!-- Ensure that this form's password is verified before submission -->
 <script type="text/javascript" src="/js/password.js">
-  verifyPassword('password');
+  $.ready(verifyPassword('password'));
 </script>
 <!-- Verify the availability of the username -->
 <script type="text/javascript" src="/js/username.js">
-  verifyUsername('username');
+  $.ready(verifyUsername('username'));
 </script>
