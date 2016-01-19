@@ -16,7 +16,8 @@
      */
     public static function available($request) {
       // Fetch the username from the request
-      $username = $request->getBody();
+      $username = $request->getParsedBody();
+      $username = $username['username'];
       // Determine if the username is available
       die(json_encode(array(
         "available" => preg_match('/[a-z][a-z0-9]{2,}/i', $username) &&
