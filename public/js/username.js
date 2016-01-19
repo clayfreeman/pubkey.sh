@@ -7,12 +7,12 @@ function verifyUsername(selector) {
     var field  = $(this);
     var icon   = $(this).siblings('i');
     var form   = $(this).closest('form');
+    // Remove the icon's classes
+    icon.removeClass(function(index, css) {
+      return (css.match(/(^|\s)uk-icon-\S+/g) || []).join(' ');
+    });
     // Verify constraints of the username field
     if (field.val().length > 2 && /^[a-z][a-z0-9]{2,}$/i.test(field.val())) {
-      // Remove the icon's classes
-      icon.removeClass(function(index, css) {
-        return (css.match(/(^|\s)uk-icon-\S+/g) || []).join(' ');
-      });
       // Change the state of the password field to show failure
       field.attr('unverified', true);
       field.removeClass('uk-form-success');
