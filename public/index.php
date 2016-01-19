@@ -40,7 +40,7 @@
   // Define route to register processing
   $app->post('/register', '\\Controllers\\User::register');
   // Define route to check username availability
-  $app->post('/mail/available', '\\Controllers\\User::mailAvailable');
+  $app->post('/email/available', '\\Controllers\\User::emailAvailable');
   // Define route to check username availability
   $app->post('/user/available', '\\Controllers\\User::userAvailable');
 
