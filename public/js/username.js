@@ -14,7 +14,7 @@ function verifyUsername(selector) {
     // Change the state of the password field to show failure
     field.attr('unverified', true);
     field.removeClass('uk-form-success');
-    field.addClass('uk-form-danger');
+    field.removeClass('uk-form-danger');
     // Disable form submission
     form.find('button').prop('disabled', true);
     // Fetch the query result from the API
