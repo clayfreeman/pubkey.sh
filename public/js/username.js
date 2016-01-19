@@ -11,7 +11,7 @@ function verifyUsername(selector) {
     });
     // Fetch the query result from the API
     $.post('/user/available', {"username": $(this).val()}, function(data) {
-      console.log(JSON.stringify(data));
+      console.log(data);
     });
   });
 }
