@@ -3,23 +3,19 @@ function verifyPassword(selector) {
   $("input[name=" + selector + "]").attr('unverified', true);
   // Register an event handler on input to verify the password complexity
   $("input[name=" + selector + "]").on('input', function() {
-    // Select the icon for the form field
-    var icon   = $(this).siblings('i');
-    // Remove the icon's classes
-    icon.removeClass(function(index, css) {
-      return (css.match(/(^|\s)uk-icon-\S+/g) || []).join(' ');
-    });
+    // Select the icon and form from the field
+    var field  = $(this);
+    var icon   = field.siblings('i');
+    var form   = field.closest('form');
     // Generate a list of words for zxcvbn to use as user-generated data to
     // increase security
-    var form   = $(this).closest('form');
     var values = ['pubkey', 'pub', 'key', 'public', 'key'];
     form.find('input:text').each(function() {
       $.each($(this).val().split(" "), function(i, item) {
         values.push(item);
-      });
     });
     // Fetch the information from zxcvbn regarding the password
-    var info  = zxcvbn($(this).val(), values);
+    var info  = zxcvbn(field.val(), values);
     // If the score is sufficient, enable submission of the form
     var score = $('#password-score');
     score.text(info.score < 4 ? info.score : 3);
@@ -27,24 +23,13 @@ function verifyPassword(selector) {
       // Change the state of the password field to show success
       score.closest('.uk-alert').removeClass('uk-alert-danger');
       score.closest('.uk-alert').addClass('uk-alert-success');
-      $(this).removeAttr('unverified');
-      $(this).removeClass('uk-form-danger');
-      $(this).addClass('uk-form-success');
-      icon.addClass('uk-icon-check');
-      // Enable form submission if appropriate
-      if (form.find('input[unverified]').length == 0)
-        form.find('button').prop('disabled', false);
+      fieldMutateState(field, true, true);
     }
     else {
       // Change the state of the password field to show failure
       score.closest('.uk-alert').removeClass('uk-alert-success');
       score.closest('.uk-alert').addClass('uk-alert-danger');
-      $(this).attr('unverified', true);
-      $(this).removeClass('uk-form-success');
-      $(this).addClass('uk-form-danger');
-      icon.addClass('uk-icon-close');
-      // Disable form submission
-      form.find('button').prop('disabled', true);
+      fieldMutateState(field, false, true);
     }
   });
 }

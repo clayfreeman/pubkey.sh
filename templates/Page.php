@@ -20,6 +20,9 @@
 
     <!-- Load password strength verification library -->
     <script type="text/javascript" src="/js/zxcvbn.js"></script>
+
+    <!-- Load library for username/password verification -->
+    <script type="text/javascript" src="/js/fieldMutateState.js"></script>
   </head>
   <body class="uk-height-1-1">
 <?= indent($contents, 2) ?>  </body>
