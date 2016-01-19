@@ -1,4 +1,4 @@
-function usernameMutateState(field, enabled, indicateState = true) {
+function usernameMutateState(field, enabled, indicateState) {
   // Select the icon and form from the field
   var icon = field.siblings('i');
   var form = field.closest('form');
@@ -53,12 +53,12 @@ function verifyUsername(selector) {
           usernameMutateState(field, false, false);
         else
           // Disable the form field
-          usernameMutateState(field, false);
+          usernameMutateState(field, false, true);
       });
     }
     else {
       // Disable the form field
-      usernameMutateState(field, false);
+      usernameMutateState(field, false, true);
     }
   });
 }
