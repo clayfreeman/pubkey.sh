@@ -49,5 +49,14 @@ function verifyUsername(selector) {
         }
       });
     }
+    else {
+      // Change the state of the password field to show failure
+      field.attr('unverified', true);
+      field.removeClass('uk-form-success');
+      field.addClass('uk-form-danger');
+      icon.addClass('uk-icon-close');
+      // Disable form submission
+      form.find('button').prop('disabled', true);
+    }
   });
 }
