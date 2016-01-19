@@ -33,7 +33,7 @@
      */
     public static function get($username) {
       $username = preg_replace('/[^a-z0-9]/i', null, $username);
-      $user     = \Model::factory('\\Models\\User')->where_like('username',
+      $user     = \Model::factory('\\Models\\User')->where_like('user',
         $username)->find_one();
       return (is_object($user) ? $user : false);
     }
