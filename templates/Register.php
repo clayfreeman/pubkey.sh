@@ -21,4 +21,10 @@
   </div>
 </div>
 <!-- Ensure that this form's password is verified before submission -->
-<script type="text/javascript" src="/js/password.js"></script>
+<script type="text/javascript" src="/js/password.js">
+  verifyPassword('input:password');
+</script>
+<!-- Verify the availability of the username -->
+<script type="text/javascript" src="/js/username.js">
+  verifyUsername('input[name=username]');
+</script>
