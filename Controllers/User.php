@@ -164,7 +164,7 @@
 
       // If we've reached this point, registration is possible and should
       // continue as requested
-      $newUser = new \Models\User;
+      $newUser = \Model::factory('\\Models\\User')->create();
       $newUser->username = $username;
       $newUser->mail     = $mail;
       $newUser->password = PasswordLock::hashAndEncrypt($password, __PASSKEY__);
