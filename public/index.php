@@ -42,6 +42,7 @@
   // Define route to check username availability
   $app->post('/user/available', '\\Controllers\\User::available');
 
+  // Unset the Slim framework error handler during development
   unset($app->getContainer()['errorHandler']);
 
   // Run Slim app instance
