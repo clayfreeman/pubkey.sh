@@ -11,7 +11,7 @@
       <div class="uk-form-row">
         <div class="uk-form-icon uk-width-1-1">
           <i class="uk-icon-circle-thin"></i>
-          <input autocomplete="off" class="uk-form-large uk-width-1-1" name="mail" placeholder="E-Mail" style="font-family: Courier;" type="text" unverified />
+          <input autocomplete="off" class="uk-form-large uk-width-1-1" name="email" placeholder="E-Mail" style="font-family: Courier;" type="text" unverified />
         </div>
       </div>
       <div class="uk-form-row">
@@ -31,13 +31,13 @@
 <!-- Verify the availability of the username -->
 <script type="text/javascript" src="/js/username.js"></script>
 <!-- Verify the availability of the email address -->
-<script type="text/javascript" src="/js/mail.js"></script>
+<script type="text/javascript" src="/js/email.js"></script>
 <!-- Ensure that this form's password is verified before submission -->
 <script type="text/javascript" src="/js/password.js"></script>
 <script type="text/javascript">
   $(function() {
     verifyUsername('username');
-    verifyMail('mail');
+    verifyEmail('email');
     verifyPassword('password');
   });
 </script>
