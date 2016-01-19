@@ -130,9 +130,9 @@
       // Fetch the parsed body from the Slim request interface
       $post = $request->getParsedBody();
       // Fetch the appropriate form fields
-      $username = (isset($post['username']) ? $post['username'] : null;
-      $email    = (isset($post['email']) ? $post['email'] : null;
-      $password = (isset($post['password']) ? $post['password'] : null;
+      $username = (isset($post['username']) ? $post['username'] : null);
+      $email    = (isset($post['email']) ? $post['email'] : null);
+      $password = (isset($post['password']) ? $post['password'] : null);
 
       // Ensure logged in users are redirected to their account page
       if (is_object(self::getCurrent()))
@@ -187,7 +187,7 @@
     public static function userAvailable($request) {
       // Fetch the username from the request
       $username = $request->getParsedBody();
-      $username = (isset($username['username']) ? $username['username'] : null;
+      $username = (isset($username['username']) ? $username['username'] : null);
       // Determine if the username is available
       die(json_encode(array(
         "available" => !is_object(self::getUser($username))
