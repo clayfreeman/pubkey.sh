@@ -20,12 +20,12 @@
      * @return A `\Models\User` object if the username exists,
      *         otherwise `false` will be returned
      */
-    public static function getMail($mail) {
+    public static function getEmail($email) {
       $user   = false;
       // Only go to the database if the username is valid
-      if (self::validMail($mail))
-        $user = \Model::factory('\\Models\\User')->where_like('mail',
-          $mail)->find_one();
+      if (self::validEmail($email))
+        $user = \Model::factory('\\Models\\User')->where_like('email',
+          $email)->find_one();
       return (is_object($user) ? $user : false);
     }
 
@@ -103,18 +103,18 @@
     }
 
     /**
-     * @brief Mail Available
+     * @brief E-Mail Available
      *
      * Determines the availability of an email address and prints a JSON encoded
      * response with the details of availability
      */
-    public static function mailAvailable($request) {
+    public static function emailAvailable($request) {
       // Fetch the username from the request
-      $mail = $request->getParsedBody();
-      $mail = $mail['mail'];
+      $email = $request->getParsedBody();
+      $email = $email['email'];
       // Determine if the username is available
       die(json_encode(array(
-        "available" => !is_object(self::getMail($mail))
+        "available" => !is_object(self::getEmail($email))
       )));
     }
 
@@ -131,7 +131,7 @@
       $post = $request->getParsedBody();
       // Fetch the appropriate form fields
       $username = $post['username'];
-      $mail     = $post['mail'];
+      $email    = $post['email'];
       $password = $post['password'];
 
       // Ensure logged in users are redirected to their account page
@@ -143,13 +143,13 @@
         return \Views\Register::show('Invalid username provided.');
 
       // Determine if the provided username is valid
-      if (!self::validMail($mail))
+      if (!self::validEmail($email))
         return \Views\Register::show('Invalid email address provided.');
 
       // Determine if the provided password meets strength requirements
       $zxcvbn   = new Zxcvbn;
       $strength = $zxcvbn->passwordStrength($password, array_merge(
-        explode(" ", $mail),
+        explode(" ", $email),
         explode(" ", $username)
       ));
       if ($strength['score'] < 3)
@@ -159,14 +159,14 @@
       // Determine if the username or email address were taken
       if (is_object(self::getUser($username)))
         return \Views\Register::show('Username already registered.');
-      if (is_object(self::getMail($mail)))
+      if (is_object(self::getEmail($email)))
         return \Views\Register::show('Email address already registered.');
 
       // If we've reached this point, registration is possible and should
       // continue as requested
       $newUser = \Model::factory('\\Models\\User')->create();
       $newUser->username = $username;
-      $newUser->mail     = $mail;
+      $newUser->email    = $email;
       $newUser->password = PasswordLock::hashAndEncrypt($password, __PASSKEY__);
       // Unset the cleartext password and save the user
       unset($password);
@@ -195,17 +195,17 @@
     }
 
     /**
-     * @brief Valid Mail
+     * @brief Valid E-Mail
      *
      * Determines if an email address is valid
      *
-     * @param mail The email address to test
+     * @param email The email address to test
      *
      * @return `true` if valid,
      *         otherwise `false` will be returned
      */
-    public static function validMail($mail) {
-      return filter_var($mail, FILTER_VALIDATE_EMAIL) !== false;
+    public static function validEmail($email) {
+      return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
     }
 
     /**
