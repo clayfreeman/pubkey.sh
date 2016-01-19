@@ -12,4 +12,4 @@ composer dump-autoload
 
 * [Key](https://thenounproject.com/term/key/12637/) by
   [Ricardo Moreira](https://thenounproject.com/skatakila/) from the
-  [Noun Project](https://thenounproject.com)
+  [Noun Project](https://thenounproject.com) used in the logo for this project

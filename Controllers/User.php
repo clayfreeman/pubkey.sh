@@ -23,9 +23,9 @@
     public static function getEmail($email) {
       $user   = false;
       // Only go to the database if the username is valid
-      if (self::validEmail($email))
-        $user = \Model::factory('\\Models\\User')->where_like('email',
-          $email)->find_one();
+      if (self::validEmail($email = strtolower($email)))
+        $user = \Model::factory('\\Models\\User')->where_raw(
+          'LOWER(email) = ?', $email)->find_one();
       return (is_object($user) ? $user : false);
     }
 
@@ -42,9 +42,9 @@
     public static function getUser($username) {
       $user   = false;
       // Only go to the database if the username is valid
-      if (self::validUsername($username))
-        $user = \Model::factory('\\Models\\User')->where_like('username',
-          $username)->find_one();
+      if (self::validUsername($username = strtolower($username)))
+        $user = \Model::factory('\\Models\\User')->where_raw(
+          'LOWER(username) = ?', $username)->find_one();
       return (is_object($user) ? $user : false);
     }
 
@@ -114,7 +114,8 @@
       $email = (isset($email['email']) ? $email['email'] : null);
       // Determine if the username is available
       die(json_encode(array(
-        "available" => !is_object(self::getEmail($email))
+        "available" => self::validEmail($email) &&
+                       !is_object(self::getEmail($email))
       )));
     }
 
@@ -192,7 +193,8 @@
       $username = (isset($username['username']) ? $username['username'] : null);
       // Determine if the username is available
       die(json_encode(array(
-        "available" => !is_object(self::getUser($username))
+        "available" => self::validEmail($username) &&
+                       !is_object(self::getUser($username))
       )));
     }
 
