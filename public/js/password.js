@@ -13,7 +13,8 @@ function verifyPassword(selector) {
     form.find('input:text').each(function() {
       $.each($(this).val().split(" "), function(i, item) {
         values.push(item);
-    });
+      });
+    }
     // Fetch the information from zxcvbn regarding the password
     var info  = zxcvbn(field.val(), values);
     // If the score is sufficient, enable submission of the form
