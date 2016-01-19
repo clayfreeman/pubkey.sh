@@ -111,7 +111,7 @@
     public static function emailAvailable($request) {
       // Fetch the username from the request
       $email = $request->getParsedBody();
-      $email = $email['email'];
+      $email = (isset($email['email']) ? $email['email'] : null);
       // Determine if the username is available
       die(json_encode(array(
         "available" => !is_object(self::getEmail($email))
@@ -130,9 +130,9 @@
       // Fetch the parsed body from the Slim request interface
       $post = $request->getParsedBody();
       // Fetch the appropriate form fields
-      $username = $post['username'];
-      $email    = $post['email'];
-      $password = $post['password'];
+      $username = (isset($post['username']) ? $post['username'] : null;
+      $email    = (isset($post['email']) ? $post['email'] : null;
+      $password = (isset($post['password']) ? $post['password'] : null;
 
       // Ensure logged in users are redirected to their account page
       if (is_object(self::getCurrent()))
@@ -152,7 +152,7 @@
         explode(" ", $email),
         explode(" ", $username)
       ));
-      if ($strength['score'] < 3)
+      if (isset($strength) && $strength['score'] < 3)
         return \Views\Register::show('Password strength requirements were not '.
           'satisfied.');
 
@@ -187,7 +187,7 @@
     public static function userAvailable($request) {
       // Fetch the username from the request
       $username = $request->getParsedBody();
-      $username = $username['username'];
+      $username = (isset($username['username']) ? $username['username'] : null;
       // Determine if the username is available
       die(json_encode(array(
         "available" => !is_object(self::getUser($username))
@@ -233,6 +233,8 @@
       // Attempt to fetch IP address and User Agent from the session, and only
       // continue upon successful verification
       if ($ip = getSession('ip', false)  && $ua = getSession('ua', false) &&
+          isset($_SERVER['REMOTE_ADDR']) &&
+          isset($_SERVER['HTTP_USER_AGENT']) &&
           $ip == $_SERVER['REMOTE_ADDR'] && $ua == $_SERVER['HTTP_USER_AGENT'])
         return true;
       // Assume failure in all other cases and clear the session
