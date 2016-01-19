@@ -4,7 +4,7 @@ To (re)build the database schema, run the following commands:
 
 ```sh
 mkdir -p data
-echo "VACUUM;" | cat schema/*.sql - | sqlite3 data/pubkey.db
+echo "VACUUM;" | cat schema/*.sql - | sqlite3 data/pubkey.sh.db
 sudo chgrp www-data data
 sudo chgrp www-data data/pubkey.db
 sudo chmod g+rwx    data
