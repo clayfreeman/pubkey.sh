@@ -3,7 +3,7 @@
     <a href="/"><img class="uk-margin-bottom" src="/img/logo.svg" alt /></a>
 <?= indent($error, 2) ?>    <form class="uk-panel uk-panel-box uk-form" method="POST">
 <?= indent($message, 3) ?>      <div class="uk-form-row">
-        <div class="uk-form-icon">
+        <div class="uk-form-icon uk-width-1-1">
           <i id="username-icon" class="circle-o"></i>
           <input autocomplete="off" class="uk-form-large uk-width-1-1" name="username" placeholder="Username" style="font-family: Courier;" type="text" />
         </div>
