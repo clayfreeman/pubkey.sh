@@ -149,8 +149,9 @@
       // Determine if the provided password meets strength requirements
       $zxcvbn   = new Zxcvbn;
       $strength = $zxcvbn->passwordStrength($password, array_merge(
-        explode(" ", $email),
-        explode(" ", $username)
+        array('pubkey', 'pub', 'key', 'public', 'key'),
+        explode(' ', $email),
+        explode(' ', $username)
       ));
       if (isset($strength) && $strength['score'] < 3)
         return \Views\Register::show('Password strength requirements were not '.
