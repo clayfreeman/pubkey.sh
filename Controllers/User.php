@@ -7,8 +7,6 @@
 
   namespace Controllers;
 
-  use \ParagonIE\PasswordLock\PasswordLock;
-  use \ZxcvbnPhp\Zxcvbn;
   class User {
     /**
      * @brief Get
@@ -148,7 +146,7 @@
         return \Views\Register::show('Invalid email address provided.');
 
       // Determine if the provided password meets strength requirements
-      $zxcvbn   = new Zxcvbn;
+      $zxcvbn   = new \ZxcvbnPhp\Zxcvbn;
       $strength = $zxcvbn->passwordStrength($password, array_merge(
         array('pubkey', 'pub', 'key', 'public'),
         explode(' ', $email),
@@ -169,8 +167,12 @@
       $newUser = \Model::factory('\\Models\\User')->create();
       $newUser->username = $username;
       $newUser->email    = $email;
-      $newUser->password = base64_encode(PasswordLock::hashAndEncrypt($password,
-        __PASSKEY__));
+      $newUser->password = base64_encode(
+        \ParagonIE\PasswordLock\PasswordLock::hashAndEncrypt(
+          $password,
+          __PASSKEY__
+        )
+      );
       // Unset the cleartext password and save the user
       unset($password);
       $newUser->save();
