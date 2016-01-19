@@ -7,6 +7,8 @@
 
   namespace Controllers;
 
+  use \ParagonIE\PasswordLock\PasswordLock;
+  use \ZxcvbnPhp\Zxcvbn;
   class User {
     /**
      * @brief Available
@@ -38,7 +40,7 @@
       $user   = false;
       // Only go to the database if the username is valid
       if (self::valid($username))
-        $user = \Model::factory('\\Models\\User')->where_like('user',
+        $user = \Model::factory('\\Models\\User')->where_like('username',
           $username)->find_one();
       return (is_object($user) ? $user : false);
     }
@@ -106,17 +108,30 @@
      * @param response The Slim framework response interface
      */
     public static function register($request, $response) {
-      // Ensure logged in users are redirected to the home page
-      if (is_object(self::getCurrent()))
-        return \Views\Login::show("You're already logged in.");
-
       // Fetch the parsed body from the Slim request interface
       $post = $request->getParsedBody();
-      // Encrypt the password provided in the form
-      $post['cipher'] = base64_encode(\ParagonIE\PasswordLock\PasswordLock::hashAndEncrypt($post['password'], __PASSKEY__));
-      $post['verify'] = \ParagonIE\PasswordLock\PasswordLock::decryptAndVerify($post['password'], base64_decode($post['cipher']), __PASSKEY__);
-      $post['password'] = 'redacted';
-      echo html_dump($post)."\n";
+      // Fetch the appropriate form fields
+      $email    = $post['email'];
+      $username = $post['username'];
+      $password = $post['password'];
+
+      // Ensure logged in users are redirected to their account page
+      if (is_object(self::getCurrent()))
+        return $response->withRedirect('/user');
+
+      // Determine if the provided username is valid
+      if (!self::valid($username))
+        return \Views\Register::show('Invalid username provided.');
+
+      // Determine if the provided password meets strength requirements
+      $zxcvbn   = new Zxcvbn;
+      $strength = $zxcvbn->passwordStrength($password, array_merge(
+        explode(" ", $email),
+        explode(" ", $username)
+      ));
+      if ($strength['score'] < 3)
+        return \Views\Register::show('Password strength requirements were not '.
+          'satisfied.');
     }
 
     /**
