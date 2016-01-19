@@ -10,7 +10,7 @@ function verifyUsername(selector) {
       return (css.match(/(^|\s)uk-icon-\S+/g) || []).join(' ');
     });
     // Fetch the query result from the API
-    $.postJSON('/user/available', $(this).val(), function(data) {
+    $.post('/user/available', $(this).val(), function(data) {
       console.log(JSON.stringify(data));
     });
   });
