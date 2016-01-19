@@ -9,7 +9,7 @@ function verifyPassword(selector) {
     var form   = field.closest('form');
     // Generate a list of words for zxcvbn to use as user-generated data to
     // increase security
-    var values = ['pubkey', 'pub', 'key', 'public', 'key'];
+    var values = ['pubkey', 'pub', 'key', 'public'];
     form.find('input:text').find('[name!='+ selector +']').each(function() {
       $.each($(this).val().split(' '), function(i, item) {
         values.push(item);

@@ -149,7 +149,7 @@
       // Determine if the provided password meets strength requirements
       $zxcvbn   = new Zxcvbn;
       $strength = $zxcvbn->passwordStrength($password, array_merge(
-        array('pubkey', 'pub', 'key', 'public', 'key'),
+        array('pubkey', 'pub', 'key', 'public'),
         explode(' ', $email),
         explode(' ', $username)
       ));
