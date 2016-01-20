@@ -17,7 +17,7 @@
    *   - Restricting cookie validity to `__SESSIONEXPIRE__` seconds
    *   - Restricting cookie to secure connections
    *   - Making use of `/dev/urandom` to generate 512 bytes of entropy per token
-   *   - Using the 'whirlpool' hash function to generate a ~170 byte token
+   *   - Using the 'whirlpool' hash function to generate a ~128 byte token
    *   - Restricting sessions to only cookies (no session IDs in query)
    *   - Generating a new ID for uninitialized sessions on page load
    *   - Establishing the initial IP address and user agent of the client
