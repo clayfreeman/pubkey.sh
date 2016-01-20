@@ -12,7 +12,7 @@
         $encode = true) {
       // Optionally encode the message for display in the alert
       if ($encode)
-        $message = htmlspecialchars(trim($message), ENT_HTML401 | ENT_QUOTES);
+        $message = html_encode(trim($message));
       // Ensure the passed variable is a string
       $output = null;
       if (is_string($message)) {

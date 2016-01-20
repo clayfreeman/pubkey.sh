@@ -19,8 +19,8 @@
   // Require the settings file
   require_once(__PRIVATEROOT__.'/includes/settings.php');
 
-  // Require the htmldump file
-  require_once(__PRIVATEROOT__.'/includes/htmldump.php');
+  // Require the htmlutils file
+  require_once(__PRIVATEROOT__.'/includes/htmlutils.php');
 
   // Require the indent file
   require_once(__PRIVATEROOT__.'/includes/indent.php');

@@ -33,8 +33,7 @@
 
     protected static function renderItem($path, $name, $active) {
       return '<li'.($active ? ' class="uk-active"' : null).'><a href="'.$path.
-        '">'.htmlspecialchars(trim($name), ENT_HTML401 | ENT_QUOTES).
-        '</a></li>';
+        '">'.html_encode(trim($name)).'</a></li>';
     }
 
     public static function render($current) {
