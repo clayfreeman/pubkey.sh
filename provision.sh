@@ -4,7 +4,7 @@
 set -e
 
 # List of packages required for operation
-PACKAGES="nginx php5-dev php5-fpm php5-mcrypt"
+PACKAGES="nginx php5-dev php5-fpm php5-mcrypt sqlite3"
 
 echo "Fetching updated list of packages..."
 apt-get update > /dev/null
