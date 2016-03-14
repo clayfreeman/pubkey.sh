@@ -18,7 +18,7 @@ apt-get autoclean > /dev/null
 apt-get clean > /dev/null
 
 echo "Installing required packages..."; echo
-apt-get install --force-yes -y "${PACKAGES}" > /dev/null
+apt-get install --force-yes -y ${PACKAGES} > /dev/null
 
 echo "Enabling PHP modules..."
 php5enmod mcrypt > /dev/null
