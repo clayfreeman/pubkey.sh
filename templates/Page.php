@@ -9,6 +9,10 @@
     <!-- Load jQuery -->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
 
+    <!-- Set the favorite icon -->
+    <link rel="icon" href="/img/favicon.gif" />
+    <link rel="apple-touch-icon" href="/img/favicon.gif" />
+
     <!-- Load UIKit requirements -->
     <link rel="stylesheet" href="/uikit/css/uikit.almost-flat.min.css" />
     <link rel="stylesheet" href="/uikit/css/components/form-password.almost-flat.min.css" />

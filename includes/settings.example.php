@@ -12,7 +12,7 @@
   // The time (in seconds) that it takes for a session to expire
   define('__SESSIONEXPIRE__', 3600);
 
-  // The root domain of the application
+  // The root domain of the application (used for cookie security restrictions)
   define('__DOMAIN__', 'pubkey.sh');
 
   // The AES encryption key used for storing password information
