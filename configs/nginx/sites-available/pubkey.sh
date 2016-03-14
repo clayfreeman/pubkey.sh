@@ -1,13 +1,13 @@
 server {
-  listen 80 default_server;
-  listen [::]:80 default_server;
+  listen      8080 default_server;
+  listen [::]:8080 default_server;
 
-  return 301 https://$host$request_uri;
+  return 301 https://$host:1433$request_uri;
 }
 
 server {
-  listen 443 default_server ssl;
-  listen [::]:443 default_server ssl;
+  listen      1443 default_server ssl;
+  listen [::]:1443 default_server ssl;
   server_name .pubkey.sh;
 
   index index.php;
