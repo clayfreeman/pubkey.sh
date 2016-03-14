@@ -2,7 +2,7 @@ server {
   listen      8080 default_server;
   listen [::]:8080 default_server;
 
-  return 301 https://$host:1433$request_uri;
+  return 301 https://$host:1443$request_uri;
 }
 
 server {
