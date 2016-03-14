@@ -6,6 +6,9 @@ set -e
 # List of packages required for operation
 PACKAGES="git nginx php5-dev php5-fpm php5-mcrypt php5-sqlite sqlite3"
 
+echo "Remounting /vagrant as read-only..."
+mount -r -o remount /vagrant
+
 echo "Fetching updated list of packages..."
 apt-get -qq update
 
