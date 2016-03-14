@@ -14,7 +14,7 @@ virtual build environment is prepared, you can access the project at
 
 # License & Copyright Information
 
-Copyright 2016 Clay Freeman. All rights reserved. This project is released under
-the GNU General Public License v3 (GPL-3.0).
+Copyright 2016 Clay Freeman. All rights reserved.
 
-See the `LICENSE` file in this project's root folder for more information.
+See the `LICENSE` file in this project's root folder for more information. This
+project is released under the GNU General Public License v3 (GPL-3.0).
