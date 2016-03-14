@@ -21,10 +21,11 @@ apt-get -qq autoclean
 apt-get -qq clean
 
 echo "Installing required packages..."; echo
-apt-get -qq install --force-yes -y ${PACKAGES}
+apt-get install --force-yes -y ${PACKAGES}
 
 echo "Enabling required PHP modules..."
 php5enmod mcrypt > /dev/null
+service php5-fpm restart
 
 echo "Installing Composer..."
 curl -sS https://getcomposer.org/installer | \
