@@ -10,7 +10,7 @@
 
   // Refuse to load over plaintext connections
   if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != "on")
-    die('This application cannot be loaded over HTTP.');
+    die('This application cannot be loaded over plaintext transports.');
 
   // Require the site bootstrap file
   require_once(__DIR__.'/../includes/bootstrap.php');
@@ -32,11 +32,11 @@
   });
 
   // Define route to homepage
-  $app->get ('/',      '\\Views\\Index::show');
+  $app->get('/', '\\Views\\Index::show');
   // Define route to login form
-  $app->get ('/login', '\\Views\\Login::show');
+  $app->get('/login', '\\Views\\Login::show');
   // Define route to register form
-  $app->get ('/register', '\\Views\\Register::show');
+  $app->get('/register', '\\Views\\Register::show');
 
   // Define route to login processing
   $app->post('/login', '\\Controllers\\User::login');
