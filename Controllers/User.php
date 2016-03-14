@@ -67,7 +67,7 @@
       // the peer with its initial IP and U/A state
       if ($userid > 0 && self::verifyPeer())
         // Fetch the matching record from the database
-        $user = \Model::factory('\\Models\\User')->find_one($user);
+        $user = \Model::factory('\\Models\\User')->find_one($userid);
 
       // Return the given result (if valid), otherwise return false
       return (is_object($user) && property_exists($user, 'id') &&
