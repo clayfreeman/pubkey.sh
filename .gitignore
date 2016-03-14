@@ -1,3 +1,4 @@
+.vagrant
 data
 composer.lock
 includes/settings.php
