@@ -1,3 +1,12 @@
+/**
+ * @file      email.js
+ * @copyright Copyright 2016 Clay Freeman. All rights reserved
+ * @license   This project is released under the GNU General Public License
+ *            v3 (GPL-3.0)
+ *
+ * Responsible for verifying the validity and availability of an E-Mail address
+ */
+
 function verifyEmail(selector) {
   // Add the unverified property to the password field
   $('input[name=' + selector + ']').attr('unverified', true);

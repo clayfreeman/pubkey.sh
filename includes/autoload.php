@@ -1,6 +1,9 @@
 <?php
   /**
-   * @file autoload.php
+   * @file      autoload.php
+   * @copyright Copyright 2016 Clay Freeman. All rights reserved
+   * @license   This project is released under the GNU General Public License
+   *            v3 (GPL-3.0)
    *
    * This file creates a class autoloader based off of namespace and class name
    * which are then translated to a file path relative to __PRIVATEROOT__

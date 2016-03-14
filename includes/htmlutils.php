@@ -1,6 +1,9 @@
 <?php
   /**
-   * @file htmlutils.php
+   * @file      htmlutils.php
+   * @copyright Copyright 2016 Clay Freeman. All rights reserved
+   * @license   This project is released under the GNU General Public License
+   *            v3 (GPL-3.0)
    *
    * This file exposes functions useful for HTML output and sanitization
    */

@@ -1,3 +1,12 @@
+/**
+ * @file      uikit.patches.css
+ * @copyright Copyright 2016 Clay Freeman. All rights reserved
+ * @license   This project is released under the GNU General Public License
+ *            v3 (GPL-3.0)
+ *
+ * Responsible for patching some UIKit nuances
+ */
+
 /* Correct the border for active menu items */
 .uk-navbar-nav > li.uk-active > a {
   border: 1px solid rgba(0, 0, 0, 0.1);

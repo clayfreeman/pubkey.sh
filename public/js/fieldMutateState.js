@@ -1,3 +1,12 @@
+/**
+ * @file      fieldMutateState.js
+ * @copyright Copyright 2016 Clay Freeman. All rights reserved
+ * @license   This project is released under the GNU General Public License
+ *            v3 (GPL-3.0)
+ *
+ * Responsible for form validation control and field status indicators
+ */
+
 function fieldMutateState(field, enabled, indicateState) {
   // Select the icon and form from the field
   var icon = field.siblings('i');
@@ -6,8 +15,8 @@ function fieldMutateState(field, enabled, indicateState) {
   icon.removeClass(function(index, css) {
     return (css.match(/(^|\s)uk-icon-\S+/g) || []).join(' ');
   });
-  // Change the state of the password field to show failure
   if (enabled) {
+    // Update the state of the field to show success
     field.removeAttr('unverified');
     field.removeClass('uk-form-danger');
     field.addClass('uk-form-success');
@@ -17,6 +26,7 @@ function fieldMutateState(field, enabled, indicateState) {
       form.find('button').prop('disabled', false);
   }
   else {
+    // Update the state of the field to show failure
     field.attr('unverified', true);
     field.removeClass('uk-form-success');
     if (indicateState) {

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Copyright 2016 Clay Freeman. All rights reserved
+# This project is released under the GNU General Public License v3 (GPL-3.0)
+
 # Exit on failure
 set -e && cd
 

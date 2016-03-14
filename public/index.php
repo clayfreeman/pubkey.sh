@@ -1,6 +1,9 @@
 <?php
   /**
-   * @file index.php
+   * @file      index.php
+   * @copyright Copyright 2016 Clay Freeman. All rights reserved
+   * @license   This project is released under the GNU General Public License
+   *            v3 (GPL-3.0)
    *
    * This file serves as the global entry point to the application
    */

@@ -1,6 +1,9 @@
 <?php
   /**
-   * @file Login.php
+   * @file      Login.php
+   * @copyright Copyright 2016 Clay Freeman. All rights reserved
+   * @license   This project is released under the GNU General Public License
+   *            v3 (GPL-3.0)
    *
    * Defines functionality for the Login page
    */
