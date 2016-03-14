@@ -17,7 +17,7 @@
   function indent($contents, $level = 0) {
     // Adjust the indent level of the contents
     $indentText = str_repeat('  ', $level);
-    $contents   = $indentText.implode("\n".$indentText, explode("\n",
-      trim($contents)))."\n";
-    return $contents;
+    $contents   = trim($indentText.implode("\n".$indentText, explode("\n",
+      trim($contents))));
+    return strlen($contents) > 0 ? $contents."\n" : null;
   }
