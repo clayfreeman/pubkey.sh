@@ -45,7 +45,7 @@
       );
       // Iterate over each option and apply it
       foreach ($options as $key => $value)
-        ini_set($key, $value);
+        ini_set('session.'.$key, $value);
       // Begin the session (hopefully with the specified configuration)
       session_start();
       // If this is a fresh session, place the IP address and user agent of the
