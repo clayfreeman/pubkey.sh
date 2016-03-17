@@ -30,23 +30,24 @@
    */
   function beginSession() {
     if (session_status() == PHP_SESSION_NONE) {
-      // Begin the session and set the appropriate security restrictions
-      session_start(array(
-        'name'                    => 'token',
-        'cookie_domain'           => __DOMAIN__,
-        'cookie_httponly'         => true,
-        'cookie_lifetime'         => __SESSIONEXPIRE__,
-        'cookie_path'             => '/',
-        'cookie_secure'           => true,
+      // Set the appropriate restraints on the session
+      session_name('token');
+      session_set_cookie_params(__SESSIONEXPIRE__, '/', __DOMAIN__, true, true);
+      $options = array(
         'entropy_file'            => '/dev/urandom',
-        'entropy_length'          => 512,
+        'entropy_length'          => '512',
         'hash_function'           => 'whirlpool',
-        'hash_bits_per_character' => 4,
-        'use_cookies'             => true,
-        'use_only_cookies'        => true,
-        'use_strict_mode'         => true,
-        'use_trans_sid'           => false
-      ));
+        'hash_bits_per_character' => '4',
+        'use_cookies'             => '1',
+        'use_only_cookies'        => '1',
+        'use_strict_mode'         => '1',
+        'use_trans_sid'           => '0'
+      );
+      // Iterate over each option and apply it
+      foreach ($options as $key => $value)
+        ini_set($key, $value);
+      // Begin the session (hopefully with the specified configuration)
+      session_start();
       // If this is a fresh session, place the IP address and user agent of the
       // user in the session
       if (count($_SESSION) == 0) {
