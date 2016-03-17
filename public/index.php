@@ -8,6 +8,10 @@
    * This file serves as the global entry point to the application
    */
 
+  // Refuse to load if PHP is older than 5.5.3
+  if (version_compare(PHP_VERSION, '5.5.3') < 0)
+    die('This application requires at least PHP 5.5.3 to run.');
+
   // Refuse to load over plaintext connections
   if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != "on")
     die('This application cannot be loaded over plaintext transports.');
