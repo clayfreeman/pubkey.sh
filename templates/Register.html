@@ -9,9 +9,7 @@
           {% include 'Message.html' with {'type': 'danger', 'msg': error, 'closable': true} only %}
         {% endif %}
         <form class='uk-panel uk-panel-box uk-form' method='POST'>
-          {% if message is not null %}
-            {% include 'Message.html' with {'msg': message} only %}
-          {% endif %}
+          {% include 'RegistrationStatus.html' only %}
           <div class='uk-form-row'>
             <div class='uk-form-icon uk-width-1-1'>
               <i class='uk-icon-circle-thin'></i>

@@ -2,5 +2,5 @@
   {% if closable %}
   <a class="uk-alert-close uk-close" href></a>
   {% endif %}
-  <p>{{msg}}</p>
+  <p>{% block messageText %}{{msg}}{% endblock %}</p>
 </div>
