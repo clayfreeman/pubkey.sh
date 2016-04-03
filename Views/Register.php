@@ -11,19 +11,12 @@
 
   class Register {
     public static function show($_ = null) {
-      // Prepare the error for display (if one was provided)
-      $error   = is_string($_) ? \Views\Message::render($_, 'danger') : null;
-      $message = \Views\Message::render(
-          'Submission will be enabled when all fields are satisfied.<br />'.
-          '<br /><code id="password-score">0</code> / <code>3</code><br />'.
-          '<span class="uk-text-small">Password Strength</span>',
-          null, false, false);
-      // Load and render the Register template
+      global $twig;
+      // Load and render the Login template
       ob_start();
-      require(__PRIVATEROOT__.'/templates/Register.php');
-      $contents = ob_get_contents();
-      ob_end_clean();
-      // Render and show the Page template
-      \Views\Page::show('Register', $contents);
+      echo $twig->render('Register.html', array(
+        'error' => is_string($_) ? $_ : null
+      ));
+      ob_end_flush();
     }
   }

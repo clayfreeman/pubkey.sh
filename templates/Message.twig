@@ -1,0 +1,6 @@
+<div class="{% if type %}uk-alert-{{ type|e }} {% endif %}uk-alert" data-uk-alert>
+  {% if closable %}
+  <a class="uk-alert-close uk-close" href></a>
+  {% endif %}
+  <p>{% block messageText %}{{ msg|e }}{% endblock %}</p>
+</div>

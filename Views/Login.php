@@ -15,8 +15,7 @@
       // Load and render the Login template
       ob_start();
       echo $twig->render('Login.html', array(
-        'error' => is_string($_) ? $_ : null,
-        'path'  => '/'
+        'error' => is_string($_) ? $_ : null
       ));
       ob_end_flush();
     }
