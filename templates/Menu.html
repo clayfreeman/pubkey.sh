@@ -1,4 +1,3 @@
-{% import 'MenuItems.html' as menu %}
     <nav class='uk-navbar uk-navbar-attached' style='position: relative; padding-top: 15px; padding-bottom: 15px;'>
       <div class='uk-container uk-container-center'>
         <a href='#uk-small-navbar' class='uk-navbar-toggle uk-visible-small' data-uk-offcanvas></a>
@@ -10,9 +9,31 @@
         </div>
         <div class='uk-navbar-flip uk-hidden-small'>
           <ul class='uk-navbar-nav'>
+            {% set items = {
+              '/': {
+                'name': 'Home',
+                'anon': true,
+                'user': true
+              },
+              '/user': {
+                'name': 'My Account',
+                'anon': false,
+                'user': true
+              },
+              '/login': {
+                'name': 'Login',
+                'anon': true,
+                'user': false
+              },
+              '/register': {
+                'name': 'Register',
+                'anon': true,
+                'user': false
+              },
+            } %}
             {% block menu %}
-            {{ dump(menu.items) }}
-            {% for itemPath, item in menu.items %}
+            {{ dump(menuItems) }}
+            {% for itemPath, item in menuItems %}
               <li{% if itemPath == path %} class='uk-active'{% endif %}><a href='{{ path }}'>{{ item.name|e }}</a></li>
             {% endfor %}
             {% endblock %}
