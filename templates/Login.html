@@ -6,11 +6,11 @@
       <div class='uk-vertical-align-middle' style='width: 300px;'>
         <a href='/'><img class='uk-margin-bottom' src='/img/logo.svg' alt /></a>
         {% if error is not null %}
-          {% include 'Message.html' with {'type': 'danger', msg: error} only %}
+          {% include 'Message.html' with {'type': 'danger', 'msg': error, 'closable': true} only %}
         {% endif %}
         <form class='uk-panel uk-panel-box uk-form' method='POST'>
           {% if message is not null %}
-            {% include 'Message.html' with {'type': 'info', msg: message} only %}
+            {% include 'Message.html' with {'type': 'info', 'msg': message} only %}
           {% endif %}
           <div class='uk-form-row'>
             <input autocomplete='off' class='uk-form-large uk-width-1-1' name='username' placeholder='Username' style='font-family: Courier;' type='text' />
