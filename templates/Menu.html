@@ -31,8 +31,7 @@
                 'user': false
             }] %}
             {% block menu %}
-            {{ dump(menuItems) }}
-            {% for item in menuItems %}
+            {% for item in menuItems if (anon and item.anon) or (user and item.user) %}
               <li{% if item.path == path %} class='uk-active'{% endif %}><a href='{{ item.path }}'>{{ item.name|e }}</a></li>
             {% endfor %}
             {% endblock %}
