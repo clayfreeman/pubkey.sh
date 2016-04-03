@@ -11,7 +11,7 @@
         <div class='uk-navbar-flip uk-hidden-small'>
           <ul class='uk-navbar-nav'>
             {% block menu %}
-            {% for itemPath, item in menuItems if (anon and item.anon) or (user and item.user) %}
+            {% for itemPath, item in menuItems %}
               <li{% if itemPath == path %} class='uk-active'{% endif %}><a href='{{ path }}'>{{ item.name|e }}</a></li>
             {% endfor %}
             {% endblock %}
