@@ -33,6 +33,7 @@ function verifyPassword(selector) {
     if (info.score > 2) {
       // Change the state of the password field to show success
       score.closest('.uk-progress').removeClass('uk-progress-danger');
+      score.closest('.uk-progress').removeClass('uk-progress-striped');
       score.closest('.uk-progress').addClass('uk-progress-success');
       fieldMutateState(field, true, true);
     }
@@ -40,6 +41,7 @@ function verifyPassword(selector) {
       // Change the state of the password field to show failure
       score.closest('.uk-progress').removeClass('uk-progress-success');
       score.closest('.uk-progress').addClass('uk-progress-danger');
+      score.closest('.uk-progress').addClass('uk-progress-striped');
       fieldMutateState(field, false, true);
     }
   });
