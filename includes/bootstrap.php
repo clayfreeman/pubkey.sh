@@ -2,8 +2,7 @@
   /**
    * @file      bootstrap.php
    * @copyright Copyright 2016 Clay Freeman. All rights reserved
-   * @license   This project is released under the GNU General Public License
-   *            v3 (GPL-3.0)
+   * @license   GNU General Public License v3 (GPL-3.0)
    *
    * This file loads the required files and defines the required constants for
    * the application to run
