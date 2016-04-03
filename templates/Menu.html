@@ -9,28 +9,27 @@
         </div>
         <div class='uk-navbar-flip uk-hidden-small'>
           <ul class='uk-navbar-nav'>
-            {% set items = {
-              '/': {
+            {% set items = [{
                 'name': 'Home',
+                'path': '/'
                 'anon': true,
                 'user': true
-              },
-              '/user': {
+              }, {
                 'name': 'My Account',
+                'path': '/user'
                 'anon': false,
                 'user': true
-              },
-              '/login': {
+              }, {
                 'name': 'Login',
+                'path': '/login'
                 'anon': true,
                 'user': false
-              },
-              '/register': {
+              }, {
                 'name': 'Register',
+                'path': '/register'
                 'anon': true,
                 'user': false
-              },
-            } %}
+            }] %}
             {% block menu %}
             {{ dump(menuItems) }}
             {% for itemPath, item in menuItems %}
