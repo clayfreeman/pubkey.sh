@@ -1,4 +1,4 @@
-{% include 'MenuItems.html' %}
+{% import 'MenuItems.html' as menu %}
     <nav class='uk-navbar uk-navbar-attached' style='position: relative; padding-top: 15px; padding-bottom: 15px;'>
       <div class='uk-container uk-container-center'>
         <a href='#uk-small-navbar' class='uk-navbar-toggle uk-visible-small' data-uk-offcanvas></a>
@@ -11,7 +11,7 @@
         <div class='uk-navbar-flip uk-hidden-small'>
           <ul class='uk-navbar-nav'>
             {% block menu %}
-            {% for item in menuItems if (anon and item.anon) or (user and item.user) %}
+            {% for item in menu.items if (anon and item.anon) or (user and item.user) %}
               <li{% if item.path == path %} class='uk-active'{% endif %}><a href='{{ item.path }}'>{{ item.name|e }}</a></li>
             {% endfor %}
             {% endblock %}
