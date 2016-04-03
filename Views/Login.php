@@ -11,12 +11,13 @@
 
   class Login {
     public static function show($_ = null) {
+      global $twig;
       // Load and render the Login template
-      $contents = Template::render(__PRIVATEROOT__.'/templates/Login.html',
-        array(
-          'error' => is_string($_) ? \Views\Message::render($_, 'danger') : null
-        ));
-      // Render and show the Page template
-      \Views\Page::show('Login', $contents);
+      ob_start();
+      echo $twig->render('Login.html', array(
+        'error' => is_string($_) ? $_ : null,
+        'path'  => '/'
+      ));
+      ob_end_flush();
     }
   }
