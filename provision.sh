@@ -7,7 +7,8 @@
 set -e
 
 # List of packages required for operation
-PACKAGES="git nginx npm php5-dev php5-fpm php5-mcrypt php5-sqlite sqlite3"
+PACKAGES="git nginx nodejs-legacy npm php5-dev php5-fpm php5-mcrypt
+  php5-sqlite sqlite3"
 
 echo "Remounting /vagrant as read-only..."
 mount -r -o remount /vagrant
