@@ -32,14 +32,14 @@ function verifyPassword(selector) {
     score.css('width', scorePercent + '%');
     if (info.score > 2) {
       // Change the state of the password field to show success
-      score.closest('.uk-alert').removeClass('uk-alert-danger');
-      score.closest('.uk-alert').addClass('uk-alert-success');
+      // score.closest('.uk-alert').removeClass('uk-alert-danger');
+      // score.closest('.uk-alert').addClass('uk-alert-success');
       fieldMutateState(field, true, true);
     }
     else {
       // Change the state of the password field to show failure
-      score.closest('.uk-alert').removeClass('uk-alert-success');
-      score.closest('.uk-alert').addClass('uk-alert-danger');
+      // score.closest('.uk-alert').removeClass('uk-alert-success');
+      // score.closest('.uk-alert').addClass('uk-alert-danger');
       fieldMutateState(field, false, true);
     }
   });
