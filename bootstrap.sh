@@ -13,6 +13,11 @@ cd vagrant
 echo "Copy 'includes/settings.example.php' to 'includes/settings.php'..."
 cp includes/settings.example.php includes/settings.php
 
+echo "Patching 'includes/settings.php'..."
+PASSKEY="`php includes/genkey.php`"
+sed -i "s/16-byte password/${PASSKEY}/" includes/settings.php
+sed -i "s/example.org/localhost/" includes/settings.php
+
 echo "Installing required Bower packages..."
 rm -rf public/resources
 bower install --quiet

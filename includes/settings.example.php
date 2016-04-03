@@ -15,7 +15,7 @@
   define('__SESSIONEXPIRE__', 3600);
 
   // The root domain of the application (used for cookie security restrictions)
-  define('__DOMAIN__', 'pubkey.sh');
+  define('__DOMAIN__', 'example.org');
 
   // The AES encryption key used for storing password information
   // NOTE: Generate a key with `includes/genkey.php`
