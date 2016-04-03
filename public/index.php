@@ -20,7 +20,8 @@
 
   // Setup a new instance of the Twig framework
   $loader = new Twig_Loader_Filesystem(__PRIVATEROOT__.'/templates');
-  $twig   = new Twig_Environment($loader);
+  $twig   = new Twig_Environment($loader, array('debug' => true));
+  $twig->addExtension(new Twig_Extension_Debug());
 
   // Setup a new instance of the Slim framework
   $app = new \Slim\App;
