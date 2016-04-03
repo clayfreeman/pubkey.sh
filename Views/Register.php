@@ -14,7 +14,7 @@
       global $twig;
       // Load and render the Login template
       ob_start();
-      echo $twig->render('Register.html', array(
+      echo $twig->render('Register.twig', array(
         'error' => is_string($_) ? $_ : null
       ));
       ob_end_flush();

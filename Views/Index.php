@@ -14,7 +14,7 @@
       global $twig;
       // Load and render the Index template
       ob_start();
-      echo $twig->render('Index.html', array(
+      echo $twig->render('Index.twig', array(
         'message' => is_string($_) ? $_ : null,
         'path'    => '/'
       ));
