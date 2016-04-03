@@ -9,7 +9,7 @@
         </div>
         <div class='uk-navbar-flip uk-hidden-small'>
           <ul class='uk-navbar-nav'>
-            {% set items = [{
+            {% set menuItems = [{
                 'name': 'Home',
                 'path': '/',
                 'anon': true,
@@ -32,8 +32,8 @@
             }] %}
             {% block menu %}
             {{ dump(menuItems) }}
-            {% for itemPath, item in menuItems %}
-              <li{% if itemPath == path %} class='uk-active'{% endif %}><a href='{{ path }}'>{{ item.name|e }}</a></li>
+            {% for item in menuItems %}
+              <li{% if item.path == path %} class='uk-active'{% endif %}><a href='{{ item.path }}'>{{ item.name|e }}</a></li>
             {% endfor %}
             {% endblock %}
           </ul>
