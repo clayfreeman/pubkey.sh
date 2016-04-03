@@ -1,7 +1,11 @@
 {% extends 'Message.twig' %}
 
 {% block messageText %}
-Submission will be enabled when all fields are satisfied.<br /><br />
-<code id="password-score">0</code> / <code>3</code><br />
+<span>Submission will be enabled when all fields are satisfied.</span><br /><br />
+<div class="uk-width-1-4">
+  <div class="uk-progress uk-progress-mini">
+    <div id="password-score" class="uk-progress-bar" style="width: 0%;"></div>
+  </div>
+</div>
 <span class="uk-text-small">Password Strength</span>
 {% endblock %}

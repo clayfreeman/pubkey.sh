@@ -27,7 +27,9 @@ function verifyPassword(selector) {
     var info  = zxcvbn(field.val(), values);
     // If the score is sufficient, enable submission of the form
     var score = $('#password-score');
-    score.text(info.score < 4 ? info.score : 3);
+    var scoreNum = info.score < 4 ? info.score : 3;
+    var scorePercent = Math.round(scoreNum / 3.0 * 100);
+    score.css('width', scorePercent + '%');
     if (info.score > 2) {
       // Change the state of the password field to show success
       score.closest('.uk-alert').removeClass('uk-alert-danger');
