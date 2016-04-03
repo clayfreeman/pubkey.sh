@@ -13,6 +13,10 @@ cd vagrant
 echo "Copy 'includes/settings.example.php' to 'includes/settings.php'..."
 cp includes/settings.example.php includes/settings.php
 
+echo "Installing required Bower packages..."
+rm -rf public/resources
+bower install --quiet
+
 echo "Installing required Composer packages..."
 rm -rf composer.lock vendor
 composer install --quiet

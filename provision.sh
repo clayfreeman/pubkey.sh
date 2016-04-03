@@ -7,7 +7,7 @@
 set -e
 
 # List of packages required for operation
-PACKAGES="git nginx php5-dev php5-fpm php5-mcrypt php5-sqlite sqlite3"
+PACKAGES="git nginx npm php5-dev php5-fpm php5-mcrypt php5-sqlite sqlite3"
 
 echo "Remounting /vagrant as read-only..."
 mount -r -o remount /vagrant
@@ -29,6 +29,9 @@ apt-get install --force-yes -y ${PACKAGES}
 echo "Enabling required PHP modules..."
 php5enmod mcrypt > /dev/null
 service php5-fpm restart
+
+echo "Installing Bower..."
+npm install -g bower
 
 echo "Installing Composer..."
 curl -sS https://getcomposer.org/installer | \

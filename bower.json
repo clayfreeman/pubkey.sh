@@ -1,0 +1,25 @@
+{
+  "name": "pubkey.sh",
+  "homepage": "https://github.com/clayfreeman/pubkey.sh",
+  "authors": [
+    "Clay Freeman <bower@clayfreeman.com>"
+  ],
+  "description": "Web-based, free-software public key management and deployment platform.",
+  "main": "",
+  "moduleType": [],
+  "license": "GNU General Public License v3 (GPL-3.0)",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/resources",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2",
+    "uikit": "^2.26.1",
+    "zxcvbn": "^4.3.0"
+  }
+}
