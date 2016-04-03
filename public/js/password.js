@@ -17,7 +17,7 @@ function verifyPassword(selector) {
     var form   = field.closest('form');
     // Generate a list of words for zxcvbn to use as user-generated data to
     // increase security
-    var values = ['pubkey', 'pub', 'key', 'public'];
+    var values = ['pubkey.sh', 'pubkey', 'pub', 'key', 'public'];
     form.find('input:text').find('[name!='+ selector +']').each(function() {
       $.each($(this).val().split(' '), function(i, item) {
         values.push(item);
@@ -32,14 +32,14 @@ function verifyPassword(selector) {
     score.css('width', scorePercent + '%');
     if (info.score > 2) {
       // Change the state of the password field to show success
-      // score.closest('.uk-alert').removeClass('uk-alert-danger');
-      // score.closest('.uk-alert').addClass('uk-alert-success');
+      score.closest('.uk-progress').removeClass('uk-progress-danger');
+      score.closest('.uk-progress').addClass('uk-progress-success');
       fieldMutateState(field, true, true);
     }
     else {
       // Change the state of the password field to show failure
-      // score.closest('.uk-alert').removeClass('uk-alert-success');
-      // score.closest('.uk-alert').addClass('uk-alert-danger');
+      score.closest('.uk-progress').removeClass('uk-progress-success');
+      score.closest('.uk-progress').addClass('uk-progress-danger');
       fieldMutateState(field, false, true);
     }
   });
