@@ -1,0 +1,22 @@
+{% set menuItems = {
+  '/': {
+    'name': 'Home',
+    'anon': true,
+    'user': true
+  },
+  '/user': {
+    'name': 'My Account',
+    'anon': false,
+    'user': true
+  },
+  '/login': {
+    'name': 'Login',
+    'anon': true,
+    'user': false
+  },
+  '/register': {
+    'name': 'Register',
+    'anon': true,
+    'user': false
+  },
+} %}
