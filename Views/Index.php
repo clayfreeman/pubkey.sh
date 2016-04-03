@@ -10,16 +10,14 @@
   namespace Views;
 
   class Index {
-    public static function show($_) {
-      $message = is_string($_) ? \Views\Message::render($_) : null;
-      // Render the Menu
-      $menu = \Views\Menu::render('/');
+    public static function show($_ = null) {
+      global $twig;
       // Load and render the Index template
       ob_start();
-      require(__PRIVATEROOT__.'/templates/Index.php');
-      $contents = ob_get_contents();
-      ob_end_clean();
-      // Render and show the Page template
-      \Views\Page::show('Home', $contents);
+      echo $twig->render('Index.html', array(
+        'message' => is_string($_) ? $_ : null,
+        'path'    => '/'
+      ));
+      ob_end_flush();
     }
   }

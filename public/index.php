@@ -18,6 +18,10 @@
   // Require the site bootstrap file
   require_once(__DIR__.'/../includes/bootstrap.php');
 
+  // Setup a new instance of the Twig framework
+  $loader = new Twig_Loader_Filesystem(__PRIVATEROOT__.'/templates');
+  $twig   = new Twig_Environment($loader);
+
   // Setup a new instance of the Slim framework
   $app = new \Slim\App;
 

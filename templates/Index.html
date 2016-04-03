@@ -1,0 +1,15 @@
+{% extends "Page.html" %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    {% include "Menu.html" %}
+    <div class="uk-container uk-container-center uk-margin-top">
+      {% if message is not null %}
+        {% include "Message.html" with {'type': 'info', msg: message} only %}
+      {% endif %}
+      <div class="uk-panel uk-panel-box">
+        <h1>Hello World.</h1>
+        <p>This is a test page.  Move along.</p>
+      </div>
+    </div>
+{% endblock %}
