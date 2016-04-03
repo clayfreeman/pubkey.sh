@@ -1,4 +1,4 @@
-{% extends 'Page.html' %}
+{% extends 'Page.twig' %}
 {% block title %}Register{% endblock %}
 
 {% block body %}
@@ -6,10 +6,10 @@
   <div class='uk-vertical-align-middle' style='width: 300px;'>
     <a href='/'><img class='uk-margin-bottom' src='/img/logo.svg' alt /></a>
     {% if error is not null %}
-      {% include 'Message.html' with {'type': 'danger', 'msg': error, 'closable': true} only %}
+      {% include 'Message.twig' with {'type': 'danger', 'msg': error, 'closable': true} only %}
     {% endif %}
     <form class='uk-panel uk-panel-box uk-form' method='POST'>
-      {% include 'RegistrationStatus.html' only %}
+      {% include 'RegistrationStatus.twig' only %}
       <div class='uk-form-row'>
         <div class='uk-form-icon uk-width-1-1'>
           <i class='uk-icon-circle-thin'></i>
