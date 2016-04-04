@@ -7,7 +7,7 @@
   <div class='uk-vertical-align-middle' style='width: 300px;'>
     <a href='/'><img class='uk-margin-bottom' src='/img/logo.svg' alt /></a>
 {% if error is not null %}
-  {{ message(error, true, 'danger') }}
+{{ message(error, true, 'danger') }}
 {% endif %}
     <form class='uk-panel uk-panel-box uk-form' method='POST'>
 {{ message('Submission will be enabled when all fields have been verified.') }}
