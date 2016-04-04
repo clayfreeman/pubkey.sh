@@ -30,23 +30,41 @@ function verifyPassword(selector) {
     var scoreNum = info.score <= 4 ? info.score : 4;
     var scorePercent = Math.round(scoreNum / 4.0 * 100);
     score.css('width', scorePercent + '%');
-    if (info.score <= 2) score.text('Weak');
-    if (info.score == 3) score.text('Strong');
-    if (info.score == 4) score.text('Very Strong');
-    if (info.score == 0) score.text('');
-    if (info.score > 2) {
+    if (info.score == 0) {
+      score.text('');
       // Change the state of the password field to show success
       score.closest('.uk-progress').removeClass('uk-progress-danger');
+      score.closest('.uk-progress').removeClass('uk-progress-warning');
+      score.closest('.uk-progress').removeClass('uk-progress-success');
       score.closest('.uk-progress').removeClass('uk-progress-striped');
-      score.closest('.uk-progress').addClass('uk-progress-success');
-      fieldMutateState(field, true, true);
+      fieldMutateState(field, false, true);
     }
-    else {
-      // Change the state of the password field to show failure
+    else if (info.score <= 2) {
+      score.text('Weak');
+      // Change the state of the password field to show success
+      score.closest('.uk-progress').removeClass('uk-progress-warning');
       score.closest('.uk-progress').removeClass('uk-progress-success');
       score.closest('.uk-progress').addClass('uk-progress-danger');
       score.closest('.uk-progress').addClass('uk-progress-striped');
       fieldMutateState(field, false, true);
+    }
+    else if (info.score == 3) {
+      score.text('Sufficient');
+      // Change the state of the password field to show success
+      score.closest('.uk-progress').removeClass('uk-progress-danger');
+      score.closest('.uk-progress').removeClass('uk-progress-success');
+      score.closest('.uk-progress').addClass('uk-progress-warning');
+      score.closest('.uk-progress').addClass('uk-progress-striped');
+      fieldMutateState(field, true, true);
+    }
+    else if (info.score == 4) {
+      score.text('Strong');
+      // Change the state of the password field to show success
+      score.closest('.uk-progress').removeClass('uk-progress-danger');
+      score.closest('.uk-progress').removeClass('uk-progress-warning');
+      score.closest('.uk-progress').addClass('uk-progress-success');
+      score.closest('.uk-progress').addClass('uk-progress-striped');
+      fieldMutateState(field, true, true);
     }
   });
 }
