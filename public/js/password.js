@@ -27,14 +27,14 @@ function verifyPassword(selector) {
     var info  = zxcvbn(field.val(), values);
     // If the score is sufficient, enable submission of the form
     var score = $('#password-score');
-    var scoreNum = info.score < 4 ? info.score : 3;
-    var scorePercent = Math.round(scoreNum / 3.0 * 100);
+    var scoreNum = info.score <= 4 ? info.score : 4;
+    var scorePercent = Math.round(scoreNum / 4.0 * 100);
     score.css('width', scorePercent + '%');
     if (info.score > 2) {
       // Change the state of the password field to show success
       score.closest('.uk-progress').removeClass('uk-progress-danger');
       score.closest('.uk-progress').removeClass('uk-progress-striped');
-      // score.closest('.uk-progress').addClass('uk-progress-success');
+      score.closest('.uk-progress').addClass('uk-progress-success');
       fieldMutateState(field, true, true);
     }
     else {

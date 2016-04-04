@@ -1,4 +1,5 @@
 {% extends 'Page.twig' %}
+{% from 'Message.twig' import message %}
 {% block title %}Register{% endblock %}
 
 {% block body %}
@@ -6,10 +7,10 @@
   <div class='uk-vertical-align-middle' style='width: 300px;'>
     <a href='/'><img class='uk-margin-bottom' src='/img/logo.svg' alt /></a>
     {% if error is not null %}
-      {% include 'Message.twig' with {'type': 'danger', 'msg': error, 'closable': true} only %}
+      message(error, true, 'danger')
     {% endif %}
     <form class='uk-panel uk-panel-box uk-form' method='POST'>
-      {% include 'RegistrationStatus.twig' only %}
+      {% message('Submission will be enabled when all fields have been verified.') %}
       <div class='uk-form-row'>
         <div class='uk-form-icon uk-width-1-1'>
           <i class='uk-icon-circle-thin'></i>
@@ -27,6 +28,9 @@
           <i class='uk-icon-circle-thin'></i>
           <input autocomplete='off' class='uk-form-large uk-width-1-1' name='password' placeholder='Password' style='font-family: Courier;' type='password' unverified />
           <a href class='uk-form-password-toggle' data-uk-form-password>Show</a>
+        </div>
+        <div class="uk-active uk-progress uk-progress-mini" style="margin-bottom: 5px">
+          <div id="password-score" class="uk-progress-bar" style="width: 0%;"></div>
         </div>
       </div>
       <div class='uk-form-row'>
