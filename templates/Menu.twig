@@ -9,11 +9,11 @@
     </div>
     <div class='uk-navbar-flip uk-hidden-small'>
       <ul class='uk-navbar-nav'>
-        {% block menu %}
-        {% for itemPath, item in routes if (not user and item.menu.anon) or (user and item.menu.user) %}
-          <li{% if itemPath == path %} class='uk-active'{% endif %}><a href='{{ itemPath }}'>{{ item.title|e }}</a></li>
-        {% endfor %}
-        {% endblock %}
+{% block menu %}
+{% for itemPath, item in routes if (not user and item.menu.anon) or (user and item.menu.user) %}
+  <li{% if itemPath == path %} class='uk-active'{% endif %}><a href='{{ itemPath }}'>{{ item.title|e }}</a></li>
+{% endfor %}
+{% endblock %}
       </ul>
     </div>
   </div>
@@ -22,7 +22,7 @@
   <div class='uk-offcanvas-bar'>
     <ul class='uk-nav uk-nav-offcanvas uk-nav-parent-icon'>
       <li class='uk-nav-header'>Navigation</li>
-      {{ block('menu') }}
+{{ block('menu') }}
     </ul>
   </div>
 </div>
