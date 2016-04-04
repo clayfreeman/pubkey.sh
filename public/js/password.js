@@ -33,13 +33,13 @@ function verifyPassword(selector) {
     if (info.score == 0) {
       score.text('');
       // Change the state of the password field to show success
-      score.closest('.uk-progress').removeClass('uk-progress-danger');
       score.closest('.uk-progress').removeClass('uk-progress-warning');
       score.closest('.uk-progress').removeClass('uk-progress-success');
-      score.closest('.uk-progress').removeClass('uk-progress-striped');
+      score.closest('.uk-progress').addClass('uk-progress-danger');
+      score.closest('.uk-progress').addClass('uk-progress-striped');
       fieldMutateState(field, false, true);
     }
-    else if (info.score <= 2) {
+    else if (info.score == 1 || info.score == 2) {
       score.text('Weak');
       // Change the state of the password field to show success
       score.closest('.uk-progress').removeClass('uk-progress-warning');
