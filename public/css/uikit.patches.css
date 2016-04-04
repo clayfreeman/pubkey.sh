@@ -18,5 +18,5 @@
 
 /* Hide the text contained within a progress bar */
 .uk-progress-bar {
-  overflow: hidden !important;
+  overflow: hidden;
 }
