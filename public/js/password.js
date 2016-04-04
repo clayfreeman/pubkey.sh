@@ -62,8 +62,8 @@ function verifyPassword(selector) {
       // Change the state of the password field to show success
       score.closest('.uk-progress').removeClass('uk-progress-danger');
       score.closest('.uk-progress').removeClass('uk-progress-warning');
+      score.closest('.uk-progress').removeClass('uk-progress-striped');
       score.closest('.uk-progress').addClass('uk-progress-success');
-      score.closest('.uk-progress').addClass('uk-progress-striped');
       fieldMutateState(field, true, true);
     }
   });
