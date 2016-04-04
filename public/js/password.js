@@ -30,7 +30,7 @@ function verifyPassword(selector) {
     var scoreNum = info.score <= 4 ? info.score : 4;
     var scorePercent = Math.round(scoreNum / 4.0 * 100);
     score.css('width', scorePercent + '%');
-    score.value(scorePercent + '%');
+    if (info.score > 0) score.text(scorePercent + '%'); else score.text('');
     if (info.score > 2) {
       // Change the state of the password field to show success
       score.closest('.uk-progress').removeClass('uk-progress-danger');
