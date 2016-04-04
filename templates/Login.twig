@@ -6,13 +6,17 @@
 <div class='uk-vertical-align uk-text-center uk-height-1-1'>
   <div class='uk-vertical-align-middle' style='width: 300px;'>
     <a href='/'><img class='uk-margin-bottom' src='/img/logo.svg' alt /></a>
+
 {% if error is not null %}
 {{ message(error, true, 'danger') }}
 {% endif %}
+
     <form class='uk-panel uk-panel-box uk-form' method='POST'>
+
 {% if message is not null %}
 {{ message(message, false) }}
 {% endif %}
+
       <div class='uk-form-row'>
         <input autocomplete='off' class='uk-form-large uk-width-1-1' name='username' placeholder='Username' style='font-family: Courier;' type='text' />
       </div>
