@@ -4,23 +4,30 @@
    * @copyright Copyright 2016 Clay Freeman. All rights reserved
    * @license   GNU General Public License v3 (GPL-3.0)
    *
-   * Controller to handle User object related functions
+   * Controller to handle `User` object related functions
    */
 
   namespace Controllers;
 
   class User {
     /**
-     * @brief Get Email
+     * Attempts to fetch a `\Models\User` object from the database by a
+     * corresponding e-mail address
      *
-     * Fetches a user by email address
+     * The provided e-mail address is first validated (to save time by avoiding
+     * a database visit for invalid addresses) then an attempt is made to fetch
+     * a corresponding database record using case-insensitive matching
      *
-     * @param email The email as listed in the database (case-insensitive)
+     * @see    User::validEmail() For details on the validation process that the
+     *                            provided e-mail address will be subjected
      *
-     * @return A `\Models\User` object if the username exists,
-     *         otherwise `false` will be returned
+     * @param  string $email The e-mail address of a potential `\Models\User`
+     *                       object stored in the database
+     *
+     * @return mixed         The corresponding `\Models\User` object of the
+     *                       provided e-mail address or `false` on failure
      */
-    public static function getEmail($email) {
+    public static function fetchByEmail($email) {
       $user   = false;
       // Only go to the database if the email is valid
       if (self::validEmail($email = strtolower($email)))
@@ -30,16 +37,23 @@
     }
 
     /**
-     * @brief Get User
+     * Attempts to fetch a `\Models\User` object from the database by a
+     * corresponding username
      *
-     * Fetches a user by username
+     * The provided username is first validated (to save time by avoiding a
+     * database visit for invalid usernames) then an attempt is made to fetch a
+     * corresponding database record using case-insensitive matching
      *
-     * @param username The username as listed in the database (case-insensitive)
+     * @see    User::validUsername() For details on the validation process that
+     *                               the provided username will be subjected
      *
-     * @return A `\Models\User` object if the username exists,
-     *         otherwise `false` will be returned
+     * @param  string $username The username of a potential `\Models\User`
+     *                          object stored in the database
+     *
+     * @return mixed            The corresponding `\Models\User` object of the
+     *                          provided username or `false` on failure
      */
-    public static function getUser($username) {
+    public static function fetchByUsername($username) {
       $user   = false;
       // Only go to the database if the username is valid
       if (self::validUsername($username = strtolower($username)))
@@ -49,12 +63,19 @@
     }
 
     /**
-     * @brief Get Current User
+     * Attempts to fetch a `\Models\User` object corresponding to the current
+     * browsing session
      *
-     * Fetches the currently logged in user's database model
+     * Determines if the current browsing session contains sufficient/correct
+     * information to authenticate for a `\Models\User` object in the database
+     * by fetching the 'user' key from the session and enforcing a positive
+     * value for it then placing constraints on the browsing session
      *
-     * @return A `\Models\User` object if the current user is logged in,
-     *         otherwise `false` will be returned
+     * @see    User::verifyPeer() For details on the constraints placed on the
+     *                            browsing session
+     *
+     * @return mixed              The corresponding `\Models\User` object of the
+     *                            current session or `false` on failure
      */
     public static function getCurrent() {
       // Assume a false state
@@ -115,7 +136,7 @@
       // Determine if the username is available
       die(json_encode(array(
         "available" => self::validEmail($email) &&
-                       !is_object(self::getEmail($email))
+                       !is_object(self::fetchByEmail($email))
       )));
     }
 
@@ -159,9 +180,9 @@
           'satisfied.');
 
       // Determine if the username or email address were taken
-      if (is_object(self::getUser($username)))
+      if (is_object(self::fetchByUsername($username)))
         return \Views\Register::show('Username already registered.');
-      if (is_object(self::getEmail($email)))
+      if (is_object(self::fetchByEmail($email)))
         return \Views\Register::show('Email address already registered.');
 
       // If we've reached this point, registration is possible and should
@@ -198,7 +219,7 @@
       // Determine if the username is available
       die(json_encode(array(
         "available" => self::validUsername($username) &&
-                       !is_object(self::getUser($username))
+                       !is_object(self::fetchByUsername($username))
       )));
     }
 
