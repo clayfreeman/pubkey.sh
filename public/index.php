@@ -68,7 +68,7 @@
   $loader = new Twig_Loader_Filesystem(__PRIVATEROOT__.'/templates');
   $twig   = new Twig_Environment($loader, array('debug' => true));
   $twig->addGlobal('routes', $routes);
-  $twig->addGlobal('user',   \Controllers\User::getCurrent());
+  $twig->addGlobal('user',   \Controllers\User::fetchCurrent());
   $twig->addExtension(new Twig_Extension_Debug());
 
   // Setup a new instance of the Slim framework

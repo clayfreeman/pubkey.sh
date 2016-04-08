@@ -77,7 +77,7 @@
      * @return mixed              The corresponding `\Models\User` object of the
      *                            current session or `false` on failure
      */
-    public static function getCurrent() {
+    public static function fetchCurrent() {
       // Assume a false state
       $user   = false;
       // Attempt to extract the 'user' field containing a user ID
@@ -104,7 +104,7 @@
      */
     public static function login($request, $response) {
       // Ensure logged in users are redirected to the home page
-      if (is_object(self::getCurrent()))
+      if (is_object(self::fetchCurrent()))
         return \Views\Login::show("You're already logged in.");
 
       // Fetch the parsed body from the Slim request interface
@@ -157,7 +157,7 @@
       $password = (isset($post['password']) ? $post['password'] : null);
 
       // Ensure logged in users are redirected to their account page
-      if (is_object(self::getCurrent()))
+      if (is_object(self::fetchCurrent()))
         return $response->withRedirect('/user');
 
       // Determine if the provided username is valid
