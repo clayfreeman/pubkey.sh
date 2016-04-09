@@ -20,3 +20,8 @@
 .uk-progress-bar {
   overflow: hidden;
 }
+
+/* Increase the max width applied by the navbar centering class */
+.uk-navbar-center {
+  max-width: 80%;
+}
