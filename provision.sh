@@ -11,7 +11,7 @@ PACKAGES="git nginx nodejs-legacy npm php7.0-dev php7.0-fpm php7.0-mcrypt
   php7.0-sqlite sqlite3"
 
 echo "Ensuring that /vagrant is read-only..."
-MOUNT_TEST=$(mount | awk '$3 == "vagrant" { print $3, $6 }' | grep "\bro\b")
+MOUNT_TEST=$(mount | awk '$3 == "/vagrant" { print $3, $6 }' | grep "\bro\b")
 
 if [ -z "${MOUNT_TEST}" ]; then
   echo "/vagrant is not read-only."
