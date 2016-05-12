@@ -7,6 +7,7 @@
 set -e && cd
 
 # Grab the repository from /vagrant
+rm -rf vagrant
 git clone /vagrant
 cd vagrant
 
