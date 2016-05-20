@@ -10,3 +10,8 @@ fi
 # Set the appropriate permissions on the SSL key
 chown root:root /data/server.{key,pem}
 chmod 640       /data/server.{key,pem}
+
+# Create the database from its schema (if necessary)
+if [ ! -f "/data/pubkey.db" ]; then
+  bash /app/schema/create.sh
+fi

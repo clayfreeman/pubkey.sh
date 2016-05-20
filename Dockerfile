@@ -28,8 +28,5 @@ VOLUME /app:ro
 VOLUME /data
 VOLUME /etc/letsencrypt
 
-# Create the specified database structure by running the helper script
-RUN  bash /app/schema/create.sh
-
 # Run the custom launch script CMD
 CMD  ["bash", "/app/launch.sh"]
