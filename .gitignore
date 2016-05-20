@@ -1,4 +1,6 @@
 *.log
+data
+letsencrypt
 app/composer.lock
 app/public/resources
 app/vendor
