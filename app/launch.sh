@@ -1,5 +1,12 @@
 #!/bin/bash
 
+set -e
+
+# Set the permissions on the app directory
+chown -R root:www-data /app
+find /app -type d -exec chmod 550 '{}' \;
+find /app -type f -exec chmod 440 '{}' \;
+
 # Generate self-signed TLS certificate (if necessary)
 if [ ! -f "/data/server.key" ] || [ ! -f "/data/server.pem" ]; then
   openssl req -new -newkey rsa:4096 -days 16 -nodes -x509 -subj \

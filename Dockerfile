@@ -23,8 +23,7 @@ WORKDIR  /app
 RUN  rm -rf public/resources && bower install --allow-root
 RUN  rm -rf composer.lock vendor && composer install
 
-# Setup volumes for the app, data, & letsencrypt directories
-VOLUME /app:ro
+# Setup volumes for the data and letsencrypt directories
 VOLUME /data
 VOLUME /etc/letsencrypt
 
