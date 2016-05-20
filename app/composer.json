@@ -1,0 +1,10 @@
+{
+    "require": {
+        "bjeavons/zxcvbn-php": "^0.1.4",
+        "j4mie/idiorm": "^1.5",
+        "j4mie/paris": "^1.5",
+        "paragonie/halite": "^1.5",
+        "slim/slim": "^3.4",
+        "twig/twig": "^1.24"
+    }
+}

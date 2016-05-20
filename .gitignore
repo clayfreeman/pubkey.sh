@@ -1,7 +1,6 @@
 *.log
-.vagrant
-data
-composer.lock
-includes/settings.php
-public/resources
-vendor
+app/data
+app/composer.lock
+app/includes/settings.php
+app/public/resources
+app/vendor
