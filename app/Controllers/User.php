@@ -193,7 +193,7 @@
       $newUser->password = base64_encode(
         \ParagonIE\Halite\Password::hash(
           $password,
-          KeyFactory::loadEncryptionKey(__HALITEKEY__)
+          \ParagonIE\Halite\KeyFactory::loadEncryptionKey(__HALITEKEY__)
         )
       );
       // Unset the cleartext password and save the user
