@@ -23,3 +23,7 @@
 
   // The encryption key file used for storing password information securely
   define('__HALITEKEY__', getenv('HALITE_KEYFILE'));
+
+  // Attempt to generate an encryption key file if one is not present
+  if (!file_exists(__HALITEKEY__))
+    KeyFactory::save(KeyFactory::generateEncryptionKey(), __HALITEKEY__);

@@ -191,9 +191,9 @@
       $newUser->username = $username;
       $newUser->email    = $email;
       $newUser->password = base64_encode(
-        \ParagonIE\PasswordLock\PasswordLock::hashAndEncrypt(
+        \ParagonIE\Halite\Password::hash(
           $password,
-          __PASSKEY__
+          KeyFactory::loadEncryptionKey(__HALITEKEY__)
         )
       );
       // Unset the cleartext password and save the user
