@@ -15,8 +15,8 @@ if [ ! -f "/data/server.key" ] || [ ! -f "/data/server.pem" ]; then
 fi
 
 # Set the appropriate permissions on the SSL key
-chown root:root /data/server.{key,pem}
-chmod 640       /data/server.{key,pem}
+chown root:www-data /data/server.{key,pem}
+chmod 640           /data/server.{key,pem}
 
 # Create the database from its schema (if necessary)
 if [ ! -f "/data/pubkey.db" ]; then
