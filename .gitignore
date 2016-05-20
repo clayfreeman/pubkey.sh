@@ -1,6 +1,4 @@
 *.log
-app/data
 app/composer.lock
-app/includes/settings.php
 app/public/resources
 app/vendor
