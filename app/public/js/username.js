@@ -22,8 +22,7 @@ function verifyUsername(selector) {
       // Fetch the query result from the API
       icon.addClass('uk-icon-refresh');
       $.post('/user/available', {'username': field.val()}, function(data) {
-        available = $.parseJSON(data)['available'];
-        if (available === true)
+        if (data['available'] === true)
           // Enable the form field
           fieldMutateState(field, true, true);
         else
