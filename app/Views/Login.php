@@ -19,7 +19,7 @@
     public static function show(
         ServerRequestInterface $request,
         ResponseInterface      $response,
-        array                  $args = null): ResponseInterface {
+        array                  $args = array()): ResponseInterface {
       global $twig;
       $args['path'] = $request->getUri()->getPath();
       $info         = new \ReflectionClass(__CLASS__);
