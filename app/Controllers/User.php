@@ -130,7 +130,7 @@
      */
     public static function logout() {
       // Just clear the session
-      session_unset();
+      killSession();
     }
 
     /**

@@ -46,6 +46,8 @@
         'use_strict_mode'         => 1,
         'use_trans_sid'           => 0
       ]);
+      // Renew the session token each time it is resumed
+      session_regenerate_id();
       // If this is a fresh session, place the IP address and user agent of the
       // user in the session
       if (count($_SESSION) == 0) {
@@ -53,6 +55,21 @@
         $_SESSION['ua'] = $_SERVER['HTTP_USER_AGENT'];
       }
     }
+  }
+
+  /**
+   * @brief Kill Session
+   *
+   * Safely destroys the current session (including session data)
+   */
+  function killSession() {
+    // Unset the session in the standard way
+    $cookie = session_name();
+    session_unset();
+    // Clear the cookie used for the session (according to OWASP guidelines)
+    setcookie($cookie, "", 1);
+    setcookie($cookie, false);
+    unset($_COOKIE[$cookie]);
   }
 
   /**
