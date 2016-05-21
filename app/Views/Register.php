@@ -22,7 +22,7 @@
         array                  $args = null): ResponseInterface {
       global $twig;
       // Render the appropriate template then write it to the response body
-      $output = $twig->render(__CLASS__.'.twig', $args);
+      $output = $twig->render(basename(__CLASS__).'.twig', $args);
       return $response->withBody($output);
     }
   }
