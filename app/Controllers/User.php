@@ -222,12 +222,12 @@
       $newUser = \Model::factory('\\Models\\User')->create();
       $newUser->username = $username;
       $newUser->email    = $email;
-      $newUser->password = base64_encode(
+      try { $newUser->password = base64_encode(
         \ParagonIE\Halite\Password::hash(
           $password,
           \ParagonIE\Halite\KeyFactory::loadEncryptionKey(__HALITEKEY__)
         )
-      );
+      ); } catch (\Exception $e) { die(); }
       // Unset the cleartext password and save the user
       unset($password);
       $newUser->save();

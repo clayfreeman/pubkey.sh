@@ -29,7 +29,7 @@
 
   // Attempt to generate an encryption key file if one is not present
   if (!file_exists(__HALITEKEY__))
-    \ParagonIE\Halite\KeyFactory::save(
+    try { \ParagonIE\Halite\KeyFactory::save(
       \ParagonIE\Halite\KeyFactory::generateEncryptionKey(),
       __HALITEKEY__
-    );
+    ); } catch (\Exception $e) { die(); }
