@@ -111,12 +111,9 @@
     public static function login(
         ServerRequestInterface $request,
         ResponseInterface      $response): ResponseInterface {
-      // Ensure logged in users are redirected to the home page
+      // Ensure logged in users are redirected to their account page
       if (is_object(self::fetchCurrent()))
-        return \Views\Login::show(
-          $request, $response,
-          ['message' => 'You\'re already logged in.']
-        );
+        return $response->withRedirect('/u');
 
       // Fetch the parsed body from the Slim request interface
       $post = $request->getParsedBody();
@@ -176,21 +173,19 @@
 
       // Ensure logged in users are redirected to their account page
       if (is_object(self::fetchCurrent()))
-        return $response->withRedirect('/user');
+        return $response->withRedirect('/u');
 
       // Determine if the provided username is valid
-      if (!self::validUsername($username))
-        return \Views\Register::show(
-          $request, $response,
-          ['error' => 'Invalid username provided.']
-        );
+      if (!self::validUsername($username)) {
+        putSession('error', 'Invalid username provided.');
+        return $response->withRedirect('/register');
+      }
 
       // Determine if the provided username is valid
-      if (!self::validEmail($email))
-        return \Views\Register::show(
-          $request, $response,
-          ['error' => 'Invalid email address provided.']
-        );
+      if (!self::validEmail($email)) {
+        putSession('error', 'Invalid e-mail address provided.');
+        return $response->withRedirect('/register');
+      }
 
       // Determine if the provided password meets strength requirements
       $zxcvbn   = new \ZxcvbnPhp\Zxcvbn;
@@ -199,23 +194,20 @@
         explode(' ', $email),
         explode(' ', $username)
       ));
-      if (isset($strength) && $strength['score'] < 3)
-        return \Views\Register::show(
-          $request, $response,
-          ['error' => 'Password strength requirements were not satisfied.']
-        );
+      if (isset($strength) && $strength['score'] < 3) {
+        putSession('error', 'Password strength requirement was not satisfied.');
+        return $response->withRedirect('/register');
+      }
 
       // Determine if the username or email address were taken
-      if (is_object(self::fetchByUsername($username)))
-        return \Views\Register::show(
-          $request, $response,
-          ['error' => 'Username already registered.']
-        );
-      if (is_object(self::fetchByEmail($email)))
-        return \Views\Register::show(
-          $request, $response,
-          ['error' => 'E-mail address already registered.']
-        );
+      if (is_object(self::fetchByUsername($username))) {
+        putSession('error', 'Username already registered.');
+        return $response->withRedirect('/register');
+      }
+      if (is_object(self::fetchByEmail($email))) {
+        putSession('error', 'E-mail address already registered.');
+        return $response->withRedirect('/register');
+      }
 
       // If we've reached this point, registration is possible and should
       // continue as requested
@@ -234,10 +226,8 @@
 
       // Redirect the user to the home page informing them of a successful
       // registration process
-      return \Views\Index::show(
-        $request, $response,
-        ['message' => 'Registration was successful. You may now login.']
-      );
+      putSession('message', 'Registration was successful. You may now login.');
+      return $response->withRedirect('/');
     }
 
     /**

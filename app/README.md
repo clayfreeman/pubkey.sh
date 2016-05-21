@@ -17,5 +17,4 @@
    targets such as MySQL or PostgreSQL (this may require a more abstract schema
    that is flexible enough to work across multiple database platforms).
  * Probably other things too that haven't been thought of...
- * Investigate supposedly broken sessions.
- * Find a different way to redirect & present message.
+ * Investigate supposedly broken sessions (probably incorrect `DOMAIN`).

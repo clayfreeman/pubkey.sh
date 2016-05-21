@@ -65,7 +65,7 @@
    *
    * @return Either the value stored in the session, or the provided default
    */
-  function getSession($name, $default = false) {
+  function getSession($name, $default = null) {
     beginSession();
     return $_SESSION[$name] ?? $default;
   }
@@ -82,5 +82,8 @@
    */
   function putSession($name, $value) {
     beginSession();
-    $_SESSION[$name] = $value;
+    if ($value !== null)
+      $_SESSION[$name] = $value;
+    else
+      unset($_SESSION[$name]);
   }
