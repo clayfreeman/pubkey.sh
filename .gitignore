@@ -1,5 +1,6 @@
 *.log
 data
+docker-compose.override.yml
 letsencrypt
 app/composer.lock
 app/public/resources
