@@ -23,11 +23,11 @@ fi
 mkdir -p /app
 mkdir -p /data
 chown -R root:www-data /app
-find /app  -type d -exec chmod 550 '{}' \;
-find /app  -type f -exec chmod 440 '{}' \;
+find /app  -type d -exec chmod 550 "{}" \;
+find /app  -type f -exec chmod 440 "{}" \;
 chown -R root:www-data /data
-find /data -type d -exec chmod 770 '{}' \;
-find /data -type f -exec chmod 640 '{}' \;
+find /data -type d -exec chmod 770 "{}" \;
+find /data -type f -exec chmod 640 "{}" \;
 if [ -f "${DATASOURCE_PATH#sqlite:}" ]; then
   chmod 660 "${DATASOURCE_PATH#sqlite:}"
 fi
