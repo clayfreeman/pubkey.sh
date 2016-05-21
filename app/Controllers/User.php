@@ -286,7 +286,7 @@
      *         otherwise `false` will be returned
      */
     public static function validUsername(string $username): bool {
-      return preg_match('/^[a-z][a-z0-9]{2,}$/i', $username);
+      return preg_match('/^[a-z][a-z0-9]{2,}$/i', $username) == 1;
     }
 
     /**
