@@ -151,9 +151,7 @@
       // Determine if the e-mail address is available
       $available = self::validEmail($email) &&
         !is_object(self::fetchByEmail($email));
-      // Determine the appropriate response code
-      $code      = $available ? 200 /* OK */ : 409 /* CONFLICT */;
-      return $response->withJson(['available' => $available], $code);
+      return $response->withJson(['available' => $available]);
     }
 
     /**
@@ -255,9 +253,7 @@
       // Determine if the username is available
       $available = self::validUsername($username) &&
         !is_object(self::fetchByUsername($username));
-      // Determine the appropriate response code
-      $code      = $available ? 200 /* OK */ : 409 /* CONFLICT */;
-      return $response->withJson(['available' => $available], $code);
+      return $response->withJson(['available' => $available]);
     }
 
     /**
