@@ -24,6 +24,7 @@
       $info   = new \ReflectionClass(__CLASS__);
       // Render the appropriate template then write it to the response body
       $output = $twig->render(basename($info->getShortName()).'.twig', $args);
-      return $response->withBody($output);
+      $response->getBody()->write($output);
+      return $response;
     }
   }

@@ -122,7 +122,8 @@
       $post = $request->getParsedBody();
       $post['password'] = 'redacted';
       // Write the contents of the response to the response body
-      return $response->withBody(html_dump($post));
+      $response->getBody()->write(html_dump($post));
+      return $response;
     }
 
     /**
