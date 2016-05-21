@@ -5,10 +5,13 @@ pubkey-sh:
     DATASOURCE_PASS:  ''
     DATASOURCE_PATH:  'sqlite:/data/pubkey.db'
     HALITE_KEYFILE:   '/data/halite.key'
-    HTTP_PORT:        '8080'
-    HTTPS_PORT:       '1443'
+    HTTP_PORT:        '80'
+    HTTPS_PORT:       '443'
     SERVER_NAME:      'pubkey.sh'
     SESSION_EXPIRE:   '1800'
   ports:
-    - '8080'
-    - '1443'
+    - '80:80'
+    - '443:443'
+  volumes:
+    - './data:/data'
+    - './letsencrypt:/etc/letsencrypt'
