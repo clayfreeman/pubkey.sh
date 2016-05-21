@@ -22,54 +22,54 @@
   require_once(__DIR__.'/../includes/bootstrap.php');
 
   // Define application route information
-  $routes = array(
-    '/' => array(
+  $routes = [
+    '/' => [
       // The home page should be accessible by everyone from the menu
-      'menu'    => array('anon' => true, 'user' => true),
-      'methods' => array(
+      'menu'    => ['anon' => true, 'user' => true],
+      'methods' => [
         'get'  => '\\Views\\Index::show'
-      ),
+      ],
       'title'   => 'Home'
-    ),
-    '/email/available' => array(
+    ],
+    '/email/available' => [
       // Private API endpoints should not be accessible from the menu
-      'menu'    => array('anon' => false, 'user' => false),
-      'methods' => array(
+      'menu'    => ['anon' => false, 'user' => false],
+      'methods' => [
         'post' => '\\Controllers\\User::emailAvailable'
-      ),
+      ],
       'title'   => null
-    ),
-    '/login' => array(
+    ],
+    '/login' => [
       // The login page should be restricted to anonymous users from the menu
-      'menu'    => array('anon' => true, 'user' => false),
-      'methods' => array(
+      'menu'    => ['anon' => true, 'user' => false],
+      'methods' => [
         'get'  => '\\Views\\Login::show',
         'post' => '\\Controllers\\User::login'
-      ),
+      ],
       'title'   => 'Login'
-    ),
-    '/register' => array(
+    ],
+    '/register' => [
       // The register page should be restricted to anonymous users from the menu
-      'menu'    => array('anon' => true, 'user' => false),
-      'methods' => array(
+      'menu'    => ['anon' => true, 'user' => false],
+      'methods' => [
         'get'  => '\\Views\\Register::show',
         'post' => '\\Controllers\\User::register'
-      ),
+      ],
       'title'   => 'Register'
-    ),
-    '/user/available' => array(
+    ],
+    '/user/available' => [
       // Private API endpoints should not be accessible from the menu
-      'menu'    => array('anon' => false, 'user' => false),
-      'methods' => array(
+      'menu'    => ['anon' => false, 'user' => false],
+      'methods' => [
         'post' => '\\Controllers\\User::userAvailable'
-      ),
+      ],
       'title'   => null
-    )
-  );
+    ]
+  ];
 
   // Setup a new instance of the Twig framework
   $loader = new Twig_Loader_Filesystem(__PRIVATEROOT__.'/templates');
-  $twig   = new Twig_Environment($loader, array('debug' => true));
+  $twig   = new Twig_Environment($loader, ['debug' => true]);
   $twig->addGlobal('routes', $routes);
   $twig->addGlobal('user',   \Controllers\User::fetchCurrent());
   $twig->addExtension(new Twig_Extension_Debug());
