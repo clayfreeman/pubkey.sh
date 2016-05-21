@@ -21,8 +21,9 @@
         ResponseInterface      $response,
         array                  $args = null): ResponseInterface {
       global $twig;
+      $info   = new ReflectionClass(__CLASS__);
       // Render the appropriate template then write it to the response body
-      $output = $twig->render(basename(__CLASS__).'.twig', $args);
+      $output = $twig->render(basename($info->getShortName()).'.twig', $args);
       return $response->withBody($output);
     }
   }
