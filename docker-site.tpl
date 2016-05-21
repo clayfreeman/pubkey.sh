@@ -3,6 +3,11 @@ server {
   listen  [::]:${HTTP_PORT} default_server;
   server_name .${SERVER_NAME};
 
+  # Drop the connection if a plaintext non-root URI is requested
+  if ($request_uri != '/') {
+    return 444;
+  }
+
   return 301 https://$host:${HTTPS_PORT}$request_uri;
 }
 
