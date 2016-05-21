@@ -38,13 +38,13 @@
       // Begin the session (hopefully with the specified configuration)
       session_start([
         'entropy_file'            => '/dev/urandom',
-        'entropy_length'          => '512',
+        'entropy_length'          => 512,
         'hash_function'           => 'whirlpool',
-        'hash_bits_per_character' => '4',
-        'use_cookies'             => '1',
-        'use_only_cookies'        => '1',
-        'use_strict_mode'         => '1',
-        'use_trans_sid'           => '0'
+        'hash_bits_per_character' => 4,
+        'use_cookies'             => 1,
+        'use_only_cookies'        => 1,
+        'use_strict_mode'         => 1,
+        'use_trans_sid'           => 0
       ]);
       // If this is a fresh session, place the IP address and user agent of the
       // user in the session
