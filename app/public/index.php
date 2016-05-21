@@ -10,9 +10,9 @@
   // Enforce strict types for this file
   declare(strict_types=1);
 
-  // Refuse to load if PHP is older than 5.5.3
-  if (version_compare(PHP_VERSION, '5.5.3') < 0)
-    die('This application requires at least PHP 5.5.3 to run.');
+  // Refuse to load if PHP is older than 7.0
+  if (version_compare(PHP_VERSION, '7.0') < 0)
+    die('This application requires at least PHP 7.0 to run.');
 
   // Refuse to load over plaintext connections
   if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on')

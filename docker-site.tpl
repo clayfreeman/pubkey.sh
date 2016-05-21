@@ -3,6 +3,8 @@ server {
   listen  [::]:${HTTP_PORT} default_server;
   server_name .${SERVER_NAME};
 
+  include security.conf;
+
   # Drop the connection if a plaintext non-root URI is requested
   if ($request_uri != '/') {
     return 444;
