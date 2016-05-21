@@ -7,6 +7,9 @@
    * A dummy class to expose the `models_user` table in the database
    */
 
+  // Enforce strict types for this file
+  declare(strict_types=1);
+
   namespace Models;
 
   class User extends \Model {}

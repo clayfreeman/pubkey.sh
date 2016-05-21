@@ -7,6 +7,9 @@
    * Defines functionality for the Login page
    */
 
+  // Enforce strict types for this file
+  declare(strict_types=1);
+
   namespace Views;
 
   class Login {

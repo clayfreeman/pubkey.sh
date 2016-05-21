@@ -8,6 +8,9 @@
    * used by the application
    */
 
+  // Enforce strict types for this file
+  declare(strict_types=1);
+
   // Configure the database
   \ORM::configure(getenv('DATASOURCE_PATH'));
   if (strlen(trim(getenv('DATASOURCE_LOGIN'))) > 0)

@@ -7,6 +7,9 @@
    * This file exposes functions useful for HTML output and sanitization
    */
 
+  // Enforce strict types for this file
+  declare(strict_types=1);
+
   /**
    * @brief HTML Dump
    *

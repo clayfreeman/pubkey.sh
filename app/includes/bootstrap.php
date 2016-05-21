@@ -8,6 +8,9 @@
    * the application to run
    */
 
+  // Enforce strict types for this file
+  declare(strict_types=1);
+
   // Setup constants for important directories
   define('__PRIVATEROOT__', realpath(__DIR__.'/..'));
   define('__PUBLICROOT__',  __PRIVATEROOT__.'/public');

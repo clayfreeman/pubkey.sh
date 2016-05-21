@@ -8,6 +8,9 @@
    * which are then translated to a file path relative to __PRIVATEROOT__
    */
 
+  // Enforce strict types for this file
+  declare(strict_types=1);
+
   /**
    * @brief Autoload Class from Directory
    *

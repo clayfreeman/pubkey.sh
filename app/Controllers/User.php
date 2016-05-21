@@ -7,6 +7,9 @@
    * Controller to handle `User` object related functions
    */
 
+  // Enforce strict types for this file
+  declare(strict_types=1);
+
   namespace Controllers;
 
   class User {

@@ -7,6 +7,9 @@
    * A straightforward and secure interface for session data management
    */
 
+  // Enforce strict types for this file
+  declare(strict_types=1);
+
   /**
    * @brief Begin Session
    *
