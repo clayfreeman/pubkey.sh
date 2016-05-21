@@ -19,9 +19,10 @@
     public static function show(
         ServerRequestInterface $request,
         ResponseInterface      $response,
-        array                  $args = null): ResponseInterface {
+        array                  $args = array()): ResponseInterface {
       global $twig;
-      $info   = new \ReflectionClass(__CLASS__);
+      $args['path'] = $request->getUri()->getPath();
+      $info         = new \ReflectionClass(__CLASS__);
       // Render the appropriate template then write it to the response body
       $output = $twig->render(basename($info->getShortName()).'.twig', $args);
       $response->getBody()->write($output);
