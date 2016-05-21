@@ -115,7 +115,7 @@
       if (is_object(self::fetchCurrent()))
         return \Views\Login::show(
           $request, $response,
-          ['error' => 'You\'re already logged in.']
+          ['message' => 'You\'re already logged in.']
         );
 
       // Fetch the parsed body from the Slim request interface
@@ -236,7 +236,7 @@
       // registration process
       return \Views\Index::show(
         $request, $response,
-        ['error' => 'Registration was successful. You may now login.']
+        ['message' => 'Registration was successful. You may now login.']
       );
     }
 
