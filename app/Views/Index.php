@@ -12,15 +12,17 @@
 
   namespace Views;
 
+  use \Psr\Http\Message\ServerRequestInterface;
+  use \Psr\Http\Message\ResponseInterface;
+
   class Index {
-    public static function show($_ = null) {
+    public static function show(
+        ServerRequestInterface $request,
+        ResponseInterface      $response,
+        array                  $args = null): ResponseInterface {
       global $twig;
-      // Load and render the Index template
-      ob_start();
-      echo $twig->render('Index.twig', array(
-        'message' => is_string($_) ? $_ : null,
-        'path'    => '/'
-      ));
-      ob_end_flush();
+      // Render the appropriate template then write it to the response body
+      $output = $twig->render(__CLASS__.'.twig', $args);
+      return $response->withBody($output);
     }
   }

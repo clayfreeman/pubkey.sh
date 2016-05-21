@@ -18,8 +18,8 @@
    * @param item The item to dump to the web browser
    */
   function html_dump($item) {
-    return "<div style='font-family: Courier;'><pre>".
-      html_encode(var_export($item, true))."</pre></div>";
+    return '<div style=\'font-family: Courier;\'><pre>'.
+      html_encode(var_export($item, true)).'</pre></div>';
   }
 
   /**
@@ -31,6 +31,6 @@
    *
    * @return A string with the encoded text
    */
-  function html_encode($text) {
+  function html_encode(string $text): string {
     return htmlspecialchars($text, ENT_HTML401 | ENT_QUOTES);
   }

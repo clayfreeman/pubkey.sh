@@ -71,7 +71,7 @@
    */
   function getSession($name, $default = false) {
     beginSession();
-    return (isset($_SESSION[$name]) ? $_SESSION[$name] : $default);
+    return $_SESSION[$name] ?? $default;
   }
 
   /**

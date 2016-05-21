@@ -15,7 +15,7 @@
     die('This application requires at least PHP 5.5.3 to run.');
 
   // Refuse to load over plaintext connections
-  if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != "on")
+  if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on')
     die('This application cannot be loaded over plaintext transports.');
 
   // Require the site bootstrap file

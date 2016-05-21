@@ -19,10 +19,10 @@
    *
    * @param className The name of the class to load
    */
-  function autoloadClassFromDirectory($className) {
+  function autoloadClassFromDirectory(string $className) {
     $className = str_ireplace('\\', DIRECTORY_SEPARATOR, $className);
     require_once(__PRIVATEROOT__.'/'.$className.'.php');
   }
 
   // Now register the autoloader
-  spl_autoload_register("autoloadClassFromDirectory");
+  spl_autoload_register('autoloadClassFromDirectory');

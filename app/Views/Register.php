@@ -12,14 +12,17 @@
 
   namespace Views;
 
+  use \Psr\Http\Message\ServerRequestInterface;
+  use \Psr\Http\Message\ResponseInterface;
+
   class Register {
-    public static function show($_ = null) {
+    public static function show(
+        ServerRequestInterface $request,
+        ResponseInterface      $response,
+        array                  $args = null): ResponseInterface {
       global $twig;
-      // Load and render the Login template
-      ob_start();
-      echo $twig->render('Register.twig', array(
-        'error' => is_string($_) ? $_ : null
-      ));
-      ob_end_flush();
+      // Render the appropriate template then write it to the response body
+      $output = $twig->render(__CLASS__.'.twig', $args);
+      return $response->withBody($output);
     }
   }
