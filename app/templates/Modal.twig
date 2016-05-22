@@ -1,3 +1,7 @@
+{% macro modalButton(modalID, buttonTitle) %}
+<button class='uk-button' data-uk-modal='{target:"#{{ modalID }}"}'>{{ buttonTitle }}</button>
+{% endmacro %}
+
 <div id='{{ block('modalID') }}' class='uk-modal'>
   <div class='uk-modal-dialog'>
     <a class='uk-modal-close uk-close'></a>
