@@ -32,7 +32,7 @@
 
 /* Used to set the font family to a monospace font */
 .courier {
-  font-family: 'Courier';
+  font-family: 'Courier' !important;
 }
 
 /* Used to adjust the navigation bar style */
@@ -49,7 +49,7 @@
 
 /* Used to allow breaking between any two characters in a form field */
 .raw-input {
-  word-break: break-all;
+  word-break: break-all !important;
 }
 
 /* Applies a small margin to the bottom of an element */
