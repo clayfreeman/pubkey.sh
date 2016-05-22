@@ -47,7 +47,7 @@
       ],
       'title'   => null
     ],
-    '/url/user' => [
+    '/app/user' => [
       // The account page should be restricted to anonymous users from the menu
       'menu'    => ['anon' => false, 'user' => true],
       'methods' => [
@@ -55,7 +55,7 @@
       ],
       'title'   => 'Account'
     ],
-    '/url/login' => [
+    '/app/login' => [
       // The login page should be restricted to anonymous users from the menu
       'menu'    => ['anon' => true, 'user' => false],
       'methods' => [
@@ -64,7 +64,7 @@
       ],
       'title'   => 'Login'
     ],
-    '/url/register' => [
+    '/app/register' => [
       // The register page should be restricted to anonymous users from the menu
       'menu'    => ['anon' => true, 'user' => false],
       'methods' => [
