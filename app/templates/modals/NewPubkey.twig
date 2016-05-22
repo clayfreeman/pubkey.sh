@@ -1,4 +1,5 @@
 {% from 'Raw.twig' import rawInput %}
+{% block newPubkeyButton %}<button class='uk-button' data-uk-modal='{target:"#new-pubkey"}'>New Key</button>{% endblock %}
 <div id='new-pubkey' class='uk-modal'>
   <form class='uk-form uk-form-horizontal' method='POST'>
     <div class='uk-modal-dialog'>
