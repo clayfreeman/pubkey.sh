@@ -24,9 +24,5 @@ RUN  rm -rf public/resources && bower install --allow-root && find \
      public/resources -type f -not \( -name \*\.js -o -name \*\.css \) -delete
 RUN  rm -rf composer.lock vendor && composer install
 
-# Setup volumes for the data and letsencrypt directories
-VOLUME /data
-VOLUME /etc/letsencrypt
-
 # Run the custom launch script CMD
 CMD  ["bash", "/app/launch.sh"]
