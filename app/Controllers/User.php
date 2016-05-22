@@ -113,7 +113,7 @@
         ResponseInterface      $response): ResponseInterface {
       // Ensure logged in users are redirected to their account page
       if (is_object(self::fetchCurrent()))
-        return $response->withRedirect('/u');
+        return $response->withRedirect('/url/user');
 
       // Fetch the parsed body from the Slim request interface
       $post = $request->getParsedBody();
@@ -173,7 +173,7 @@
 
       // Ensure logged in users are redirected to their account page
       if (is_object(self::fetchCurrent()))
-        return $response->withRedirect('/u');
+        return $response->withRedirect('/url/user');
 
       // Determine if the provided username is valid
       if (!self::validUsername($username)) {

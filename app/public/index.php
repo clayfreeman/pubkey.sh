@@ -27,41 +27,56 @@
       // The home page should be accessible by everyone from the menu
       'menu'    => ['anon' => true, 'user' => true],
       'methods' => [
-        'get'  => '\\Views\\Index::show'
+        'get'   => '\\Views\\Index::show'
       ],
       'title'   => 'Home'
     ],
-    '/email/available' => [
+    '/api/email/available' => [
       // Private API endpoints should not be accessible from the menu
       'menu'    => ['anon' => false, 'user' => false],
       'methods' => [
-        'post' => '\\Controllers\\User::emailAvailable'
+        'post'  => '\\Controllers\\User::emailAvailable'
       ],
       'title'   => null
     ],
-    '/login' => [
-      // The login page should be restricted to anonymous users from the menu
-      'menu'    => ['anon' => true, 'user' => false],
-      'methods' => [
-        'get'  => '\\Views\\Login::show',
-        'post' => '\\Controllers\\User::login'
-      ],
-      'title'   => 'Login'
-    ],
-    '/register' => [
-      // The register page should be restricted to anonymous users from the menu
-      'menu'    => ['anon' => true, 'user' => false],
-      'methods' => [
-        'get'  => '\\Views\\Register::show',
-        'post' => '\\Controllers\\User::register'
-      ],
-      'title'   => 'Register'
-    ],
-    '/user/available' => [
+    '/api/user/available' => [
       // Private API endpoints should not be accessible from the menu
       'menu'    => ['anon' => false, 'user' => false],
       'methods' => [
-        'post' => '\\Controllers\\User::userAvailable'
+        'post'  => '\\Controllers\\User::userAvailable'
+      ],
+      'title'   => null
+    ],
+    '/url/user' => [
+      'menu'    => ['anon' => false, 'user' => true],
+      'methods' => [
+        'get'   => '\\Views\\User::show'
+      ],
+      'title'   => 'Account'
+    ],
+    '/url/login' => [
+      // The login page should be restricted to anonymous users from the menu
+      'menu'    => ['anon' => true, 'user' => false],
+      'methods' => [
+        'get'   => '\\Views\\Login::show',
+        'post'  => '\\Controllers\\User::login'
+      ],
+      'title'   => 'Login'
+    ],
+    '/url/register' => [
+      // The register page should be restricted to anonymous users from the menu
+      'menu'    => ['anon' => true, 'user' => false],
+      'methods' => [
+        'get'   => '\\Views\\Register::show',
+        'post'  => '\\Controllers\\User::register'
+      ],
+      'title'   => 'Register'
+    ],
+    '/{username}/{key}' => [
+      // All other endpoints should represent a username and key URI
+      'menu'    => ['anon' => false, 'user' => false],
+      'methods' => [
+        'get'   => '\\Controllers\\Pubkey::script'
       ],
       'title'   => null
     ]

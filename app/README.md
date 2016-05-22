@@ -11,8 +11,6 @@
    with ease-of-use in mind (currently not possible due to returning either
    a `\Models\User` instance or `false` on failure).
  * Design & implement user dashboard for key management.
- * Consider denying HTTP redirect for certain paths with nginx (for `bash` pipe
-   security concerns).
  * Explore options for easily setting up & configuring different database
    targets such as MySQL or PostgreSQL (this may require a more abstract schema
    that is flexible enough to work across multiple database platforms).

@@ -21,7 +21,7 @@ function verifyEmail(selector) {
       fieldMutateState(field, false, false);
       // Fetch the query result from the API
       icon.addClass('uk-icon-refresh');
-      $.post('/email/available', {'email': field.val()}).done(function() {
+      $.post('/api/email/available', {'email': field.val()}).done(function() {
         // Enable the form field
         fieldMutateState(field, true, true);
       }).fail(function() {
