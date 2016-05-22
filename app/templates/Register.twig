@@ -12,10 +12,13 @@
 {% endif %}
 
     <form class='uk-panel uk-panel-box uk-form' method='POST'>
+
+{{ message('Submission will be enabled when all fields have been verified.') }}
+
       <div class='uk-form-row'>
         <div class='uk-form-icon uk-width-1-1'>
           <i class='uk-icon-circle-thin'></i>
-          <input autocomplete='off' class='courier uk-form-large uk-width-1-1' name='username' placeholder='Username' type='text' title='Usernames must be alphanumeric (beginning with a letter)' data-uk-tooltip unverified />
+          <input autocomplete='off' class='courier uk-form-large uk-width-1-1' name='username' placeholder='Username' type='text' title='Usernames must be alphanumeric and begin with a letter' data-uk-tooltip unverified />
         </div>
       </div>
       <div class='uk-form-row'>
@@ -36,7 +39,7 @@
       </div>
       <div class='uk-form-row'>
         <!-- Disable button by default until password strength is verified -->
-        <button class='uk-width-1-1 uk-button uk-button-primary uk-button-large' title='Submission will be enabled when all fields have been verified' data-uk-tooltip='{pos:"bottom"}' disabled>Register</button>
+        <button class='uk-width-1-1 uk-button uk-button-primary uk-button-large' disabled>Register</button>
       </div>
     </form>
   </div>
