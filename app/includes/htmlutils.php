@@ -18,8 +18,8 @@
    * @param item The item to dump to the web browser
    */
   function html_dump($item) {
-    return '<div style=\'font-family: Courier;\'><pre>'.
-      html_encode(var_export($item, true)).'</pre></div>';
+    return '<div class="courier"><pre>'.html_encode(var_export($item, true)).
+      '</pre></div>';
   }
 
   /**

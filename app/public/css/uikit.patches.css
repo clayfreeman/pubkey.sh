@@ -6,6 +6,8 @@
  * Responsible for patching some UIKit nuances
  */
 
+/************************* Define UIKit patches below *************************/
+
 /* Correct the border for active menu items */
 .uk-navbar-nav > li.uk-active > a {
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -24,4 +26,28 @@
 /* Increase the max width applied by the navbar centering class */
 .uk-navbar-center {
   max-width: 80%;
+}
+
+/************************** Define custom CSS below ***************************/
+
+/* Used to set the font family to a monospace font */
+.courier {
+  font-family: 'Courier';
+}
+
+/* Used to adjust the navigation bar style */
+.navbar {
+  position:       relative;
+  padding-top:    15px;
+  padding-bottom: 15px;
+}
+
+/* Used to allow breaking between any two characters in a form field */
+.raw-input {
+  word-break: break-all;
+}
+
+/* Applies a small margin to the bottom of an element */
+.small-margin-bottom {
+  margin-bottom: 5px;
 }
