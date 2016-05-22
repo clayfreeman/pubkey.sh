@@ -42,6 +42,11 @@
   padding-bottom: 15px;
 }
 
+/* Sets the width of a form on a page by itself */
+.page-form {
+  width: 300px;
+}
+
 /* Used to allow breaking between any two characters in a form field */
 .raw-input {
   word-break: break-all;
