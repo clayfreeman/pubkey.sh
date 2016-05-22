@@ -12,4 +12,8 @@
 
   namespace Models;
 
-  class Pubkey extends \Model {}
+  class Pubkey extends \Model {
+    public function user() {
+      return $this->has_one('User');
+    }
+  }

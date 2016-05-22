@@ -14,4 +14,5 @@
  * Explore options for easily setting up & configuring different database
    targets such as MySQL or PostgreSQL (this may require a more abstract schema
    that is flexible enough to work across multiple database platforms).
+ * Don't forget to set `lastip` on login.
  * Probably other things too that haven't been thought of...

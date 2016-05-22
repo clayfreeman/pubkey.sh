@@ -48,6 +48,7 @@
       'title'   => null
     ],
     '/url/user' => [
+      // The account page should be restricted to anonymous users from the menu
       'menu'    => ['anon' => false, 'user' => true],
       'methods' => [
         'get'   => '\\Views\\User::show'
@@ -85,6 +86,7 @@
   // Setup a new instance of the Twig framework
   $loader = new Twig_Loader_Filesystem(__PRIVATEROOT__.'/templates');
   $twig   = new Twig_Environment($loader, ['debug' => true]);
+  $twig->addFilter(new Twig_SimpleFilter('eshell', 'escapeshellarg'));
   $twig->addGlobal('routes', $routes);
   $twig->addGlobal('user',   \Controllers\User::fetchCurrent());
   $twig->addExtension(new Twig_Extension_Debug());

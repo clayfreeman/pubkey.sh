@@ -12,4 +12,12 @@
 
   namespace Models;
 
-  class User extends \Model {}
+  class User extends \Model {
+    public function pubkey() {
+      return $this->belongs_to('Pubkey');
+    }
+
+    public function pubkeys() {
+      return $this->has_many('Pubkey');
+    }
+  }

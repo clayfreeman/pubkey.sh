@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Exit on errors
+set -e
+
+# Define the variable contents of the script
+AUTHOR={{ author|eshell }}
+PUBKEY={{ pubkey|eshell }}
+FINGER={{ finger|eshell }}
+
+# Declare some colors
+ BLUE="\033[34m"
+GREEN="\033[32m"
+RESET="\033[0m"
+
+# Declare the log line format
+LOG="${BLUE}pubkey.sh${RESET} | "
+
+# Create a function to log to the console
+log() {
+  echo -ne "${BLUE}pubkey.sh${RESET} |" "$@"
+}
+
+# Create a function to prompt the user if they want to install the key
+install_key() {
+  log "${FINGER}\n"
+  log "Install ${GREEN}${AUTHOR}${RESET}'s public key? [y/n]: "
+  read -r -n 1 REPLY; echo
+  if [[ ${REPLY} =~ ^[Yy]$ ]]; then
+    AUTH_PATH="${HOME}/.ssh/authorized_keys"
+    mkdir -p "$(dirname "${AUTH_PATH}")"
+    echo "${PUBKEY}" >> "${AUTH_PATH}"
+    log "Key installed to ${GREEN}${AUTH_PATH}${RESET} successfully.\n"
+  fi
+}
+
+# Create a function to signify a 404 error when requesting a key
+not_found() {
+  log "The requested key could not be found.\n"
+}
+
+# Declare a main function to perform the script logic
+_() {
+  if [ -n "${AUTHOR}" ] && [ -n "${PUBKEY}" ] && [ -n "${FINGER}" ]; then
+    # If the expected variables are in place, execute the installation portion
+    install_key
+  else
+    # Inform the user that the key could not be found on the server
+    not_found
+  fi
+}
+
+# Use a single byte to call the main function at the end of the script so that
+# incomplete script downloads don't execute anything
+_
