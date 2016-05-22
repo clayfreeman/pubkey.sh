@@ -20,8 +20,11 @@ RUN  npm install -g bower
 # Install the required bower/composer dependencies for the app
 COPY app /app
 WORKDIR  /app
-RUN  rm -rf public/resources && bower install --allow-root && find \
-     public/resources -type f -not \( -name \*\.js -o -name \*\.css \) -delete
+RUN  rm -rf public/resources && bower install --allow-root && \
+     find public/resources -type f -not \(
+       -name \*\.js   -o -name \*\.css   -o -name \*\.otf -o -name \*\.ttf -o \
+       -name \*\.woff -o -name \*\.woff2
+     \) -delete
 RUN  rm -rf composer.lock vendor && composer install
 
 # Run the custom launch script CMD
