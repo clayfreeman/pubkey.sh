@@ -20,7 +20,8 @@ RUN  npm install -g bower
 # Install the required bower/composer dependencies for the app
 COPY app /app
 WORKDIR  /app
-RUN  rm -rf public/resources && bower install --allow-root
+RUN  rm -rf public/resources && bower install --allow-root && find \
+     public/resources -type f -not \( -name \*\.js -o -name \*\.css \) -delete
 RUN  rm -rf composer.lock vendor && composer install
 
 # Setup volumes for the data and letsencrypt directories
