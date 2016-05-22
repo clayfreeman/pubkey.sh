@@ -1,5 +1,6 @@
 {% extends 'Page.twig' %}
 {% from 'Message.twig' import message %}
+{% from 'Raw.twig' import rawInput %}
 {% block title %}Register{% endblock %}
 
 {% block body %}
@@ -18,19 +19,19 @@
       <div class='uk-form-row'>
         <div class='uk-form-icon uk-width-1-1'>
           <i class='uk-icon-circle-thin'></i>
-          <input autocomplete='off' class='courier uk-form-large uk-width-1-1' name='username' placeholder='Username' type='text' title='Usernames must be 3 or more alphanumeric characters and begin with a letter' data-uk-tooltip unverified />
+          <input {{ rawInput() }} class='courier uk-form-large uk-width-1-1' name='username' placeholder='Username' type='text' title='Usernames must be 3 or more alphanumeric characters and begin with a letter' data-uk-tooltip unverified />
         </div>
       </div>
       <div class='uk-form-row'>
         <div class='uk-form-icon uk-width-1-1'>
           <i class='uk-icon-circle-thin'></i>
-          <input autocomplete='off' class='courier uk-form-large uk-width-1-1' name='email' placeholder='E-Mail' type='text' unverified />
+          <input {{ rawInput() }} class='courier uk-form-large uk-width-1-1' name='email' placeholder='E-Mail' type='text' unverified />
         </div>
       </div>
       <div class='uk-form-row'>
         <div class='uk-form-icon uk-form-password uk-width-1-1'>
           <i class='uk-icon-circle-thin'></i>
-          <input autocomplete='off' class='courier uk-form-large uk-width-1-1' name='password' placeholder='Password' type='password' unverified />
+          <input {{ rawInput() }} class='courier uk-form-large uk-width-1-1' name='password' placeholder='Password' type='password' unverified />
           <a href class='uk-form-password-toggle' data-uk-form-password>Show</a>
         </div>
         <div class='small-margin-bottom uk-active uk-progress'>
