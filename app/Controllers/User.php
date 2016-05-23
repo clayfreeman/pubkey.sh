@@ -178,13 +178,13 @@
       // Determine if the provided username is valid
       if (!self::validUsername($username)) {
         putSession('error', 'Invalid username provided.');
-        return $response->withRedirect('/register');
+        return $response->withRedirect('/app/register');
       }
 
       // Determine if the provided username is valid
       if (!self::validEmail($email)) {
         putSession('error', 'Invalid e-mail address provided.');
-        return $response->withRedirect('/register');
+        return $response->withRedirect('/app/register');
       }
 
       // Determine if the provided password meets strength requirements
@@ -196,17 +196,17 @@
       ));
       if (isset($strength) && $strength['score'] < 3) {
         putSession('error', 'Password strength requirement was not satisfied.');
-        return $response->withRedirect('/register');
+        return $response->withRedirect('/app/register');
       }
 
       // Determine if the username or email address were taken
       if (is_object(self::fetchByUsername($username))) {
         putSession('error', 'Username already registered.');
-        return $response->withRedirect('/register');
+        return $response->withRedirect('/app/register');
       }
       if (is_object(self::fetchByEmail($email))) {
         putSession('error', 'E-mail address already registered.');
-        return $response->withRedirect('/register');
+        return $response->withRedirect('/app/register');
       }
 
       // If we've reached this point, registration is possible and should
