@@ -61,10 +61,11 @@
 
 /* Style the GitHub logo */
 .open-source {
-  opacity: 0.4;
+  opacity: 0.15;
+  width:   50px;
 }
 .open-source:hover {
-  opacity: 0.6;
+  opacity: 0.30;
 }
 
 /* Sets the width of a form on a page by itself */
