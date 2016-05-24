@@ -9,6 +9,9 @@
     <!-- Load jQuery -->
     <script type='text/javascript' src='/resources/jquery/dist/jquery.min.js'></script>
 
+    <!-- Load the typed.js library -->
+    <script type='text/javascript' src='/resources/typed.js/dist/typed.min.js'></script>
+
     <!-- Load password strength verification library -->
     <script type='text/javascript' src='/resources/zxcvbn/dist/zxcvbn.js'></script>
 
@@ -27,13 +30,16 @@
     <!-- Load UIKit CSS patches -->
     <link rel='stylesheet' href='/css/uikit.patches.css' />
 
+    <!-- Load Aqua (OS X window style) terminal -->
+    <link rel='stylesheet' href='/css/aqua.css' />
+
     <!-- Set the favorite icon -->
     <link rel='icon' href='/img/favicon.gif' />
     <link rel='apple-touch-icon' href='/img/favicon.gif' />
   </head>
   <body class='uk-height-1-1'>
 
-{% block body %}Page Body{% endblock %}
+{% block body %}{% endblock %}
 
   </body>
 </html>

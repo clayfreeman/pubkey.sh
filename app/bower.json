@@ -19,6 +19,7 @@
   ],
   "dependencies": {
     "jquery": "^2.2.2",
+    "typed.js": "^1.1.1",
     "uikit": "^2.26.1",
     "zxcvbn": "^4.3.0"
   }

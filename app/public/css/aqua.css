@@ -1,0 +1,149 @@
+/**
+ * @file      aqua.css
+ * @copyright Copyright 2016 Clay Freeman. All rights reserved
+ * @license   GNU General Public License v3 (GPL-3.0)
+ *
+ * Defines the look and feel of an Aqua (OS X window style) terminal window
+ */
+
+/* Import the 'Inconsolata' font from Google web fonts */
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+
+/* Define the 'blue' color for the terminal style */
+.aqua-blue {
+  color: #6e8aaa;
+}
+
+/* Define a class to bold terminal text */
+.aqua-bold {
+  font-family: 'Inconsolata Bold', monospace;
+}
+
+/* Define the 'green' color for the terminal style */
+.aqua-green {
+  color: #5ffa44;
+}
+
+/* Define the Aqua OS X window style */
+.aqua-window {
+  border-radius:      6px;
+  -moz-box-shadow:    0px 30px 72px 0px rgba(0,0,0,0.45);
+  -webkit-box-shadow: 0px 30px 72px 0px rgba(0,0,0,0.45);
+  box-shadow:         0px 30px 72px 0px rgba(0,0,0,0.45);
+  display:            inline-block;
+  font-family:        'Inconsolata', monospace;
+  font-size:          15px;
+  line-height:        15px;
+}
+
+/* Define the commonality between the Aqua window buttons */
+.aqua-window-button {
+  border-radius:    100%;
+  border:           1px solid;
+  float:            left;
+  height:           10px;
+  margin-left:      8px;
+  width:            10px;
+}
+
+/* Position the button group accordingly within the title bar */
+.aqua-window-buttongroup {
+  padding-top: 1px;
+  position:    absolute;
+}
+
+/* Define the colors for the close button */
+.aqua-window-button-close {
+  background-color: #fc5f57;
+  border-color:     #de443c;
+}
+
+/* Define the colors for the maximize button */
+.aqua-window-button-maximize {
+  background-color: #35ca3e;
+  border-color:     #28ac22;
+}
+
+/* Define the colors for the minimize button */
+.aqua-window-button-minimize {
+  background-color: #fdbe29;
+  border-color:     #dda012;
+}
+
+/* Define the style for the terminal window contents */
+.aqua-window-content {
+  background-color:   #152638;
+  border-radius:      0 0 6px 6px;
+  color:              white;
+  padding-bottom:     4px;
+  padding-left:       5px;
+  padding-right:      5px;
+  padding-top:        4px;
+}
+
+/* Define the style for an Aqua window title bar */
+.aqua-window-titlebar {
+  background:            rgba(235,235,235,1);
+  background:            -moz-linear-gradient(top,    rgba(235,235,235,1) 0%,
+                                                      rgba(211,211,211,1) 100%);
+  background:            -webkit-gradient(left top, left bottom,
+                                     color-stop(0%,   rgba(235,235,235,1)),
+                                     color-stop(100%, rgba(211,211,211,1)));
+  background:            -webkit-linear-gradient(top, rgba(235,235,235,1) 0%,
+                                                      rgba(211,211,211,1) 100%);
+  background:              -o-linear-gradient(top,    rgba(235,235,235,1) 0%,
+                                                      rgba(211,211,211,1) 100%);
+  background:            -ms-linear-gradient(top,     rgba(235,235,235,1) 0%,
+                                                      rgba(211,211,211,1) 100%);
+  background:            linear-gradient(to bottom,   rgba(235,235,235,1) 0%,
+                                                      rgba(211,211,211,1) 100%);
+  border:                1px solid #d9d9d9;
+  border-bottom:         1px solid #7e7e7e;
+  border-radius:         6px 6px 0 0;
+  -webkit-box-shadow:    inset 0px 1px 0px 0px rgba(246,246,246,1);
+  -moz-box-shadow:       inset 0px 1px 0px 0px rgba(246,246,246,1);
+  box-shadow:            inset 0px 1px 0px 0px rgba(246,246,246,1);
+  color:                 #4d4d4d;
+  filter:                progid:DXImageTransform.Microsoft.gradient(
+                           startColorstr='#ebebeb',
+                             endColorstr='#d3d3d3', GradientType=0 );
+  font-family:           sans-serif;
+  font-size:             14px;
+  height:                17px;
+  padding-top:           4px;
+  padding-bottom:        1px;
+  text-align:            center;
+  -webkit-touch-callout: none;
+  -webkit-user-select:   none;
+  -khtml-user-select:    none;
+  -moz-user-select:      none;
+  -ms-user-select:       none;
+  user-select:           none;
+}
+
+/* Display the terminal cursor (courtesy of typed.js) */
+.typed-cursor {
+  opacity: 1;
+}
+
+/* Define the keyframes used to animate the terminal cursor */
+@keyframes "blink" {
+  from, to { color: transparent; }
+  50% { color: inherit; }
+}
+@-moz-keyframes "blink" {
+  from, to { color: transparent; }
+  50% { color: inherit; }
+}
+@-webkit-keyframes "blink" {
+  from, to { color: transparent; }
+  50% { color: inherit; }
+}
+@-ms-keyframes "blink" {
+  from, to { color: transparent; }
+  50% { color: inherit; }
+}
+@-o-keyframes "blink" {
+  from, to { color: transparent; }
+  50% { color: inherit; }
+}

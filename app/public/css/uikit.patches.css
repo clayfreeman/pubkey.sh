@@ -30,6 +30,12 @@
 
 /************************** Define custom CSS below ***************************/
 
+/* Aqua window size */
+.aqua-window-size {
+  height: 367px;
+  width:  570px;
+}
+
 /* Used to set the font family to a monospace font */
 .courier {
   font-family: 'Courier' !important;
