@@ -33,6 +33,7 @@
   font-family:        'Inconsolata', monospace;
   font-size:          15px;
   line-height:        15px;
+  overflow:           hidden;
 }
 
 /* Define the commonality between the Aqua window buttons */
