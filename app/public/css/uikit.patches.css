@@ -62,8 +62,9 @@
 
 /* Style the GitHub logo */
 .open-source {
-  opacity: 0.15;
-  width:   50px;
+  margin-bottom: 20px;
+  opacity:       0.15;
+  width:         50px;
 }
 .open-source:hover {
   opacity: 0.30;
