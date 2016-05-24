@@ -39,7 +39,8 @@
   max-width:     570px;
 }
 .aqua-window-margin {
-  margin: 25px;
+  margin:   25px;
+  overflow: hidden;
 }
 
 /* Used to set the font family to a monospace font */
