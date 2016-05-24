@@ -8,6 +8,12 @@
 
 /************************* Define UIKit patches below *************************/
 
+/* Add a left/right margin to uk-block */
+.uk-block {
+  padding-left:  25px;
+  padding-right: 25px;
+}
+
 /* Correct the border for active menu items */
 .uk-navbar-nav > li.uk-active > a {
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -34,13 +40,12 @@
 .aqua-window-size {
   /*height:       367px;*/
   height:        137px;
+  margin-top:    25px;
   margin-left:   auto;
   margin-right:  auto;
+  margin-bottom: 25px;
   max-width:     570px;
-}
-.aqua-window-margin {
-  margin:   25px;
-  overflow: hidden;
+  overflow:      hidden;
 }
 
 /* Used to set the font family to a monospace font */
