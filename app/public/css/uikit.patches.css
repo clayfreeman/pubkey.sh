@@ -59,6 +59,14 @@
   padding-bottom: 15px;
 }
 
+/* Style the GitHub logo */
+.open-source {
+  opacity: 0.4;
+}
+.open-source:hover {
+  opacity: 0.6;
+}
+
 /* Sets the width of a form on a page by itself */
 .page-form {
   width: 300px;
