@@ -12,7 +12,7 @@
 .uk-block {
   padding-left:  25px;
   padding-right: 25px;
-  overflow:      hidden;
+  /*overflow:      hidden;*/
 }
 
 /* Correct the border for active menu items */
