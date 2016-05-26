@@ -167,7 +167,7 @@
           } catch (\Exception $e) { die(); }
           if ($verified) {
             // Update the user's last login IP
-            $user->last_ip = getSession('ip');
+            $user->last_ip = getSession('ip'); $user->save();
             // The user is now authenticated and the login should proceed
             putSession('user', $user->id);
             // Inform the user that they have been logged in
