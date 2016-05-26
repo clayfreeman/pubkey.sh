@@ -336,14 +336,14 @@
     public static function verifyPeer(): bool {
       // Attempt to fetch IP address and User Agent from the session, and only
       // continue upon successful verification
-      if ($ip = getSession('ip')  && $ua = getSession('ua') &&
-          $ip == ($_SERVER['REMOTE_ADDR']      ?? null)     &&
+      $ip = getSession('ip'); $ua = getSession('ua');
+      if ($ip == ($_SERVER['REMOTE_ADDR']      ?? null) &&
           $ua == ($_SERVER['HTTP_USER_AGENT']) ?? null)
         return true;
       // Send the failure results to the error logger
       error_log('Session IP/User-Agent mismatch: '.var_export([
-        getSession('ip', 'ip') => $_SERVER['REMOTE_ADDR'] ?? 'ip',
-        getSession('ua', 'ua') => $_SERVER['HTTP_USER_AGENT'] ?? 'ua'
+        getSession('ip', 'ip_null') => $_SERVER['REMOTE_ADDR']     ?? 'ip_null',
+        getSession('ua', 'ua_null') => $_SERVER['HTTP_USER_AGENT'] ?? 'ua_null'
       ], true));
       // Assume failure in all other cases and clear the session
       self::logout();
