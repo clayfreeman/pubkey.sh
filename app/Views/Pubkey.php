@@ -23,7 +23,7 @@
       $user = $request->getAttribute('username');
       $user = \Controllers\User::fetchByUsername($user);
       // Ensure the user is valid and not disabled
-      if (is_object($user) && $user->disabled == false) {
+      if (is_object($user) && !$user->disabled) {
         // Fetch the name of the requested key
         $key = trim($request->getAttribute('key', null));
         if ($key != null)
