@@ -143,10 +143,11 @@
         // Verify that the user account is not disabled
         if (!$user->disabled) {
           // Check the provided password against the user's password
-          $verified = \ParagonIE\Halite\Password::verify(
-            $post['password'], // The provided password
-            $user->password,   // The stored   password
+          $verified = false;
+          try { $verified = \ParagonIE\Halite\Password::verify(
+            $post['password'], base64_decode($user->password),
             \ParagonIE\Halite\KeyFactory::loadEncryptionKey(__HALITEKEY__));
+          } catch (\Exception $e) { die(); }
           if ($verified) {
             // The user is now authenticated and the login should proceed
             putSession('user', $user->user_id);
