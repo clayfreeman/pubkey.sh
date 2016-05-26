@@ -1,10 +1,10 @@
 <?php
   /**
-   * @file      Login.php
+   * @file      Logout.php
    * @copyright Copyright 2016 Clay Freeman. All rights reserved
    * @license   GNU General Public License v3 (GPL-3.0)
    *
-   * Defines functionality for the Login page
+   * Defines functionality for the Logout page
    */
 
   // Enforce strict types for this file
@@ -15,7 +15,7 @@
   use \Psr\Http\Message\ServerRequestInterface;
   use \Psr\Http\Message\ResponseInterface;
 
-  class Login {
+  class Logout {
     public static function show(
         ServerRequestInterface $request,
         ResponseInterface      $response,
