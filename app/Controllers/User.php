@@ -341,6 +341,11 @@
           isset($_SERVER['HTTP_USER_AGENT']) &&
           $ip == $_SERVER['REMOTE_ADDR'] && $ua == $_SERVER['HTTP_USER_AGENT'])
         return true;
+      // Send the failure results to the error logger
+      error_log('Session IP/User-Agent mismatch: '.var_export([
+        getSession('ip', 'ip') => $_SERVER['REMOTE_ADDR'] ?? 'ip',
+        getSession('ua', 'ua') => $_SERVER['HTTP_USER_AGENT'] ?? 'ua'
+      ], true));
       // Assume failure in all other cases and clear the session
       self::logout();
       return false;
