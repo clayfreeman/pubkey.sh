@@ -11,7 +11,7 @@
       <ul class='uk-navbar-nav'>
 
 {% block menu %}
-USER_VALUE {{ user.id|e }}
+USER_VALUE {{ user }}
 {% for itemPath, item in routes if (not user and item.menu.anon) or (user and item.menu.user) %}
 <li{% if itemPath == path %} class='uk-active'{% endif %}><a href='{{ itemPath }}'>{{ item.title|e }}</a></li>
 {% endfor %}
