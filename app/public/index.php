@@ -48,7 +48,7 @@
       'title'   => null
     ],
     '/app/user' => [
-      // The account page should be restricted to anonymous users from the menu
+      // The account page should be restricted to logged in users from the menu
       'menu'    => ['anon' => false, 'user' => true],
       'methods' => [
         'get'   => '\\Views\\User::show'
@@ -63,6 +63,14 @@
         'post'  => '\\Controllers\\User::login'
       ],
       'title'   => 'Login'
+    ],
+    '/app/logout' => [
+      // The logout page should be restricted to logged in users from the menu
+      'menu'    => ['anon' => false, 'user' => true],
+      'methods' => [
+        'get'   => '\\Controllers\\User::logout'
+      ],
+      'title'   => 'Logout'
     ],
     '/app/register' => [
       // The register page should be restricted to anonymous users from the menu
