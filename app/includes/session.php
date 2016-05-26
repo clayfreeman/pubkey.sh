@@ -68,7 +68,6 @@
     session_unset();
     // Clear the cookie used for the session (according to OWASP guidelines)
     setcookie($cookie, "", 1);
-    setcookie($cookie, false);
     unset($_COOKIE[$cookie]);
   }
 
