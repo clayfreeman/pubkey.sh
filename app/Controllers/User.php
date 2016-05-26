@@ -95,9 +95,21 @@
         // Fetch the matching record from the database
         $user = \Model::factory('\\Models\\User')->find_one($userid);
 
-      // Return the given result (if valid), otherwise return false
-      return (is_object($user) && property_exists($user, 'id') &&
-        intval($user->id) == $userid ? $user : false);
+      // Ensure the resulting user object is valid
+      if (is_object($user) && property_exists($user, 'id') &&
+          intval($user->id) == $userid) {
+        // Check if the account is not disabled
+        if (!$user->disabled) {
+          // Return the retrieved user object
+          return $user;
+        } else {
+          // Invalidate the current session
+          self::logout();
+        }
+      }
+
+      // Return false upon failure
+      return false;
     }
 
     /**
@@ -160,8 +172,8 @@
           }
         } else {
           // Inform the user about their account being disabled
-          putSession('error', 'Your account is disabled. Contact one of the '.
-            'site administrators for more information.');
+          putSession('error', 'Your account is disabled. Contact the site '.
+            'administrators for more information.');
           // Redirect the user back to the login page
           return $response->withRedirect('/app/login');
         }
