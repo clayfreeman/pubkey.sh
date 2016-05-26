@@ -88,7 +88,7 @@
   $twig   = new Twig_Environment($loader, ['debug' => true]);
   $twig->addFilter(new Twig_SimpleFilter('eshell', 'escapeshellarg'));
   $twig->addGlobal('routes', $routes);
-  $twig->addGlobal('user',   is_object(\Controllers\User::fetchCurrent()));
+  $twig->addGlobal('user',   \Controllers\User::fetchCurrent());
   $twig->addExtension(new Twig_Extension_Debug());
 
   // Setup a new instance of the Slim framework
