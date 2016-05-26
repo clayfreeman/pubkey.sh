@@ -24,6 +24,7 @@
       // Prepare the template's arguments
       $args['message']  = getSession('message'); putSession('message', null);
       $args['path']     = $request->getUri()->getPath();
+      $args['user']     = is_object(\Controllers\User::fetchCurrent());
       // Fetch information on this class to determine its name
       $info             = new \ReflectionClass(__CLASS__);
       // Render the appropriate template then write it to the response body
