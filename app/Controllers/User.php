@@ -105,6 +105,9 @@
         } else {
           // Invalidate the current session
           self::logout();
+          // Set an error message to inform the user as early as possible
+          putSession('error', 'Your account is disabled. Contact the site '.
+            'administrators for more information');
         }
       }
 
