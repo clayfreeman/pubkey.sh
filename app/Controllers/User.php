@@ -77,6 +77,8 @@
      * by fetching the 'user' key from the session and enforcing a positive
      * value for it then placing constraints on the browsing session
      *
+     * If a user's account is disabled then the session will be destroyed.
+     *
      * @see    User::verifyPeer() For details on the constraints placed on the
      *                            browsing session
      *
@@ -96,7 +98,7 @@
         $user = \Model::factory('\\Models\\User')->find_one($userid);
 
       // Ensure the resulting user object is valid
-      if (is_object($user) && property_exists($user, 'id') &&
+      if (is_object($user) && array_key_exists('id', $user->as_array()) &&
           intval($user->id) == $userid) {
         // Check if the account is not disabled
         if (!$user->disabled) {
