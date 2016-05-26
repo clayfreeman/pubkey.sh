@@ -158,15 +158,15 @@
           }
         } else {
           // Inform the user about their account being disabled
-          putSession('error', 'Your account is disabled. Contact the site '.
-            'owner for more information.');
+          putSession('error', 'Your account is disabled. Contact one of the '.
+            'site administrators for more information.');
           // Redirect the user back to the login page
           return $response->withRedirect('/app/login');
         }
       }
       // Catch all other errors to inform the user of a general failure
       putSession('error', 'Unable to login. Check your username and password '.
-        'and try again.');
+        'then try again.');
       // Redirect the user back to the login page
       return $response->withRedirect('/app/login');
     }
@@ -336,10 +336,9 @@
     public static function verifyPeer(): bool {
       // Attempt to fetch IP address and User Agent from the session, and only
       // continue upon successful verification
-      if ($ip = getSession('ip', false)  && $ua = getSession('ua', false) &&
-          isset($_SERVER['REMOTE_ADDR']) &&
-          isset($_SERVER['HTTP_USER_AGENT']) &&
-          $ip == $_SERVER['REMOTE_ADDR'] && $ua == $_SERVER['HTTP_USER_AGENT'])
+      if ($ip = getSession('ip')  && $ua = getSession('ua') &&
+          $ip == ($_SERVER['REMOTE_ADDR']      ?? null)     &&
+          $ua == ($_SERVER['HTTP_USER_AGENT']) ?? null)
         return true;
       // Send the failure results to the error logger
       error_log('Session IP/User-Agent mismatch: '.var_export([

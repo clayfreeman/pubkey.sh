@@ -50,7 +50,7 @@
       session_regenerate_id();
       // If this is a fresh session, place the IP address and user agent of the
       // user in the session
-      if (count($_SESSION) == 0) {
+      if (!isset($_SESSION['ip']) && !isset($_SESSION['ua'])) {
         $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
         $_SESSION['ua'] = $_SERVER['HTTP_USER_AGENT'];
       }
