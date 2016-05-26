@@ -97,30 +97,77 @@
 
       // Return the given result (if valid), otherwise return false
       return (is_object($user) && property_exists($user, 'id') &&
-        $user->id == $userid ? $user : false);
+        $user->user_id == $userid ? $user : false);
     }
 
     /**
-     * @brief Login
+     * Attempts to authenticate a user based on the provided username and
+     * password from the login page.
      *
-     * Processes the submission from a login form
+     * If the user is already logged in they will be redirected to the home
+     * page and informed accordingly.
      *
-     * @param request  The Slim framework request interface
-     * @param response The Slim framework response interface
+     * If the user is not already logged in then an attempt will be made to
+     * look up a user account based on the provided username. If an account is
+     * found that is not disabled then the provided password is validated
+     * against the password stored in the database.
+     *
+     * If an account is found that is disabled then the user will be notified
+     * accordingly. In all other cases where an error occurs a generic message
+     * conveying failure will be displayed.
+     *
+     * Once the user is successfully authenticated the session will be prepared
+     * so that `User::fetchCurrent()` will retrieve the user account associated
+     * with the current session.
+     *
+     * @param  ServerRequestInterface $request  The `Slim` request interface.
+     * @param  ResponseInterface      $response The `Slim` response interface.
+     *
+     * @return ResponseInterface                Modified `Slim` response.
      */
     public static function login(
         ServerRequestInterface $request,
         ResponseInterface      $response): ResponseInterface {
       // Ensure logged in users are redirected to their account page
-      if (is_object(self::fetchCurrent()))
+      if (is_object(self::fetchCurrent())) {
+        putSession('message', 'You\'re already logged in.');
         return $response->withRedirect('/app/user');
+      }
 
       // Fetch the parsed body from the Slim request interface
       $post = $request->getParsedBody();
-      $post['password'] = 'redacted';
-      // Write the contents of the response to the response body
-      $response->getBody()->write(html_dump($post));
-      return $response;
+      // Attempt to load the requested user account
+      $user = self::fetchByUsername($post['username']);
+      // Verify that the username exists
+      if (is_object($user)) {
+        // Verify that the user account is not disabled
+        if (!$user->disabled) {
+          // Check the provided password against the user's password
+          $verified = \ParagonIE\Halite\Password::verify(
+            $post['password'], // The provided password
+            $user->password,   // The stored   password
+            \ParagonIE\Halite\KeyFactory::loadEncryptionKey(__HALITEKEY__));
+          if ($verified) {
+            // The user is now authenticated and the login should proceed
+            putSession('user', $user->user_id);
+            // Inform the user that they have been logged in
+            putSession('message', 'You have successfully logged in.');
+            // Redirect the user to the home page
+            return $response->withRedirect('/');
+          }
+        } else {
+          // Inform the user about their account being disabled
+          putSession('error', 'Your account is disabled. Contact the site '.
+            'owner for more information.');
+          // Redirect the user back to the login page
+          return $response->withRedirect('/app/login');
+        }
+      }
+      // Catch all other errors to inform the user of a general failure
+      putSession('error', 'Unable to login. Check your username and password '.
+        'and try again.');
+      // Redirect the user back to the login page
+      return $response->withRedirect('/app/login');
     }
 
     /**
