@@ -97,7 +97,7 @@
 
       // Return the given result (if valid), otherwise return false
       return (is_object($user) && property_exists($user, 'id') &&
-        $user->user_id == $userid ? $user : false);
+        $user->id == $userid ? $user : false);
     }
 
     /**
@@ -150,7 +150,7 @@
           } catch (\Exception $e) { die(); }
           if ($verified) {
             // The user is now authenticated and the login should proceed
-            putSession('user', $user->user_id);
+            putSession('user', $user->id);
             // Inform the user that they have been logged in
             putSession('message', 'You have successfully logged in.');
             // Redirect the user to the home page

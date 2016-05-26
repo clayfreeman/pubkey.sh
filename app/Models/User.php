@@ -14,10 +14,10 @@
 
   class User extends \Model {
     public function pubkey() {
-      return $this->belongs_to('Pubkey');
+      return $this->belongs_to('Pubkey', null, 'id');
     }
 
     public function pubkeys() {
-      return $this->has_many('Pubkey');
+      return $this->has_many('Pubkey', 'id');
     }
   }
