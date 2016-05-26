@@ -97,7 +97,7 @@
 
       // Return the given result (if valid), otherwise return false
       return (is_object($user) && property_exists($user, 'id') &&
-        $user->id == $userid ? $user : false);
+        intval($user->id) == $userid ? $user : false);
     }
 
     /**
