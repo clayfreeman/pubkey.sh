@@ -68,7 +68,17 @@
       // The logout page should be restricted to logged in users from the menu
       'menu'    => ['anon' => false, 'user' => true],
       'methods' => [
-        'get'   => '\\Controllers\\User::logout'
+        'get'   => function(
+                     ServerRequestInterface $request,
+                     ResponseInterface      $response) {
+                       // Perform the user logout method
+                       \Controllers\User::logout();
+                       // Inform the user that they're logged out
+                       putSession('message', 'You have successfully logged '.
+                         'out.');
+                       // Redirect the user to the home page
+                       return $response->withRedirect('/');
+                     }
       ],
       'title'   => 'Logout'
     ],
