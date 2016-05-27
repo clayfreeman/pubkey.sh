@@ -18,6 +18,6 @@
     }
 
     public function pubkeys() {
-      return $this->has_many('Pubkey', 'id');
+      return $this->has_many('Pubkey', null, 'id');
     }
   }
