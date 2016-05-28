@@ -300,7 +300,7 @@
      * @param \Models\User $user     The user to be assigned the new password.
      * @param string       $password The cleartext password to assign.
      */
-    protected static function setPassword(
+    public static function setPassword(
         \Models\User $user,
         string       $password) {
       // Attempt to generate and assign a new password hash to the user
@@ -377,7 +377,7 @@
      *
      * @return bool                   `true` if verified, `false` otherwise
      */
-    protected static function verifyPassword(
+    public static function verifyPassword(
         \Models\User $user,
         string       $password)  {
       // Attempt to validate the provided password against the user's ciphertext
