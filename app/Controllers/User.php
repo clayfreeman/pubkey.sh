@@ -153,19 +153,18 @@
 
       // Fetch the parsed body from the Slim request interface
       $post = $request->getParsedBody();
+      // Fetch the appropriate form fields
+      $username = $post['username'];
+      $password = $post['password'];
+
       // Attempt to load the requested user account
-      $user = self::fetchByUsername($post['username']);
+      $user = self::fetchByUsername($username);
       // Verify that the username exists
       if (is_object($user)) {
         // Verify that the user account is not disabled
         if (!$user->disabled) {
           // Check the provided password against the user's password
-          $verified = false;
-          try { $verified = \ParagonIE\Halite\Password::verify(
-            $post['password'], base64_decode($user->password),
-            \ParagonIE\Halite\KeyFactory::loadEncryptionKey(__HALITEKEY__));
-          } catch (\Exception $e) { die(); }
-          if ($verified) {
+          if (self::verifyPassword($user, $password)) {
             // Update the user's last login IP
             $user->last_ip = getSession('ip'); $user->save();
             // The user is now authenticated and the login should proceed
@@ -231,16 +230,16 @@
     public static function register(
         ServerRequestInterface $request,
         ResponseInterface      $response): ResponseInterface {
+      // Ensure logged in users are redirected to their account page
+      if (is_object(self::fetchCurrent()))
+        return $response->withRedirect('/app/user');
+
       // Fetch the parsed body from the Slim request interface
       $post = $request->getParsedBody();
       // Fetch the appropriate form fields
       $username = $post['username'] ?? null;
       $email    = $post['email']    ?? null;
       $password = $post['password'] ?? null;
-
-      // Ensure logged in users are redirected to their account page
-      if (is_object(self::fetchCurrent()))
-        return $response->withRedirect('/app/user');
 
       // Determine if the provided username is valid
       if (!self::validUsername($username)) {
@@ -281,20 +280,35 @@
       $newUser = \Model::factory('\\Models\\User')->create();
       $newUser->username = $username;
       $newUser->email    = $email;
-      try { $newUser->password = base64_encode(
-        \ParagonIE\Halite\Password::hash(
-          $password,
-          \ParagonIE\Halite\KeyFactory::loadEncryptionKey(__HALITEKEY__)
-        )
-      ); } catch (\Exception $e) { die(); }
-      // Unset the cleartext password and save the user
-      unset($password);
+      self::setPassword($newUser, $password);
+      // Save the new user to the database
       $newUser->save();
 
       // Redirect the user to the home page informing them of a successful
       // registration process
       putSession('message', 'Registration was successful. You may now login.');
       return $response->withRedirect('/');
+    }
+
+    /**
+     * Generates a new password ciphertext and assigns it to the appropriate
+     * field for the given user.
+     *
+     * Changes to the provided `\Models\User` object are not committed and must
+     * be done manually.
+     *
+     * @param \Models\User $user     The user to be assigned the new password.
+     * @param string       $password The cleartext password to assign.
+     */
+    protected static function setPassword(
+        \Models\User $user,
+        string       $password) {
+      // Attempt to generate and assign a new password hash to the user
+      try { $user->password = base64_encode(
+        \ParagonIE\Halite\Password::hash($password,
+          \ParagonIE\Halite\KeyFactory::loadEncryptionKey(__HALITEKEY__),
+          \ParagonIE\Halite\KeyFactory::SENSITIVE)
+      ); } catch (\Exception $e) { die(); }
     }
 
     /**
@@ -344,6 +358,26 @@
      */
     public static function validUsername(string $username): bool {
       return preg_match('/^[a-z][a-z0-9]{2,}$/i', $username) == 1;
+    }
+
+    protected static function verifyPassword(
+        \Models\User $user,
+        string       $password)  {
+      // Attempt to validate the provided password against the user's ciphertext
+      $verified = false;
+      try { $verified = \ParagonIE\Halite\Password::verify(
+        $password, base64_decode($user->password),
+        \ParagonIE\Halite\KeyFactory::loadEncryptionKey(__HALITEKEY__));
+      } catch (\Exception $e) { die(); }
+      // Check if the password needs to be rehashed and do so if necessary
+      try { if (\ParagonIE\Halite\Password::needsRehash(
+          base64_decode($user->password),
+          \ParagonIE\Halite\KeyFactory::loadEncryptionKey(__HALITEKEY__),
+          \ParagonIE\Halite\KeyFactory::SENSITIVE)) {
+        self::setPassword($user, $password); $user->save(); }
+      } catch (\Exception $e) { die(); }
+      // Return the result of the test
+      return $verified;
     }
 
     /**
