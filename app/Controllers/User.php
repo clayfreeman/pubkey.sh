@@ -360,6 +360,23 @@
       return preg_match('/^[a-z][a-z0-9]{2,}$/i', $username) == 1;
     }
 
+    /**
+     * Verifies the provided password against the user's password ciphertext.
+     *
+     * This method will also upgrade the password ciphertext strength if
+     * necessary (determined by `\ParagonIE\Halite\Password::needsRehash()`) and
+     * commit the changes to the database.
+     *
+     * @see    \ParagonIE\Halite\Password::needsRehash() For more information
+     *                                                   regarding how hashes
+     *                                                   are deemed necessary
+     *                                                   for upgrading.
+     *
+     * @param  \Models\User $user     The user holding the ciphertext to verify.
+     * @param  string       $password The password to verify against the user.
+     *
+     * @return bool                   `true` if verified, `false` otherwise
+     */
     protected static function verifyPassword(
         \Models\User $user,
         string       $password)  {
@@ -370,7 +387,7 @@
         \ParagonIE\Halite\KeyFactory::loadEncryptionKey(__HALITEKEY__));
       } catch (\Exception $e) { die(); }
       // Check if the password needs to be rehashed and do so if necessary
-      try { if (\ParagonIE\Halite\Password::needsRehash(
+      try { if ($verified && \ParagonIE\Halite\Password::needsRehash(
           base64_decode($user->password),
           \ParagonIE\Halite\KeyFactory::loadEncryptionKey(__HALITEKEY__),
           \ParagonIE\Halite\KeyFactory::SENSITIVE)) {
