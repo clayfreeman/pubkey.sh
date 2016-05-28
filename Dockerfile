@@ -5,8 +5,14 @@ MAINTAINER Clay Freeman <docker-hub@clayfreeman.com>
 COPY docker-site.tpl /etc/nginx/conf.d/
 
 # Install the required Debian packages
-RUN  apt-get install -y composer git libsodium-dev nodejs-legacy npm \
-                        php7.0-dev php7.0-sqlite sqlite3 unzip
+RUN  apt-get install -y composer git nodejs-legacy npm php7.0-dev \
+                        php7.0-sqlite sqlite3 unzip
+
+# Download, compile, and install libsodium from source
+RUN  git clone https://github.com/jedisct1/libsodium.git && cd libsodium && \
+     git checkout "$(git for-each-ref --sort=taggerdate --format \
+     'tags/%(tag)' | tail -1)" && ./autogen.sh && ./configure && make && \
+     make check && make install
 
 # Install (and enable) the PHP libsodium extension
 RUN  pecl install libsodium && \
